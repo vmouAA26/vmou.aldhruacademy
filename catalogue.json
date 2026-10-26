@@ -1,0 +1,4753 @@
+{
+ "source": "VMOU Prospectus July 2026 (Prospectus_July_2026.pdf), read page by page with Gemini 2.5 Pro and checked against the PDF text layer",
+ "n_programmes": 36,
+ "n_papers": 521,
+ "degree_names": {
+  "BED": {
+   "name_en": "Bachelor of Education",
+   "name_hi": "शिक्षा में स्नातक"
+  },
+  "BAN": {
+   "name_en": "Bachelor of Arts Programme",
+   "name_hi": "कला में स्नातक कार्यक्रम"
+  },
+  "BJ": {
+   "name_en": "Bachelor in Journalism (Lateral)",
+   "name_hi": "पत्रकारिता में स्नातक (लेटरल)"
+  },
+  "BJN": {
+   "name_en": "Bachelor of Journalism",
+   "name_hi": "पत्रकारिता में स्नातक कार्यक्रम"
+  },
+  "BLISN": {
+   "name_en": "Bachelor of Library and Information Science Programme",
+   "name_hi": "पुस्तकालयएवंसूचना विज्ञानमेंस्नातक्क्रार्यक्रम"
+  },
+  "BSCN": {
+   "name_en": "Bachelor of Science Programme",
+   "name_hi": "विज्ञान में स्नातक कार्यक्रम"
+  },
+  "CIJ": {
+   "name_en": "Certificate in Falit Jyotish",
+   "name_hi": "फलित ज्योतिष में प्रमाण पत्र"
+  },
+  "CIK": {
+   "name_en": "Certificate in Karmkand",
+   "name_hi": "कर्मकाण्ड में प्रमाण पत्र"
+  },
+  "CPNM": {
+   "name_en": "Certificate in Mahatma Gandhi NREGA Mate",
+   "name_hi": "महात्मा गांधी नरेगा मेट में प्रमाण-पत्र"
+  },
+  "DCAM": {
+   "name_en": "Diploma in Computer Accounting and Management(DCAM)",
+   "name_hi": "डिप्लोमा इन कम्प्यूटर अकाउंटिंग एंड मैनेजमेंट"
+  },
+  "DCAN-OL": {
+   "name_en": "Diploma in Computer Application (Online)",
+   "name_hi": "कंप्यूटर अनुप्रयोग में डिप्लोमा (ऑनलाइन)"
+  },
+  "DCTN": {
+   "name_en": "Diploma in Culture and Tourism",
+   "name_hi": "संस्कृति एवं पर्यटन में डिप्लोमा"
+  },
+  "DLISN-OL": {
+   "name_en": "Diploma in Library and Information Science (Online)",
+   "name_hi": "पुस्तकालय एवं सूचना विज्ञान में डिप्लोमा (ऑनलाइन)"
+  },
+  "DLISN": {
+   "name_en": "Diploma in Library and Information Science",
+   "name_hi": "पुस्तकालय एवं सूचना विज्ञान में डिप्लोमा"
+  },
+  "DMCN": {
+   "name_en": "Diploma in Mass Communication",
+   "name_hi": "डिप्लोमा इन मास कम्यूनिकेशन"
+  },
+  "DWSMN": {
+   "name_en": "Diploma in Watershed Management",
+   "name_hi": "जल ग्रहण प्रबंध में डिप्लोमा"
+  },
+  "DYSN": {
+   "name_en": "Diploma in YogaScience",
+   "name_hi": "योग विज्ञान में डिप्लोमा"
+  },
+  "MAECN": {
+   "name_en": "M. A. Economics",
+   "name_hi": "एम.ए. अर्थशास्त्र"
+  },
+  "MAEDN": {
+   "name_en": "M.A. Education",
+   "name_hi": "एम.ए. शिक्षा"
+  },
+  "MAEGN": {
+   "name_en": "M. A. English",
+   "name_hi": "एम. ए. अंग्रेजी"
+  },
+  "MAGEN": {
+   "name_en": "M. A. Geography",
+   "name_hi": "एम. ए. भूगोल"
+  },
+  "MAHDN": {
+   "name_en": "M. A. Hindi",
+   "name_hi": "एम.ए. हिन्दी"
+  },
+  "MAHIN": {
+   "name_en": "M. A. History",
+   "name_hi": "एम.ए. इतिहास"
+  },
+  "MAPSN": {
+   "name_en": "M. A. Political Science",
+   "name_hi": "एम. ए. राजनीति विज्ञान"
+  },
+  "MAPSTN": {
+   "name_en": "M. A. Police Administration",
+   "name_hi": "एम. ए. पुलिस प्रशासन"
+  },
+  "MARJN": {
+   "name_en": "M.A. Rajasthani",
+   "name_hi": "एम.ए. राजस्थानी"
+  },
+  "MASAN": {
+   "name_en": "M. A. Sanskrit",
+   "name_hi": "एम. ए. संस्कृत"
+  },
+  "MASON": {
+   "name_en": "M. A. Sociology",
+   "name_hi": "एम.ए. समाजशास्त्र"
+  },
+  "MBAN": {
+   "name_en": "Master of Business Administration",
+   "name_hi": ""
+  },
+  "MBON": {
+   "name_en": "M.Sc. Botany",
+   "name_hi": "वनस्पति विज्ञान में स्नातकोत्तर उपाधि"
+  },
+  "MCOMN": {
+   "name_en": "Master of Commerce",
+   "name_hi": "मास्टर ऑफ कॉमर्स"
+  },
+  "MPHN": {
+   "name_en": "M.Sc. Physics",
+   "name_hi": "भौतिक विज्ञान में स्नातकोत्तर उपाधि"
+  },
+  "MSCCHN": {
+   "name_en": "M.Sc. Chemistry",
+   "name_hi": "रसायन विज्ञान में स्नातकोत्तर उपाधि (M.Sc. Chemistry)"
+  },
+  "MSCCSN": {
+   "name_en": "Master of Science (Computer Science)",
+   "name_hi": "कम्प्यूटर विज्ञान में स्नातकोत्तर उपाधि"
+  },
+  "MSCMTN": {
+   "name_en": "M.Sc. Mathematics",
+   "name_hi": "एम.एससी. गणित"
+  },
+  "MZON": {
+   "name_en": "M.Sc. Zoology",
+   "name_hi": "प्राणी विज्ञान में स्नातकोत्तर उपाधि"
+  }
+ },
+ "papers": [
+  {
+   "degree": "BED",
+   "code": "BED-101",
+   "name_en": "Childhood and Growing Up",
+   "name_hi": "शैशव एवं विकास",
+   "price": 49,
+   "link": "products/bed-101.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-102",
+   "name_en": "Contemporary India and Education",
+   "name_hi": "समकालीन भारत और शिक्षा",
+   "price": 49,
+   "link": "products/bed-102.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-103",
+   "name_en": "Language across the Curriculum",
+   "name_hi": "पाठ्यक्रम में भाषा",
+   "price": 49,
+   "link": "products/bed-103.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-104",
+   "name_en": "Understanding Disciplines and Subjects",
+   "name_hi": "अनुशासन एवं विषयों का अवबोध",
+   "price": 49,
+   "link": "products/bed-104.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-105",
+   "name_en": "Reading and Reflecting on Texts (EPC)",
+   "name_hi": "मूल पाठों का पठन एवं उनकी मीमांसा",
+   "price": 49,
+   "link": "products/bed-105.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-106",
+   "name_en": "Learning and Teaching",
+   "name_hi": "अधिगम एवं शिक्षण",
+   "price": 49,
+   "link": "products/bed-106.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-113",
+   "name_en": "Assessment for Learning",
+   "name_hi": "अधिगम प्रक्रिया का आकलन",
+   "price": 49,
+   "link": "products/bed-113.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-114",
+   "name_en": "Drama and Art in Education (EPC)",
+   "name_hi": "शिक्षा में अभिनय एवं कला",
+   "price": 49,
+   "link": "products/bed-114.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-107",
+   "name_en": "Pedagogy of General Science",
+   "name_hi": "सामान्य विज्ञान का शिक्षण शास्त्र",
+   "price": 49,
+   "link": "products/bed-107.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-108",
+   "name_en": "Pedagogy of Mathematics",
+   "name_hi": "गणित का शिक्षण शास्त्र",
+   "price": 49,
+   "link": "products/bed-108.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-109",
+   "name_en": "Pedagogy of Social Science",
+   "name_hi": "सामाजिक विज्ञान का शिक्षण शास्त्र",
+   "price": 49,
+   "link": "products/bed-109.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-110",
+   "name_en": "Pedagogy of Hindi",
+   "name_hi": "हिन्दी का शिक्षण शास्त्र",
+   "price": 49,
+   "link": "products/bed-110.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-111",
+   "name_en": "Pedagogy of English",
+   "name_hi": "अंग्रेजी का शिक्षण शास्त्र",
+   "price": 49,
+   "link": "products/bed-111.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-112",
+   "name_en": "Pedagogy of Sanskrit",
+   "name_hi": "संस्कृत का शिक्षण शास्त्र",
+   "price": 49,
+   "link": "products/bed-112.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-131",
+   "name_en": "Pedagogy of Financial Accountancy",
+   "name_hi": "वित्तीय लेखांकन का शिक्षण शास्त्र",
+   "price": 49,
+   "link": "products/bed-131.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-115",
+   "name_en": "Knowledge and Curriculum",
+   "name_hi": "ज्ञान एवं पाठ्यक्रम",
+   "price": 49,
+   "link": "products/bed-115.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-116",
+   "name_en": "School Internship",
+   "name_hi": "विद्यालयी प्रशिक्षण",
+   "price": 49,
+   "link": "products/bed-116.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-117",
+   "name_en": "Gender, School and Society",
+   "name_hi": "जेंडर, विद्यालय एवं समाज",
+   "price": 49,
+   "link": "products/bed-117.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-118",
+   "name_en": "Creating an Inclusive School",
+   "name_hi": "समावेशित विद्यालय का निर्माण",
+   "price": 49,
+   "link": "products/bed-118.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-133",
+   "name_en": "Critical Understanding of ICT (EPC)",
+   "name_hi": "सूचना एवं संचार प्रौद्योगिकी का समालोचनात्मक अवबोध",
+   "price": 49,
+   "link": "products/bed-133.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-134",
+   "name_en": "Understanding the Self (EPC)",
+   "name_hi": "स्व-अवबोध",
+   "price": 49,
+   "link": "products/bed-134.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-119",
+   "name_en": "Vocational/Work Education",
+   "name_hi": "व्यावसायिक/ कार्य शिक्षा",
+   "price": 49,
+   "link": "products/bed-119.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-120",
+   "name_en": "Health and Physical Education",
+   "name_hi": "स्वास्थ्य एवं शारीरिक शिक्षा",
+   "price": 49,
+   "link": "products/bed-120.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-121",
+   "name_en": "Peace Education",
+   "name_hi": "शांति शिक्षा",
+   "price": 49,
+   "link": "products/bed-121.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-122",
+   "name_en": "Guidance and Counselling",
+   "name_hi": "निर्देशन एवं परामर्श",
+   "price": 49,
+   "link": "products/bed-122.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-123",
+   "name_en": "Pedagogy of Physics",
+   "name_hi": "भौतिकी का शिक्षण शास्त्र",
+   "price": 49,
+   "link": "products/bed-123.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-124",
+   "name_en": "Pedagogy of Chemistry",
+   "name_hi": "सामान्यज्ञान का शिक्षण शास्त्र",
+   "price": 49,
+   "link": "products/bed-124.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-125",
+   "name_en": "Pedagogy of Biology",
+   "name_hi": "जीवविज्ञान का शिक्षण शास्त्र",
+   "price": 49,
+   "link": "products/bed-125.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-126",
+   "name_en": "Pedagogy of Geography",
+   "name_hi": "भूगोल का शिक्षण शास्त्र",
+   "price": 49,
+   "link": "products/bed-126.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-127",
+   "name_en": "Pedagogy of History",
+   "name_hi": "इतिहास का शिक्षण शास्त्र",
+   "price": 49,
+   "link": "products/bed-127.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-128",
+   "name_en": "Pedagogy of Civics",
+   "name_hi": "नागरिकशास्त्र का शिक्षण शास्त्र",
+   "price": 49,
+   "link": "products/bed-128.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-129",
+   "name_en": "Pedagogy of Economics",
+   "name_hi": "अर्थशास्त्र का शिक्षण शास्त्र",
+   "price": 49,
+   "link": "products/bed-129.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-130",
+   "name_en": "Pedagogy of Home Science",
+   "name_hi": "गृहविज्ञान का शिक्षण शास्त्र",
+   "price": 49,
+   "link": "products/bed-130.html"
+  },
+  {
+   "degree": "BED",
+   "code": "BED-132",
+   "name_en": "Pedagogy of Business Organisation",
+   "name_hi": "व्यावसायिक संगठन का शिक्षण शास्त्र",
+   "price": 49,
+   "link": "products/bed-132.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HBK-01",
+   "name_en": "हिन्दी भाषा कौशल-I",
+   "name_hi": "हिन्दी भाषा कौशल-I",
+   "price": 49,
+   "link": "products/hbk-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "TT-01",
+   "name_en": "यात्रा एवं पर्यटन-I",
+   "name_hi": "यात्रा एवं पर्यटन-I",
+   "price": 49,
+   "link": "products/tt-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "CIN-01",
+   "name_en": "प्राथमिक चिकित्सा",
+   "name_hi": "प्राथमिक चिकित्सा",
+   "price": 49,
+   "link": "products/cin-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "EC-01",
+   "name_en": "Micro Economic Theory",
+   "name_hi": "व्यष्टि अर्थशास्त्र के सिद्धान्त",
+   "price": 49,
+   "link": "products/ec-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "EG-01",
+   "name_en": "Poetry and Drama",
+   "name_hi": "कविता और नाटक-I",
+   "price": 49,
+   "link": "products/eg-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "GE-01",
+   "name_en": "Physical Geography",
+   "name_hi": "भौतिक भूगोल",
+   "price": 49,
+   "link": "products/ge-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "CS-01",
+   "name_en": "Computer Applications in Corporate World",
+   "name_hi": "कॉर्पोरेट जगत में कंप्यूटर अनुप्रयोग",
+   "price": 49,
+   "link": "products/cs-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HD-01",
+   "name_en": "हिन्दी गद्य भाग-1 (प्राचीन एवं मध्यकालीन काव्य)",
+   "name_hi": "हिन्दी गद्य भाग-1 (प्राचीन एवं मध्यकालीन काव्य)",
+   "price": 49,
+   "link": "products/hd-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HI-01",
+   "name_en": "History of India (Earliest Time to 1200 AD)",
+   "name_hi": "भारत का इतिहास (प्रारम्भ से 1200 ई० तक)",
+   "price": 49,
+   "link": "products/hi-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "MT-01",
+   "name_en": "Discrete Mathematics",
+   "name_hi": "विविक्त गणित",
+   "price": 49,
+   "link": "products/mt-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PS-01",
+   "name_en": "Foundations of Political Science",
+   "name_hi": "राजनीति विज्ञान के आधार",
+   "price": 49,
+   "link": "products/ps-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PA-01",
+   "name_en": "Principles of Public Administration",
+   "name_hi": "लोक प्रशासन के सिद्धान्त",
+   "price": 49,
+   "link": "products/pa-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "SO-01",
+   "name_en": "Introductory Sociology",
+   "name_hi": "प्रारम्भिक समाजशास्त्र",
+   "price": 49,
+   "link": "products/so-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "SA-01",
+   "name_en": "नाटक, कथा साहित्य, छन्द एवं अलंकार",
+   "name_hi": "नाटक, कथा साहित्य, छन्द एवं अलंकार",
+   "price": 49,
+   "link": "products/sa-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "JM-01",
+   "name_en": "Computer Application and Cyber Media",
+   "name_hi": "कम्प्यूटर एप्लीकेशन एवं साइबर मीडिया",
+   "price": 49,
+   "link": "products/jm-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "ED-01",
+   "name_en": "Understanding Education",
+   "name_hi": "शिक्षा अवबोध",
+   "price": 49,
+   "link": "products/ed-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "GP-01",
+   "name_en": "Mahatma Gandhi : His Life and Work",
+   "name_hi": "महात्मा गाँधी : जीवन एवं कार्य",
+   "price": 49,
+   "link": "products/gp-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "RJ-01",
+   "name_en": "आधुनिक राजस्थानी गद्य साहित्य",
+   "name_hi": "आधुनिक राजस्थानी गद्य साहित्य",
+   "price": 49,
+   "link": "products/rj-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "SW-01",
+   "name_en": "Social Work : Concept, Meaning and Philosophy",
+   "name_hi": "समाज कार्य, अवधारणा : अर्थ एवं दर्शन",
+   "price": 49,
+   "link": "products/sw-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "UD-01",
+   "name_en": "गैर अफ़सानवी नस्र",
+   "name_hi": "गैर अफ़सानवी नस्र",
+   "price": 49,
+   "link": "products/ud-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HM-01",
+   "name_en": "Anatomy and Physiology",
+   "name_hi": "शरीर संरचना एवं क्रिया विज्ञान",
+   "price": 49,
+   "link": "products/hm-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HBK-02",
+   "name_en": "हिन्दी भाषा कौशल-II",
+   "name_hi": "हिन्दी भाषा कौशल-II",
+   "price": 49,
+   "link": "products/hbk-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "TT-02",
+   "name_en": "यात्रा एवं पर्यटन -II",
+   "name_hi": "यात्रा एवं पर्यटन -II",
+   "price": 49,
+   "link": "products/tt-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "CIN-02",
+   "name_en": "राज्य मानवाधिकार",
+   "name_hi": "राज्य मानवाधिकार",
+   "price": 49,
+   "link": "products/cin-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "EC-02",
+   "name_en": "Issues in Indian Economic Development",
+   "name_hi": "भारतीय अर्थव्यवस्था में विकास के मुद्दे",
+   "price": 49,
+   "link": "products/ec-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "EG-02",
+   "name_en": "Prose and Fiction",
+   "name_hi": "गद्य और कथा साहित्य-I",
+   "price": 49,
+   "link": "products/eg-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "GE-02",
+   "name_en": "Geography of Rajasthan",
+   "name_hi": "राजस्थान का भूगोल",
+   "price": 49,
+   "link": "products/ge-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "GE-03",
+   "name_en": "Practical Geography",
+   "name_hi": "प्रायोगिक भूगोल",
+   "price": 49,
+   "link": "products/ge-03.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "CS-02",
+   "name_en": "Web Authoring Tools",
+   "name_hi": "वेब ऑथरिंग टूल्स",
+   "price": 49,
+   "link": "products/cs-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "CS-03",
+   "name_en": "Practical in Web Authoring Tools",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/cs-03.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HD-02",
+   "name_en": "हिन्दी गद्य भाग-1 (कथासाहित्य)",
+   "name_hi": "हिन्दी गद्य भाग-1 (कथासाहित्य)",
+   "price": 49,
+   "link": "products/hd-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HI-02",
+   "name_en": "History of Rajasthan (From Earliest Time to 1956 AD)",
+   "name_hi": "राजस्थान का इतिहास (प्रारम्भ से 1956 तक)",
+   "price": 49,
+   "link": "products/hi-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "MT-02",
+   "name_en": "Calculus and Differential Equations",
+   "name_hi": "कलन एवं अवकलन समीकरण",
+   "price": 49,
+   "link": "products/mt-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "MT-03",
+   "name_en": "Co-ordinate Geometry and Mathematical Programming",
+   "name_hi": "निर्देशांक ज्यामिति एवं गणितीय प्रोग्रामिंग",
+   "price": 49,
+   "link": "products/mt-03.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PS-02",
+   "name_en": "Indian Political Thinkers",
+   "name_hi": "भारतीय राजनीतिक विचारक",
+   "price": 49,
+   "link": "products/ps-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PA-02",
+   "name_en": "Public Administration in India",
+   "name_hi": "भारत में लोक प्रशासन",
+   "price": 49,
+   "link": "products/pa-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "SO-02",
+   "name_en": "Society in India",
+   "name_hi": "भारत में समाज",
+   "price": 49,
+   "link": "products/so-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "SA-02",
+   "name_en": "भारतीय संस्कृति के तत्व, पद्य साहित्य, अनुवाद एवं व्याकरण",
+   "name_hi": "भारतीय संस्कृति के तत्व, पद्य साहित्य, अनुवाद एवं व्याकरण",
+   "price": 49,
+   "link": "products/sa-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "JM-02",
+   "name_en": "Communication and Developmental Communication",
+   "name_hi": "संचार एवं विकासात्मक संचार",
+   "price": 49,
+   "link": "products/jm-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "ED-02",
+   "name_en": "Understanding Learner",
+   "name_hi": "शिक्षार्थी अवबोध",
+   "price": 49,
+   "link": "products/ed-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "GP-02",
+   "name_en": "Peace Studies",
+   "name_hi": "शान्ति अध्ययन",
+   "price": 49,
+   "link": "products/gp-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "RJ-02",
+   "name_en": "आधुनिक राजस्थानी पद्य साहित्य",
+   "name_hi": "आधुनिक राजस्थानी पद्य साहित्य",
+   "price": 49,
+   "link": "products/rj-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "SW-02",
+   "name_en": "Historical and Professional Development of Social Work",
+   "name_hi": "समाज कार्य का ऐतिहासिक एवं व्यावसायिक विकास",
+   "price": 49,
+   "link": "products/sw-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "UD-02",
+   "name_en": "उर्दू ग़ज़ल",
+   "name_hi": "उर्दू ग़ज़ल",
+   "price": 49,
+   "link": "products/ud-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HM-02",
+   "name_en": "Textile and Clothing Care",
+   "name_hi": "वस्त्र और कपड़ों की देखभाल",
+   "price": 49,
+   "link": "products/hm-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HM-03",
+   "name_en": "Practical",
+   "name_hi": "प्रायोगिक",
+   "price": 49,
+   "link": "products/hm-03.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PEL-01",
+   "name_en": "Proficiency in English Language-I",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/pel-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "CCE-01",
+   "name_en": "Principles of Creative Writing",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/cce-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "EE",
+   "name_en": "पर्यावरण शिक्षा",
+   "name_hi": "पर्यावरण शिक्षा",
+   "price": 49,
+   "link": "products/ee.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "CCP-01",
+   "name_en": "फसल उत्पादन",
+   "name_hi": "फसल उत्पादन",
+   "price": 49,
+   "link": "products/ccp-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "EC-03",
+   "name_en": "Macro Economics",
+   "name_hi": "समष्टि अर्थशास्त्र",
+   "price": 49,
+   "link": "products/ec-03.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "EG-03",
+   "name_en": "Poetry and Drama Part-II",
+   "name_hi": "कविता और नाटक-II",
+   "price": 49,
+   "link": "products/eg-03.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "GE-04",
+   "name_en": "Geography of Resource",
+   "name_hi": "संसाधन भूगोल",
+   "price": 49,
+   "link": "products/ge-04.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "CS-04",
+   "name_en": "Operating System",
+   "name_hi": "ऑपरेटिंग सिस्टम",
+   "price": 49,
+   "link": "products/cs-04.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HD-03",
+   "name_en": "हिन्दी गद्य भाग -II (नाटक एवं अन्य गद्य विधाएँ)",
+   "name_hi": "हिन्दी गद्य भाग -II (नाटक एवं अन्य गद्य विधाएँ)",
+   "price": 49,
+   "link": "products/hd-03.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HI-03",
+   "name_en": "History of India (1200-1740 A.D.)",
+   "name_hi": "भारत का इतिहास (1200-1740 ई०)",
+   "price": 49,
+   "link": "products/hi-03.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "MT-04",
+   "name_en": "Real Analysis & Metric Space",
+   "name_hi": "वास्तविक विश्लेषण एवं दुरिक समष्टि",
+   "price": 49,
+   "link": "products/mt-04.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PS-03",
+   "name_en": "Comparative Political Institutions and Good Governance",
+   "name_hi": "तुलनात्मक राजनीतिक संस्थाएं एवं सुशासन",
+   "price": 49,
+   "link": "products/ps-03.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PA-03",
+   "name_en": "Indian Administrative Institutions",
+   "name_hi": "भारतीय प्रशासनिक संस्थाएँ",
+   "price": 49,
+   "link": "products/pa-03.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "SO-03",
+   "name_en": "Sociological Reserarch",
+   "name_hi": "सामाजिक अनुसन्धान",
+   "price": 49,
+   "link": "products/so-03.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "SA-03",
+   "name_en": "काव्य तथा संस्कृत साहित्य का इतिहास",
+   "name_hi": "काव्य तथा संस्कृत साहित्य का इतिहास",
+   "price": 49,
+   "link": "products/sa-03.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "JM-03",
+   "name_en": "History of Mass Communication Media",
+   "name_hi": "जनसंचार माध्यमों का इतिहास",
+   "price": 49,
+   "link": "products/jm-03.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "ED-03",
+   "name_en": "Education and Society",
+   "name_hi": "शिक्षा और समाज",
+   "price": 49,
+   "link": "products/ed-03.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "GP-03",
+   "name_en": "Gandhian Thought",
+   "name_hi": "गाँधी चिन्तन",
+   "price": 49,
+   "link": "products/gp-03.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "RJ-03",
+   "name_en": "मध्यकालीन राजस्थानी गद्य",
+   "name_hi": "मध्यकालीन राजस्थानी गद्य",
+   "price": 49,
+   "link": "products/rj-03.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "SW-19",
+   "name_en": "Indian Social Structure & Social Problems",
+   "name_hi": "भारतीय सामाजिक संरचना एवं सामाजिक समस्याएं",
+   "price": 49,
+   "link": "products/sw-19.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "UD-03",
+   "name_en": "अफ़सानवी नस्र और तर्जुमा",
+   "name_hi": "अफ़सानवी नस्र और तर्जुमा",
+   "price": 49,
+   "link": "products/ud-03.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HM-04",
+   "name_en": "Growth and Development",
+   "name_hi": "वृद्धि और विकास",
+   "price": 49,
+   "link": "products/hm-04.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PEL-02",
+   "name_en": "Proficiency in English Language-II",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/pel-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "CCE-02",
+   "name_en": "Elements of Creative Writing",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/cce-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "ICA",
+   "name_en": "कंप्यूटर अनुप्रयोग परिचय",
+   "name_hi": "कंप्यूटर अनुप्रयोग परिचय",
+   "price": 49,
+   "link": "products/ica.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "EC-04",
+   "name_en": "Economy of Rajasthan",
+   "name_hi": "राजस्थान की अर्थव्यवस्था",
+   "price": 49,
+   "link": "products/ec-04.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "EG-04",
+   "name_en": "Prose and Fiction Part-II",
+   "name_hi": "गद्य और कथा साहित्य-II",
+   "price": 49,
+   "link": "products/eg-04.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "GE-05",
+   "name_en": "Human Geography",
+   "name_hi": "मानव भूगोल",
+   "price": 49,
+   "link": "products/ge-05.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "GE-06",
+   "name_en": "Practical Geography",
+   "name_hi": "प्रायोगिक भूगोल",
+   "price": 49,
+   "link": "products/ge-06.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "CS-05",
+   "name_en": "Programming in C",
+   "name_hi": "C में प्रोग्रामिंग",
+   "price": 49,
+   "link": "products/cs-05.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "CS-06",
+   "name_en": "Practical in Programming in C",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/cs-06.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HD-04",
+   "name_en": "हिन्दी साहित्य का इतिहास",
+   "name_hi": "हिन्दी साहित्य का इतिहास",
+   "price": 49,
+   "link": "products/hd-04.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HI-04",
+   "name_en": "History of India (1740-1947 A.D)",
+   "name_hi": "भारत का इतिहास (1740-1947 ई०)",
+   "price": 49,
+   "link": "products/hi-04.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "MT-05",
+   "name_en": "Differential Equation",
+   "name_hi": "अवकलन समीकरण",
+   "price": 49,
+   "link": "products/mt-05.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "MT-06",
+   "name_en": "Numerical Analysis & Vector Calculus",
+   "name_hi": "संख्यात्मक विश्लेषण एवं सदिश कलन",
+   "price": 49,
+   "link": "products/mt-06.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PS-04",
+   "name_en": "Indian Politics - An Introduction",
+   "name_hi": "भारतीय राजनीति : एक परिचय",
+   "price": 49,
+   "link": "products/ps-04.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PA-04",
+   "name_en": "State Administration in India",
+   "name_hi": "भारत में राज्य प्रशासन",
+   "price": 49,
+   "link": "products/pa-04.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "SO-04",
+   "name_en": "Social Problems of India",
+   "name_hi": "भारत की सामाजिक समस्याएँ",
+   "price": 49,
+   "link": "products/so-04.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "SA-04",
+   "name_en": "गद्य समास प्रकरण तथा निबन्ध",
+   "name_hi": "गद्य समास प्रकरण तथा निबन्ध",
+   "price": 49,
+   "link": "products/sa-04.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "JM-04",
+   "name_en": "Media Writing",
+   "name_hi": "मीडिया लेखन",
+   "price": 49,
+   "link": "products/jm-04.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "ED-04",
+   "name_en": "Education and Development",
+   "name_hi": "शिक्षा और विकास",
+   "price": 49,
+   "link": "products/ed-04.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "GP-04",
+   "name_en": "Peace Movements, Peace Approaches and Peace Process",
+   "name_hi": "शान्ति आन्दोलन शान्ति उपागम तथा शान्ति प्रक्रिया",
+   "price": 49,
+   "link": "products/gp-04.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "RJ-04",
+   "name_en": "मध्यकालीन राजस्थानी पद्य",
+   "name_hi": "मध्यकालीन राजस्थानी पद्य",
+   "price": 49,
+   "link": "products/rj-04.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "SW-20",
+   "name_en": "Social Case work & Social Group work",
+   "name_hi": "वैयक्तिक समाज कार्य एवं सामूहिक समाज कार्य",
+   "price": 49,
+   "link": "products/sw-20.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "UD-04",
+   "name_en": "उर्दू शायरी और बलागत",
+   "name_hi": "उर्दू शायरी और बलागत",
+   "price": 49,
+   "link": "products/ud-04.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HM-05",
+   "name_en": "Diet Management",
+   "name_hi": "आहार प्रबंधन",
+   "price": 49,
+   "link": "products/hm-05.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HM-06",
+   "name_en": "Practical",
+   "name_hi": "प्रायोगिक",
+   "price": 49,
+   "link": "products/hm-06.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "CPGM-01",
+   "name_en": "दक्षिण जीवन व विचार",
+   "name_hi": "दक्षिण जीवन व विचार",
+   "price": 49,
+   "link": "products/cpgm-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "CPGM-02",
+   "name_en": "गांधीः धृति",
+   "name_hi": "गांधीः धृति",
+   "price": 49,
+   "link": "products/cpgm-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "CCP-02",
+   "name_en": "उद्यान विज्ञान",
+   "name_hi": "उद्यान विज्ञान",
+   "price": 49,
+   "link": "products/ccp-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "EC-05",
+   "name_en": "Quantitative Methods",
+   "name_hi": "परिमाणात्मक विधियाँ",
+   "price": 49,
+   "link": "products/ec-05.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "EG-05",
+   "name_en": "Poetry and Drama Part-III",
+   "name_hi": "कविता और नाटक-III",
+   "price": 49,
+   "link": "products/eg-05.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "GE-07",
+   "name_en": "Geography of Asia",
+   "name_hi": "एशिया का भूगोल",
+   "price": 49,
+   "link": "products/ge-07.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "CS-07",
+   "name_en": "Database Management System",
+   "name_hi": "डेटाबेस मैनेजमेंट सिस्टम",
+   "price": 49,
+   "link": "products/cs-07.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HD-05",
+   "name_en": "आधुनिक काव्य",
+   "name_hi": "आधुनिक काव्य",
+   "price": 49,
+   "link": "products/hd-05.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HI-05",
+   "name_en": "Contemporary India (1947-2000 A.D.)",
+   "name_hi": "समकालीन भारत (1947-2000 A.D.)",
+   "price": 49,
+   "link": "products/hi-05.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "MT-07",
+   "name_en": "Algebra",
+   "name_hi": "बीज गणित",
+   "price": 49,
+   "link": "products/mt-07.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PS-05",
+   "name_en": "Political Theory & Thought",
+   "name_hi": "राजनीतिक सिद्धान्त एवं चिन्तन",
+   "price": 49,
+   "link": "products/ps-05.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PA-05",
+   "name_en": "Comparative Public Administration",
+   "name_hi": "तुलनात्मक लोक प्रशासन",
+   "price": 49,
+   "link": "products/pa-05.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "SO-05",
+   "name_en": "Social Thinkers",
+   "name_hi": "सामाजिक विचारक",
+   "price": 49,
+   "link": "products/so-05.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "SA-05",
+   "name_en": "नाटक तथा व्याकरण",
+   "name_hi": "नाटक तथा व्याकरण",
+   "price": 49,
+   "link": "products/sa-05.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "JM-05",
+   "name_en": "Public Relation and Advertising",
+   "name_hi": "जनसम्पर्क एवं विज्ञापन",
+   "price": 49,
+   "link": "products/jm-05.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "ED-05",
+   "name_en": "Indian Experiment in Education",
+   "name_hi": "शिक्षा के भारतीय प्रयोग",
+   "price": 49,
+   "link": "products/ed-05.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "GP-05",
+   "name_en": "Gandhi and Other Thinkers",
+   "name_hi": "गाँधी एवं अन्य विचारक",
+   "price": 49,
+   "link": "products/gp-05.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "RJ-05",
+   "name_en": "प्राचीन एवं मध्यकालीन साहित्य (काव्य तथा गद्य)",
+   "name_hi": "प्राचीन एवं मध्यकालीन साहित्य (काव्य तथा गद्य)",
+   "price": 49,
+   "link": "products/rj-05.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "SW-21",
+   "name_en": "Human Development & Various Mental Processes",
+   "name_hi": "ग्राम्य विकास एवं विभिन्न मानसिक प्रक्रियाएँ",
+   "price": 49,
+   "link": "products/sw-21.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "UD-05",
+   "name_en": "तारीख़े तनकीद और इलैक्ट्रोनिक मीडिया",
+   "name_hi": "तारीख़े तनकीद और इलैक्ट्रोनिक मीडिया",
+   "price": 49,
+   "link": "products/ud-05.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HM-07",
+   "name_en": "Communication Management : Extension Education",
+   "name_hi": "संचार प्रबंधन : प्रसार शिक्षा",
+   "price": 49,
+   "link": "products/hm-07.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "DGA-05",
+   "name_en": "कृषि विपणन एवं विस्तार शिक्षा",
+   "name_hi": "कृषि विपणन एवं विस्तार शिक्षा",
+   "price": 49,
+   "link": "products/dga-05.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "EC-06",
+   "name_en": "Money, Banking & Public Finance",
+   "name_hi": "मुद्रा, बैंकिंग व राजस्व",
+   "price": 49,
+   "link": "products/ec-06.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "EG-06",
+   "name_en": "Prose and Fiction Part-III",
+   "name_hi": "गद्य और कथा साहित्य-III",
+   "price": 49,
+   "link": "products/eg-06.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "GE-08",
+   "name_en": "Geography of India",
+   "name_hi": "भारत का भूगोल",
+   "price": 49,
+   "link": "products/ge-08.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "GE-09",
+   "name_en": "Practical Geography",
+   "name_hi": "प्रायोगिक भूगोल",
+   "price": 49,
+   "link": "products/ge-09.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "CS-08",
+   "name_en": "Programming in JAVA",
+   "name_hi": "जावा में प्रोग्रामिंग",
+   "price": 49,
+   "link": "products/cs-08.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "CS-09",
+   "name_en": "Practical in JAVA",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/cs-09.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HD-06",
+   "name_en": "हिन्दी भाषा एवं प्रयोजनमूलक हिन्दी",
+   "name_hi": "हिन्दी भाषा एवं प्रयोजनमूलक हिन्दी",
+   "price": 49,
+   "link": "products/hd-06.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HI-06",
+   "name_en": "History of Modern World (1453-1950 A.D.)",
+   "name_hi": "आधुनिक विश्व का इतिहास (1453-1950 A.D.)",
+   "price": 49,
+   "link": "products/hi-06.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "MT-08",
+   "name_en": "Complex Analysis",
+   "name_hi": "सम्मिश्र विश्लेषण",
+   "price": 49,
+   "link": "products/mt-08.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "MT-09",
+   "name_en": "Mechanics",
+   "name_hi": "यांत्रिकी",
+   "price": 49,
+   "link": "products/mt-09.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PS-06",
+   "name_en": "Contemporary International Relations",
+   "name_hi": "समसामयिक अन्तर्राष्ट्रीय सम्बन्ध",
+   "price": 49,
+   "link": "products/ps-06.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PA-06",
+   "name_en": "Local Self Government",
+   "name_hi": "स्थानीय स्वशासन",
+   "price": 49,
+   "link": "products/pa-06.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "SO-06",
+   "name_en": "Social Anthropology",
+   "name_hi": "सामाजिक मानवशास्त्र",
+   "price": 49,
+   "link": "products/so-06.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "SA-06",
+   "name_en": "वेद उपनिषद तथा भारतीय दर्शन",
+   "name_hi": "वेद उपनिषद तथा भारतीय दर्शन",
+   "price": 49,
+   "link": "products/sa-06.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "JM-06",
+   "name_en": "Editing, Layout and Printing",
+   "name_hi": "सम्पादन, पृष्ठसज्जा तथा मुद्रण",
+   "price": 49,
+   "link": "products/jm-06.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "ED-06",
+   "name_en": "Western Educational Thought and Thinkers",
+   "name_hi": "पाश्चात्य शैक्षिक विचार एवं विचारक",
+   "price": 49,
+   "link": "products/ed-06.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "GP-06",
+   "name_en": "Gandhi and Contemporary World",
+   "name_hi": "गाँधी एवं समकालीन विश्व",
+   "price": 49,
+   "link": "products/gp-06.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "RJ-06",
+   "name_en": "राजस्थानी भाषा अर साहित्य रो इतिहास",
+   "name_hi": "राजस्थानी भाषा अर साहित्य रो इतिहास",
+   "price": 49,
+   "link": "products/rj-06.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "SW-15",
+   "name_en": "Patterns of Social Work",
+   "name_hi": "समाज कार्य के प्रचलन",
+   "price": 49,
+   "link": "products/sw-15.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "UD-06",
+   "name_en": "उर्दू शायरी और बलागत",
+   "name_hi": "उर्दू शायरी और बलागत",
+   "price": 49,
+   "link": "products/ud-06.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HM-08",
+   "name_en": "Family Resource Management and Interior Designing",
+   "name_hi": "परिवार संसाधन प्रबंधन एवं आन्तरिक सज्जा",
+   "price": 49,
+   "link": "products/hm-08.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "HM-09",
+   "name_en": "Practical",
+   "name_hi": "प्रायोगिक",
+   "price": 49,
+   "link": "products/hm-09.html"
+  },
+  {
+   "degree": "BJ",
+   "code": "BJ-07",
+   "name_en": "Management of Media Institutes and Media Laws",
+   "name_hi": "मीडिया संस्थान प्रबंधन एवं मीडिया कानून",
+   "price": 49,
+   "link": "products/bj-07.html"
+  },
+  {
+   "degree": "BJ",
+   "code": "BJ-08",
+   "name_en": "Practical work Paper",
+   "name_hi": "व्यावहारिक कार्य प्रश्नपत्र",
+   "price": 49,
+   "link": "products/bj-08.html"
+  },
+  {
+   "degree": "BJN",
+   "code": "BJ-01",
+   "name_en": "Computer Application and Cyber Media",
+   "name_hi": "कम्प्यूटर एप्लीकेशन एवं साइबर मीडिया",
+   "price": 49,
+   "link": "products/bj-01.html"
+  },
+  {
+   "degree": "BJN",
+   "code": "BJ-02",
+   "name_en": "Communication & Developmental Communication",
+   "name_hi": "संचार एवं विकासात्मक संचार",
+   "price": 49,
+   "link": "products/bj-02.html"
+  },
+  {
+   "degree": "BJN",
+   "code": "BJ-03",
+   "name_en": "History of Mass Communication Media",
+   "name_hi": "जनसंचार माध्यमों का इतिहास",
+   "price": 49,
+   "link": "products/bj-03.html"
+  },
+  {
+   "degree": "BJN",
+   "code": "BJ-04",
+   "name_en": "Media Writing",
+   "name_hi": "मीडिया लेखन",
+   "price": 49,
+   "link": "products/bj-04.html"
+  },
+  {
+   "degree": "BJN",
+   "code": "BJ-05",
+   "name_en": "Public Relation & Advertising",
+   "name_hi": "जनसंपर्क एवं विज्ञापन",
+   "price": 49,
+   "link": "products/bj-05.html"
+  },
+  {
+   "degree": "BJN",
+   "code": "BJ-06",
+   "name_en": "Editing, Layout & Printing",
+   "name_hi": "संपादन, पृष्ठ सज्जा एवं मुद्रण",
+   "price": 49,
+   "link": "products/bj-06.html"
+  },
+  {
+   "degree": "BJN",
+   "code": "BJ-07",
+   "name_en": "Management of Media Institutes and Media Laws",
+   "name_hi": "मीडिया संस्थान प्रबंधन एवं मीडिया कानून",
+   "price": 49,
+   "link": "products/bj-07.html"
+  },
+  {
+   "degree": "BJN",
+   "code": "BJ-08",
+   "name_en": "Practical work Paper",
+   "name_hi": "व्यावहारिक कार्य प्रश्नपत्र",
+   "price": 49,
+   "link": "products/bj-08.html"
+  },
+  {
+   "degree": "BLISN",
+   "code": "BLIS-01",
+   "name_en": "Library and Society",
+   "name_hi": "पुस्तकालयएवं समाज",
+   "price": 49,
+   "link": "products/blis-01.html"
+  },
+  {
+   "degree": "BLISN",
+   "code": "BLIS-02",
+   "name_en": "Library Classification and Cataloguing-Theory",
+   "name_hi": "पुस्तकालय वर्गीकरण एवं सूचीकरण - सिद्धान्त",
+   "price": 49,
+   "link": "products/blis-02.html"
+  },
+  {
+   "degree": "BLISN",
+   "code": "BLIS-03",
+   "name_en": "Library Classification-Practical",
+   "name_hi": "पुस्तकालय वर्गीकरण प्रायोगिक",
+   "price": 49,
+   "link": "products/blis-03.html"
+  },
+  {
+   "degree": "BLISN",
+   "code": "BLIS-04",
+   "name_en": "Library Cataloguing-Practical",
+   "name_hi": "पुस्तकालय सूचीकरण प्रायोगिक",
+   "price": 49,
+   "link": "products/blis-04.html"
+  },
+  {
+   "degree": "BLISN",
+   "code": "BLIS-05",
+   "name_en": "Library Management",
+   "name_hi": "पुस्तकालयप्रबन्ध",
+   "price": 49,
+   "link": "products/blis-05.html"
+  },
+  {
+   "degree": "BLISN",
+   "code": "BLIS-06",
+   "name_en": "Information Sources",
+   "name_hi": "सूचना स्रोत",
+   "price": 49,
+   "link": "products/blis-06.html"
+  },
+  {
+   "degree": "BLISN",
+   "code": "BLIS-07",
+   "name_en": "Reference and Information Services",
+   "name_hi": "सन्दर्भ एवं सूचना सेवाएँ",
+   "price": 49,
+   "link": "products/blis-07.html"
+  },
+  {
+   "degree": "BLISN",
+   "code": "BLIS-08",
+   "name_en": "Computer: Basics and Applications",
+   "name_hi": "कम्प्यूटर : आधार एवं अनुप्रयोग",
+   "price": 49,
+   "link": "products/blis-08.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "HBK-01",
+   "name_en": "Hindi Bhasha Kaushal-1",
+   "name_hi": "हिन्दी भाषा कौशल-1",
+   "price": 49,
+   "link": "products/hbk-01.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "TT-01",
+   "name_en": "",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/tt-01.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "BO-01",
+   "name_en": "Algae, Lichens and Bryophytes",
+   "name_hi": "शैवाल, लाइकेन एवं ब्रायोफाइटा",
+   "price": 49,
+   "link": "products/bo-01.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "BO-02",
+   "name_en": "Microbiology, Mycology and Plant Pathology",
+   "name_hi": "सूक्ष्म जैविकी, कवक विज्ञान एवं पादप रोग विज्ञान",
+   "price": 49,
+   "link": "products/bo-02.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CH-01",
+   "name_en": "Inorganic Chemistry",
+   "name_hi": "अकार्बनिक रसायन",
+   "price": 49,
+   "link": "products/ch-01.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CH-02",
+   "name_en": "Organic Chemistry",
+   "name_hi": "कार्बनिक रसायन",
+   "price": 49,
+   "link": "products/ch-02.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "MT-01",
+   "name_en": "Discrete Mathematics",
+   "name_hi": "विविक्त गणित",
+   "price": 49,
+   "link": "products/mt-01.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "PH-01",
+   "name_en": "Mechanics",
+   "name_hi": "यांत्रिकी",
+   "price": 49,
+   "link": "products/ph-01.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "PH-02",
+   "name_en": "Oscillations and Waves",
+   "name_hi": "दोलन एवं तरंगे",
+   "price": 49,
+   "link": "products/ph-02.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "ZO-01",
+   "name_en": "Diversity of Animals and Evolution",
+   "name_hi": "प्राणी विविधता तथा उद्विकास",
+   "price": 49,
+   "link": "products/zo-01.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "ZO-02",
+   "name_en": "Cell Biology and Genetics",
+   "name_hi": "कोशिका विज्ञान तथा अनुवांशिकी",
+   "price": 49,
+   "link": "products/zo-02.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "HBK-02",
+   "name_en": "Hindi Bhasha Kaushal-II",
+   "name_hi": "हिन्दी भाषा कौशल-II",
+   "price": 49,
+   "link": "products/hbk-02.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "TT-02",
+   "name_en": "Yatra evam Paryatan-II",
+   "name_hi": "यात्रा एवं पर्यटन-II",
+   "price": 49,
+   "link": "products/tt-02.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CIN-01",
+   "name_en": "Srijan Mahamudra",
+   "name_hi": "सृजन महामुद्रा",
+   "price": 49,
+   "link": "products/cin-01.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "BO-03",
+   "name_en": "Pteridophytes, Gymnosperms & Paleobotany",
+   "name_hi": "टेरिडोफाइटा, जिम्नोस्पर्म एवं पुरावनस्पति विज्ञान",
+   "price": 49,
+   "link": "products/bo-03.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "BO-04",
+   "name_en": "Practical Botany",
+   "name_hi": "प्रायोगिक वनस्पति शास्त्र",
+   "price": 49,
+   "link": "products/bo-04.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CH-03",
+   "name_en": "Physical Chemistry",
+   "name_hi": "भौतिक रसायन",
+   "price": 49,
+   "link": "products/ch-03.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CH-04",
+   "name_en": "Practical Chemistry",
+   "name_hi": "प्रायोगिक रसायन",
+   "price": 49,
+   "link": "products/ch-04.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "MT-02",
+   "name_en": "Calculus and Differential Equations",
+   "name_hi": "कलन एवं अवकलन समीकरण",
+   "price": 49,
+   "link": "products/mt-02.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "MT-03",
+   "name_en": "Coordinate Geometry and Mathematical Programming",
+   "name_hi": "निर्देशांक ज्यामिति एवं गणितीय प्रोग्रामिंग",
+   "price": 49,
+   "link": "products/mt-03.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "PH-03",
+   "name_en": "Electromagnetism",
+   "name_hi": "विद्युतचुम्बकीकी",
+   "price": 49,
+   "link": "products/ph-03.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "PH-04",
+   "name_en": "Practical Physics",
+   "name_hi": "प्रायोगिक भौतिकी",
+   "price": 49,
+   "link": "products/ph-04.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "ZO-03",
+   "name_en": "Gametes and Developmental Biology",
+   "name_hi": "युग्मक एवं परिवर्धन जैविकी",
+   "price": 49,
+   "link": "products/zo-03.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "ZO-04",
+   "name_en": "Practical Zoology",
+   "name_hi": "प्रायोगिक प्राणिशास्त्र",
+   "price": 49,
+   "link": "products/zo-04.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "PEL-01",
+   "name_en": "Proficiency in English Language-I",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/pel-01.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CCE-01",
+   "name_en": "General Principles of Creative Writing",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/cce-01.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "EE",
+   "name_en": "Paryavaran Shiksha",
+   "name_hi": "पर्यावरण शिक्षा",
+   "price": 49,
+   "link": "products/ee.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "UUL",
+   "name_en": "Shiksharthi Upyogita",
+   "name_hi": "शिक्षार्थी उपयोगिता",
+   "price": 49,
+   "link": "products/uul.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CCP-01",
+   "name_en": "Fasal Utpadan",
+   "name_hi": "फसल उत्पादन",
+   "price": 49,
+   "link": "products/ccp-01.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "BO-05",
+   "name_en": "Plant Morphology & Anatomy",
+   "name_hi": "पादप आकारिकी एवं आन्तरिकी",
+   "price": 49,
+   "link": "products/bo-05.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "BO-06",
+   "name_en": "Cell Biology, Genetics & Plant Breeding",
+   "name_hi": "कोशिका विज्ञान, आनुवांशिकी एवं पादप प्रजनन",
+   "price": 49,
+   "link": "products/bo-06.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CH-05",
+   "name_en": "Inorganic Chemistry",
+   "name_hi": "अकार्बनिक रसायन",
+   "price": 49,
+   "link": "products/ch-05.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CH-06",
+   "name_en": "Organic Chemistry",
+   "name_hi": "कार्बनिक रसायन",
+   "price": 49,
+   "link": "products/ch-06.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "MT-04",
+   "name_en": "Real Analysis & Metric Space",
+   "name_hi": "वास्तविक विश्लेषण एवं दूरीक समष्टि",
+   "price": 49,
+   "link": "products/mt-04.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "PH-05",
+   "name_en": "Thermodynamics and Statistical Physics",
+   "name_hi": "उष्मागतिकी तथा सांख्यिकीय भौतिकी",
+   "price": 49,
+   "link": "products/ph-05.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "PH-06",
+   "name_en": "Optics",
+   "name_hi": "प्रकाशिकी",
+   "price": 49,
+   "link": "products/ph-06.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "ZO-05",
+   "name_en": "Invertebrates",
+   "name_hi": "अकशेरुकी",
+   "price": 49,
+   "link": "products/zo-05.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "ZO-06",
+   "name_en": "Animal Physiology & Immunology",
+   "name_hi": "प्राणि कार्यिकी एवं प्रतिरक्षा विज्ञान",
+   "price": 49,
+   "link": "products/zo-06.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "PEL-02",
+   "name_en": "Proficiency in English Language-II",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/pel-02.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CCE-02",
+   "name_en": "Elements of Creative Writing",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/cce-02.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "ICA",
+   "name_en": "Computer Anuprayog Parichay",
+   "name_hi": "कंप्यूटर अनुप्रयोग परिचय",
+   "price": 49,
+   "link": "products/ica.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "BO-07",
+   "name_en": "Plant Physiology & Biochemistry",
+   "name_hi": "पादप कार्यिकी एवं जैव रसायन",
+   "price": 49,
+   "link": "products/bo-07.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "BO-08",
+   "name_en": "Practical Botany",
+   "name_hi": "प्रायोगिक वनस्पति विज्ञान",
+   "price": 49,
+   "link": "products/bo-08.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CH-07",
+   "name_en": "Physical Chemistry",
+   "name_hi": "भौतिक रसायन",
+   "price": 49,
+   "link": "products/ch-07.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CH-08",
+   "name_en": "Practical Chemistry",
+   "name_hi": "प्रायोगिक रसायन",
+   "price": 49,
+   "link": "products/ch-08.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "MT-05",
+   "name_en": "Differential Equation",
+   "name_hi": "अवकलन समीकरण",
+   "price": 49,
+   "link": "products/mt-05.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "MT-06",
+   "name_en": "Numerical Analysis & Vector Calculus",
+   "name_hi": "संख्यात्मक विश्लेषण एवं सदिश कलन",
+   "price": 49,
+   "link": "products/mt-06.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "PH-07",
+   "name_en": "Electronics",
+   "name_hi": "इलेक्ट्रॉनिकी",
+   "price": 49,
+   "link": "products/ph-07.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "PH-08",
+   "name_en": "Practical Physics",
+   "name_hi": "प्रायोगिक भौतिकी",
+   "price": 49,
+   "link": "products/ph-08.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "ZO-07",
+   "name_en": "Microbiology & Biotechnology",
+   "name_hi": "सूक्ष्म जैविकी एवं जैवप्रौद्योगिकी",
+   "price": 49,
+   "link": "products/zo-07.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "ZO-08",
+   "name_en": "Practical Zoology",
+   "name_hi": "प्रायोगिक प्राणिविज्ञान",
+   "price": 49,
+   "link": "products/zo-08.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CPGM-01",
+   "name_en": "Gandhi: Jeevan va Vichar",
+   "name_hi": "गांधीः जीवन व विचार",
+   "price": 49,
+   "link": "products/cpgm-01.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CPGM-02",
+   "name_en": "Gandhi: Drishti",
+   "name_hi": "गांधीः दृष्टि",
+   "price": 49,
+   "link": "products/cpgm-02.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CCP-02",
+   "name_en": "Udyan Vigyan",
+   "name_hi": "उद्यान विज्ञान",
+   "price": 49,
+   "link": "products/ccp-02.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "BO-09",
+   "name_en": "Taxonomy and Embryology of Angiosperm",
+   "name_hi": "आवृतबीजी की वर्गिकी एवं भ्रौणिकी",
+   "price": 49,
+   "link": "products/bo-09.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "BO-10",
+   "name_en": "Molecular Biology and Technology",
+   "name_hi": "आण्विक जीवविज्ञान एवं तकनीकी",
+   "price": 49,
+   "link": "products/bo-10.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CH-09",
+   "name_en": "Inorganic Chemistry",
+   "name_hi": "अकार्बनिक रसायन",
+   "price": 49,
+   "link": "products/ch-09.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CH-10",
+   "name_en": "Organic Chemistry",
+   "name_hi": "कार्बनिक रसायन",
+   "price": 49,
+   "link": "products/ch-10.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "MT-07",
+   "name_en": "Algebra",
+   "name_hi": "बीज गणित",
+   "price": 49,
+   "link": "products/mt-07.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "PH-09",
+   "name_en": "Elementary Quantum Mechanics & Spectroscopy",
+   "name_hi": "प्रारंभिक क्वांटम यांत्रिकी एवं स्पेक्ट्रोस्कोपी",
+   "price": 49,
+   "link": "products/ph-09.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "PH-10",
+   "name_en": "Solid State Physics",
+   "name_hi": "ठोस अवस्था भौतिकी",
+   "price": 49,
+   "link": "products/ph-10.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "ZO-09",
+   "name_en": "Structure and Functions of Vertebrates",
+   "name_hi": "कशेरुकी की संरचना तथा कार्यिकी",
+   "price": 49,
+   "link": "products/zo-09.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "ZO-10",
+   "name_en": "Ecology & Environmental Biology",
+   "name_hi": "पारिस्थितिकी एवं पर्यावरण जैविकी",
+   "price": 49,
+   "link": "products/zo-10.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "DGA-05",
+   "name_en": "Krishi Vipnan evam Vistar Shiksha",
+   "name_hi": "कृषि विपणनएवं विस्तार शिक्षा",
+   "price": 49,
+   "link": "products/dga-05.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "BO-11",
+   "name_en": "Plant Ecology & Economic Botany",
+   "name_hi": "पादप पारिस्थितिकी एवं आर्थिक वनस्पति विज्ञान",
+   "price": 49,
+   "link": "products/bo-11.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "BO-12",
+   "name_en": "Practical Botany",
+   "name_hi": "प्रायोगिक वनस्पतिशास्त्र",
+   "price": 49,
+   "link": "products/bo-12.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CH-11",
+   "name_en": "Physical Chemistry",
+   "name_hi": "भौतिक रसायन",
+   "price": 49,
+   "link": "products/ch-11.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "CH-12",
+   "name_en": "Practical Chemistry",
+   "name_hi": "प्रायोगिक रसायन",
+   "price": 49,
+   "link": "products/ch-12.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "MT-08",
+   "name_en": "Complex Analysis",
+   "name_hi": "सम्मिश्र विश्लेषण",
+   "price": 49,
+   "link": "products/mt-08.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "MT-09",
+   "name_en": "Mechanics",
+   "name_hi": "यांत्रिकी",
+   "price": 49,
+   "link": "products/mt-09.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "PH-11",
+   "name_en": "Nuclear Physics",
+   "name_hi": "नाभिकीय भौतिकी",
+   "price": 49,
+   "link": "products/ph-11.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "PH-12",
+   "name_en": "Practical Physics",
+   "name_hi": "प्रायोगिक भौतिकी",
+   "price": 49,
+   "link": "products/ph-12.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "ZO-11",
+   "name_en": "Applied Zoology, Ethology and Biostatistics",
+   "name_hi": "अनुप्रयुक्त प्राणिविज्ञान, व्यवहारिकी एवं जैव सांख्यिकी",
+   "price": 49,
+   "link": "products/zo-11.html"
+  },
+  {
+   "degree": "BSCN",
+   "code": "ZO-12",
+   "name_en": "Practical Zoology",
+   "name_hi": "प्रायोगिक प्राणिविज्ञान",
+   "price": 49,
+   "link": "products/zo-12.html"
+  },
+  {
+   "degree": "CIJ",
+   "code": "CIJ-01",
+   "name_en": "Falit Jyotish ka Saiddhantik Gyan",
+   "name_hi": "फलित ज्योतिष का सैद्धांतिक ज्ञान",
+   "price": 49,
+   "link": "products/cij-01.html"
+  },
+  {
+   "degree": "CIJ",
+   "code": "CIJ-02",
+   "name_en": "Jyotish dwara Faladesh ki Vidhi",
+   "name_hi": "ज्योतिष द्वारा फलादेश की विधि",
+   "price": 49,
+   "link": "products/cij-02.html"
+  },
+  {
+   "degree": "CIJ",
+   "code": "CIJ-03",
+   "name_en": "Prayogik Paper",
+   "name_hi": "प्रायोगिक पेपर",
+   "price": 49,
+   "link": "products/cij-03.html"
+  },
+  {
+   "degree": "CIK",
+   "code": "CIK-01",
+   "name_en": "Nityakarmaprayog",
+   "name_hi": "नित्यकर्मप्रयोग",
+   "price": 49,
+   "link": "products/cik-01.html"
+  },
+  {
+   "degree": "CIK",
+   "code": "CIK-02",
+   "name_en": "Griha-Shanti Prakaran",
+   "name_hi": "गृह-शान्ति प्रकरण",
+   "price": 49,
+   "link": "products/cik-02.html"
+  },
+  {
+   "degree": "CIK",
+   "code": "CIK-03",
+   "name_en": "Prayogikprashnapar",
+   "name_hi": "प्रायोगिकप्रश्नपर",
+   "price": 49,
+   "link": "products/cik-03.html"
+  },
+  {
+   "degree": "CPNM",
+   "code": "CPNM-01",
+   "name_en": "Mahatma Gandhi NREGA Adhiniyam",
+   "name_hi": "महात्मा गांधी नरेगा अधिनियम",
+   "price": 49,
+   "link": "products/cpnm-01.html"
+  },
+  {
+   "degree": "CPNM",
+   "code": "CPNM-02",
+   "name_en": "Met: Karya evam Dayitva",
+   "name_hi": "मेटः कार्य एवं दायित्व",
+   "price": 49,
+   "link": "products/cpnm-02.html"
+  },
+  {
+   "degree": "CPNM",
+   "code": "CPNM-03",
+   "name_en": "Vyavaharik Prashikshan",
+   "name_hi": "व्यावहारिक प्रशिक्षण",
+   "price": 49,
+   "link": "products/cpnm-03.html"
+  },
+  {
+   "degree": "DCAM",
+   "code": "DCAM-01",
+   "name_en": "Principles of Management",
+   "name_hi": "डिप्लोमा इन कम्प्यूटर अकाउंटिंग एंड मैनेजमेंट",
+   "price": 49,
+   "link": "products/dcam-01.html"
+  },
+  {
+   "degree": "DCAM",
+   "code": "DCAM-02",
+   "name_en": "Fundamentals of Accounting",
+   "name_hi": "डिप्लोमा इन कम्प्यूटर अकाउंटिंग एंड मैनेजमेंट",
+   "price": 49,
+   "link": "products/dcam-02.html"
+  },
+  {
+   "degree": "DCAM",
+   "code": "DCAM-03",
+   "name_en": "Computer Applications in Management",
+   "name_hi": "डिप्लोमा इन कम्प्यूटर अकाउंटिंग एंड मैनेजमेंट",
+   "price": 49,
+   "link": "products/dcam-03.html"
+  },
+  {
+   "degree": "DCAM",
+   "code": "DCAM-04",
+   "name_en": "Elementary Computer Accounting",
+   "name_hi": "डिप्लोमा इन कम्प्यूटर अकाउंटिंग एंड मैनेजमेंट",
+   "price": 49,
+   "link": "products/dcam-04.html"
+  },
+  {
+   "degree": "DCAM",
+   "code": "DCAM-05",
+   "name_en": "Accounting Information System",
+   "name_hi": "डिप्लोमा इन कम्प्यूटर अकाउंटिंग एंड मैनेजमेंट",
+   "price": 49,
+   "link": "products/dcam-05.html"
+  },
+  {
+   "degree": "DCAM",
+   "code": "DCAM-06",
+   "name_en": "Entrepreneurship & Small Scale Businesses",
+   "name_hi": "डिप्लोमा इन कम्प्यूटर अकाउंटिंग एंड मैनेजमेंट",
+   "price": 49,
+   "link": "products/dcam-06.html"
+  },
+  {
+   "degree": "DCAM",
+   "code": "DCAM-07",
+   "name_en": "Financial Accounting Lab and Report Submission",
+   "name_hi": "डिप्लोमा इन कम्प्यूटर अकाउंटिंग एंड मैनेजमेंट",
+   "price": 49,
+   "link": "products/dcam-07.html"
+  },
+  {
+   "degree": "DCAN-OL",
+   "code": "DCA-101",
+   "name_en": "Introduction to Computer Science",
+   "name_hi": ": 36",
+   "price": 49,
+   "link": "products/dca-101.html"
+  },
+  {
+   "degree": "DCAN-OL",
+   "code": "DCA-102",
+   "name_en": "Operating System",
+   "name_hi": "कम्प्यूटर अनुप्रयोग में डिप्लोमा (ऑनलाइन)",
+   "price": 49,
+   "link": "products/dca-102.html"
+  },
+  {
+   "degree": "DCAN-OL",
+   "code": "DCA-103",
+   "name_en": "Database Management System",
+   "name_hi": "कम्प्यूटर अनुप्रयोग में डिप्लोमा (ऑनलाइन)",
+   "price": 49,
+   "link": "products/dca-103.html"
+  },
+  {
+   "degree": "DCAN-OL",
+   "code": "DCA-104",
+   "name_en": "Web Authoring Tools",
+   "name_hi": "कम्प्यूटर अनुप्रयोग में डिप्लोमा (ऑनलाइन)",
+   "price": 49,
+   "link": "products/dca-104.html"
+  },
+  {
+   "degree": "DCAN-OL",
+   "code": "DCA-105",
+   "name_en": "Computer Applications in Corporate World",
+   "name_hi": "कम्प्यूटर अनुप्रयोग में डिप्लोमा (ऑनलाइन)",
+   "price": 49,
+   "link": "products/dca-105.html"
+  },
+  {
+   "degree": "DCAN-OL",
+   "code": "DCA-106",
+   "name_en": "Practical of Computer Application",
+   "name_hi": "कम्प्यूटर अनुप्रयोग में डिप्लोमा (ऑनलाइन)",
+   "price": 49,
+   "link": "products/dca-106.html"
+  },
+  {
+   "degree": "DCTN",
+   "code": "DCT-01",
+   "name_en": "An Outline of the Traditions and Culture of the Inhabitants of India",
+   "name_hi": "भारत के निवासियों की परम्पराओं एवं संस्कृति की एक रूपरेखा",
+   "price": 49,
+   "link": "products/dct-01.html"
+  },
+  {
+   "degree": "DCTN",
+   "code": "DCT-02",
+   "name_en": "Traditions of the Inhabitants of Rajasthan and Culture-Tourism Perspective (State and Society)",
+   "name_hi": "राजस्थान के निवासियों की परम्पराएँ तथा संस्कृतिपर्यटन विषयक परिप्रेक्ष्य (राज्य तथा समाज)",
+   "price": 49,
+   "link": "products/dct-02.html"
+  },
+  {
+   "degree": "DCTN",
+   "code": "DCT-03",
+   "name_en": "Traditions of the Inhabitants of Rajasthan and Culture-Tourism Perspective (Art and Craft)",
+   "name_hi": "राजस्थान के निवासियों की परम्पराएँ तथा संस्कृति पर्यटन विषयक परिप्रेक्ष्य (कला एवं शिल्प)",
+   "price": 49,
+   "link": "products/dct-03.html"
+  },
+  {
+   "degree": "DCTN",
+   "code": "DCT-04",
+   "name_en": "Travel and Tourism in Rajasthan",
+   "name_hi": "राजस्थान में यात्रा एवं पर्यटन",
+   "price": 49,
+   "link": "products/dct-04.html"
+  },
+  {
+   "degree": "DCTN",
+   "code": "DCT-05",
+   "name_en": "Project *",
+   "name_hi": "प्रोजेक्ट *",
+   "price": 49,
+   "link": "products/dct-05.html"
+  },
+  {
+   "degree": "DLISN-OL",
+   "code": "DLIS-01",
+   "name_en": "Library Classification and Cataloguing-Principles",
+   "name_hi": "पुस्तकालय वर्गीकरण एवं सूचीकरण-सिद्धांत",
+   "price": 49,
+   "link": "products/dlis-01.html"
+  },
+  {
+   "degree": "DLISN-OL",
+   "code": "DLIS-02",
+   "name_en": "Library Classification - Practical",
+   "name_hi": "पुस्तकालय वर्गीकरण - प्रायोगिक",
+   "price": 49,
+   "link": "products/dlis-02.html"
+  },
+  {
+   "degree": "DLISN-OL",
+   "code": "DLIS-03",
+   "name_en": "Library Cataloguing - Practical",
+   "name_hi": "पुस्तकालय सूचीकरण - प्रायोगिक",
+   "price": 49,
+   "link": "products/dlis-03.html"
+  },
+  {
+   "degree": "DLISN-OL",
+   "code": "DLIS-04",
+   "name_en": "Library Management and Reference Work",
+   "name_hi": "पुस्तकालय व्यवस्था एवं सन्दर्भ कार्य",
+   "price": 49,
+   "link": "products/dlis-04.html"
+  },
+  {
+   "degree": "DLISN-OL",
+   "code": "DLIS-05",
+   "name_en": "School and Public Library",
+   "name_hi": "विद्यालय एवं सार्वजनिक पुस्तकालय",
+   "price": 49,
+   "link": "products/dlis-05.html"
+  },
+  {
+   "degree": "DLISN-OL",
+   "code": "DLIS-06",
+   "name_en": "Information Services and Computer Applications",
+   "name_hi": "सूचना सेवाएँ एवं कम्प्यूटर अनुप्रयोग",
+   "price": 49,
+   "link": "products/dlis-06.html"
+  },
+  {
+   "degree": "DLISN",
+   "code": "DLIS-01",
+   "name_en": "Library Classification and Cataloguing - Theory",
+   "name_hi": "पुस्तकालय वर्गीकरण एवं सूचीकरण - सिद्धांत",
+   "price": 49,
+   "link": "products/dlis-01.html"
+  },
+  {
+   "degree": "DLISN",
+   "code": "DLIS-02",
+   "name_en": "Library Classification - Practical",
+   "name_hi": "पुस्तकालय वर्गीकरण - प्रायोगिक",
+   "price": 49,
+   "link": "products/dlis-02.html"
+  },
+  {
+   "degree": "DLISN",
+   "code": "DLIS-03",
+   "name_en": "Library Cataloguing - Practical",
+   "name_hi": "पुस्तकालय सूचीकरण - प्रायोगिक",
+   "price": 49,
+   "link": "products/dlis-03.html"
+  },
+  {
+   "degree": "DLISN",
+   "code": "DLIS-04",
+   "name_en": "Library Routine and Reference Work",
+   "name_hi": "पुस्तकालय नित्यचर्या एवं संदर्भकार्य",
+   "price": 49,
+   "link": "products/dlis-04.html"
+  },
+  {
+   "degree": "DLISN",
+   "code": "DLIS-05",
+   "name_en": "School and Public Library",
+   "name_hi": "विद्यालय एवं सार्वजनिक पुस्तकालय",
+   "price": 49,
+   "link": "products/dlis-05.html"
+  },
+  {
+   "degree": "DLISN",
+   "code": "DLIS-06",
+   "name_en": "Information Services and Computer Applications",
+   "name_hi": "सूचना सेवाएँ एवं कम्प्यूटर अनुप्रयोग",
+   "price": 49,
+   "link": "products/dlis-06.html"
+  },
+  {
+   "degree": "DMCN",
+   "code": "DMC-01",
+   "name_en": "Mass Communication & Journalism: An Introduction",
+   "name_hi": "जनसंचार और पत्रकारिता : एक परिचय",
+   "price": 49,
+   "link": "products/dmc-01.html"
+  },
+  {
+   "degree": "DMCN",
+   "code": "DMC-02",
+   "name_en": "Advertising & Public Relations",
+   "name_hi": "विज्ञापन एवं जनसम्पर्क",
+   "price": 49,
+   "link": "products/dmc-02.html"
+  },
+  {
+   "degree": "DMCN",
+   "code": "DMC-03",
+   "name_en": "Electronic Media",
+   "name_hi": "इलेक्ट्रानिक मीडिया",
+   "price": 49,
+   "link": "products/dmc-03.html"
+  },
+  {
+   "degree": "DMCN",
+   "code": "DMC-04",
+   "name_en": "Media Laws",
+   "name_hi": "मीडिया कानून",
+   "price": 49,
+   "link": "products/dmc-04.html"
+  },
+  {
+   "degree": "DMCN",
+   "code": "DMC-05",
+   "name_en": "Practical Paper",
+   "name_hi": "प्रायोगिक प्रश्नपत्र",
+   "price": 49,
+   "link": "products/dmc-05.html"
+  },
+  {
+   "degree": "DWSMN",
+   "code": "DWSM-01",
+   "name_en": "Watershed Development-Principles and Strategy",
+   "name_hi": "जलग्रहण विकास-सिद्धान्त एवं रणनीति",
+   "price": 49,
+   "link": "products/dwsm-01.html"
+  },
+  {
+   "degree": "DWSMN",
+   "code": "DWSM-02",
+   "name_en": "Watershed Development Activities-Planning Phase",
+   "name_hi": "जलग्रहण विकास गतिविधियाँ-आयोजन चरण",
+   "price": 49,
+   "link": "products/dwsm-02.html"
+  },
+  {
+   "degree": "DWSMN",
+   "code": "DWSM-03",
+   "name_en": "Watershed Development Implementation Phase",
+   "name_hi": "जलग्रहण विकास क्रियान्वयन चरण",
+   "price": 49,
+   "link": "products/dwsm-03.html"
+  },
+  {
+   "degree": "DWSMN",
+   "code": "DWSM-04",
+   "name_en": "Watershed Management and Field Work",
+   "name_hi": "जलग्रहण प्रबंधन एवं फील्ड वर्क",
+   "price": 49,
+   "link": "products/dwsm-04.html"
+  },
+  {
+   "degree": "DWSMN",
+   "code": "DWSM-05",
+   "name_en": "Project *",
+   "name_hi": "प्रोजेक्ट *",
+   "price": 49,
+   "link": "products/dwsm-05.html"
+  },
+  {
+   "degree": "DYSN",
+   "code": "DYS-01",
+   "name_en": "Sampurn Yog Parichay",
+   "name_hi": "सम्पूर्ण योग परिचय",
+   "price": 49,
+   "link": "products/dys-01.html"
+  },
+  {
+   "degree": "DYSN",
+   "code": "DYS-02",
+   "name_en": "Manav Sharir Rachna evam Kriya Vigyan",
+   "name_hi": "मानव शरीर रचना एवं क्रिया विज्ञान",
+   "price": 49,
+   "link": "products/dys-02.html"
+  },
+  {
+   "degree": "DYSN",
+   "code": "DYS-03",
+   "name_en": "Aahar evam Poshan Vigyan",
+   "name_hi": "आहार एवं पोषण विज्ञान",
+   "price": 49,
+   "link": "products/dys-03.html"
+  },
+  {
+   "degree": "DYSN",
+   "code": "DYS-04",
+   "name_en": "Hath Yog evam Yog Vigyan",
+   "name_hi": "हठ योग एवं योग विज्ञान",
+   "price": 49,
+   "link": "products/dys-04.html"
+  },
+  {
+   "degree": "DYSN",
+   "code": "DYS-05",
+   "name_en": "Prayogik (Yog ka Vyavaharik evam Kriyatmak Abhyas)",
+   "name_hi": "प्रायोगिक (योग का व्यावहारिक एवं क्रियात्मक अभ्यास )",
+   "price": 49,
+   "link": "products/dys-05.html"
+  },
+  {
+   "degree": "MAECN",
+   "code": "MAEC-01",
+   "name_en": "Economic Theory -I",
+   "name_hi": "आर्थिक सिद्धान्त-प्रथम",
+   "price": 49,
+   "link": "products/maec-01.html"
+  },
+  {
+   "degree": "MAECN",
+   "code": "MAEC-02",
+   "name_en": "Economic Theory - II",
+   "name_hi": "आर्थिक सिद्धान्त-द्वितीय",
+   "price": 49,
+   "link": "products/maec-02.html"
+  },
+  {
+   "degree": "MAECN",
+   "code": "MAEC-03",
+   "name_en": "Public Economics",
+   "name_hi": "सार्वजनिक अर्थशास्त्र",
+   "price": 49,
+   "link": "products/maec-03.html"
+  },
+  {
+   "degree": "MAECN",
+   "code": "MAEC-04",
+   "name_en": "Quantitative Methods",
+   "name_hi": "परिमाणात्मक विधियाँ",
+   "price": 49,
+   "link": "products/maec-04.html"
+  },
+  {
+   "degree": "MAECN",
+   "code": "MD-01",
+   "name_en": "Business Environment",
+   "name_hi": "व्यावसायिक वातावरण",
+   "price": 49,
+   "link": "products/md-01.html"
+  },
+  {
+   "degree": "MAECN",
+   "code": "MD-02",
+   "name_en": "Writing for Mass Media",
+   "name_hi": "जनसंचार माध्यमों के लिए लेखन",
+   "price": 49,
+   "link": "products/md-02.html"
+  },
+  {
+   "degree": "MAECN",
+   "code": "MD-03",
+   "name_en": "Society : Structure and Problems",
+   "name_hi": "समाजसंरचना एवं समस्यायें:",
+   "price": 49,
+   "link": "products/md-03.html"
+  },
+  {
+   "degree": "MAECN",
+   "code": "MAEC-05",
+   "name_en": "International Economics",
+   "name_hi": "अन्तर्राष्ट्रीय अर्थशास्त्र",
+   "price": 49,
+   "link": "products/maec-05.html"
+  },
+  {
+   "degree": "MAECN",
+   "code": "MAEC-06",
+   "name_en": "Development of Indian Economy",
+   "name_hi": "भारतीय अर्थव्यवस्था का विकास",
+   "price": 49,
+   "link": "products/maec-06.html"
+  },
+  {
+   "degree": "MAECN",
+   "code": "MAEC-10",
+   "name_en": "Research Methodology in Economics I",
+   "name_hi": "शोध प्रविधि I",
+   "price": 49,
+   "link": "products/maec-10.html"
+  },
+  {
+   "degree": "MAECN",
+   "code": "MAEC-07",
+   "name_en": "Labour Economics",
+   "name_hi": "श्रम अर्थशास्त्र",
+   "price": 49,
+   "link": "products/maec-07.html"
+  },
+  {
+   "degree": "MAECN",
+   "code": "MAEC-08",
+   "name_en": "Regional Economic Development and Planning",
+   "name_hi": "क्षेत्रीय आर्थिक विकास एवं नियोजन",
+   "price": 49,
+   "link": "products/maec-08.html"
+  },
+  {
+   "degree": "MAECN",
+   "code": "MAEC-11",
+   "name_en": "Research Methodology in Economics II",
+   "name_hi": "शोध प्रविधि II",
+   "price": 49,
+   "link": "products/maec-11.html"
+  },
+  {
+   "degree": "MAEDN",
+   "code": "MAED-01",
+   "name_en": "Philosophical and Sociological Bases of Education",
+   "name_hi": "शिक्षा के दार्शनिक एवं सामाजिक आधार",
+   "price": 49,
+   "link": "products/maed-01.html"
+  },
+  {
+   "degree": "MAEDN",
+   "code": "MAED-02",
+   "name_en": "Psychological Bases of Education",
+   "name_hi": "शिक्षा के मनोवैज्ञानिक आधार",
+   "price": 49,
+   "link": "products/maed-02.html"
+  },
+  {
+   "degree": "MAEDN",
+   "code": "MAED-06",
+   "name_en": "Distance Education",
+   "name_hi": "दूरस्थ शिक्षा",
+   "price": 49,
+   "link": "products/maed-06.html"
+  },
+  {
+   "degree": "MAEDN",
+   "code": "MAED-04",
+   "name_en": "Educational Technology",
+   "name_hi": "शैक्षिक तकनीकी",
+   "price": 49,
+   "link": "products/maed-04.html"
+  },
+  {
+   "degree": "MAEDN",
+   "code": "MAED-05",
+   "name_en": "Computer Education",
+   "name_hi": "कम्प्यूटर शिक्षा",
+   "price": 49,
+   "link": "products/maed-05.html"
+  },
+  {
+   "degree": "MAEDN",
+   "code": "MAED-07",
+   "name_en": "Comparative Education",
+   "name_hi": "तुलनात्मक शिक्षा",
+   "price": 49,
+   "link": "products/maed-07.html"
+  },
+  {
+   "degree": "MAEDN",
+   "code": "MAED-08",
+   "name_en": "Measurement and Evaluation",
+   "name_hi": "मापन एवं मूल्यांकन",
+   "price": 49,
+   "link": "products/maed-08.html"
+  },
+  {
+   "degree": "MAEDN",
+   "code": "MAED-09",
+   "name_en": "Educational Management",
+   "name_hi": "शैक्षिक प्रबंध",
+   "price": 49,
+   "link": "products/maed-09.html"
+  },
+  {
+   "degree": "MAEDN",
+   "code": "MAED-10",
+   "name_en": "Guidance and Counselling",
+   "name_hi": "निर्देशन एवं परामर्श",
+   "price": 49,
+   "link": "products/maed-10.html"
+  },
+  {
+   "degree": "MAEDN",
+   "code": "MAED-11",
+   "name_en": "Curriculum Development",
+   "name_hi": "पाठ्यक्रम विकास",
+   "price": 49,
+   "link": "products/maed-11.html"
+  },
+  {
+   "degree": "MAEDN",
+   "code": "MAED-12",
+   "name_en": "Women Education",
+   "name_hi": "महिला शिक्षा",
+   "price": 49,
+   "link": "products/maed-12.html"
+  },
+  {
+   "degree": "MAEDN",
+   "code": "MAED-14",
+   "name_en": "Elementary Education",
+   "name_hi": "प्राथमिक शिक्षा",
+   "price": 49,
+   "link": "products/maed-14.html"
+  },
+  {
+   "degree": "MAEDN",
+   "code": "MAED-15",
+   "name_en": "Secondary Education",
+   "name_hi": "माध्यमिक शिक्षा",
+   "price": 49,
+   "link": "products/maed-15.html"
+  },
+  {
+   "degree": "MAEDN",
+   "code": "MAED-17",
+   "name_en": "Teacher Education",
+   "name_hi": "शिक्षक शिक्षा",
+   "price": 49,
+   "link": "products/maed-17.html"
+  },
+  {
+   "degree": "MAEDN",
+   "code": "MAED-03",
+   "name_en": "Research Methods in Education",
+   "name_hi": "शिक्षा की अनुसंधान पद्धतियाँ",
+   "price": 49,
+   "link": "products/maed-03.html"
+  },
+  {
+   "degree": "MAEGN",
+   "code": "MAEG-01",
+   "name_en": "English Language Usage and Communication Skills",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/maeg-01.html"
+  },
+  {
+   "degree": "MAEGN",
+   "code": "MAEG-02",
+   "name_en": "Renaissance to Jacobean Age",
+   "name_hi": "पुनर्जागरण से जैकोबियन युग",
+   "price": 49,
+   "link": "products/maeg-02.html"
+  },
+  {
+   "degree": "MAEGN",
+   "code": "MAEG-03",
+   "name_en": "Caroline to Reformation Age",
+   "name_hi": "कैरोलिन से सुधार युग",
+   "price": 49,
+   "link": "products/maeg-03.html"
+  },
+  {
+   "degree": "MAEGN",
+   "code": "MAEG-04",
+   "name_en": "The Romantic Age",
+   "name_hi": "स्वच्छंदतावादी युग",
+   "price": 49,
+   "link": "products/maeg-04.html"
+  },
+  {
+   "degree": "MAEGN",
+   "code": "MAEG-08",
+   "name_en": "Indian Writings and in Translation",
+   "name_hi": "अंग्रेजी और अनुवाद में भारतीय लेखन",
+   "price": 49,
+   "link": "products/maeg-08.html"
+  },
+  {
+   "degree": "MAEGN",
+   "code": "MAEG-05",
+   "name_en": "Principles of Criticism",
+   "name_hi": "आलोचना के सिद्धांत",
+   "price": 49,
+   "link": "products/maeg-05.html"
+  },
+  {
+   "degree": "MAEGN",
+   "code": "MAEG-06",
+   "name_en": "Victorian Age",
+   "name_hi": "विक्टोरियन युग",
+   "price": 49,
+   "link": "products/maeg-06.html"
+  },
+  {
+   "degree": "MAEGN",
+   "code": "MAEG-07",
+   "name_en": "Twentieth Century",
+   "name_hi": "बीसवीं सदी",
+   "price": 49,
+   "link": "products/maeg-07.html"
+  },
+  {
+   "degree": "MAEGN",
+   "code": "MAT-303",
+   "name_en": "Research Method & Critical Theories",
+   "name_hi": "अनुसंधान विधियाँ",
+   "price": 49,
+   "link": "products/mat-303.html"
+  },
+  {
+   "degree": "MAEGN",
+   "code": "MAEG-12",
+   "name_en": "Research Method & Critical Theories",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/maeg-12.html"
+  },
+  {
+   "degree": "MAEGN",
+   "code": "MAEG-09",
+   "name_en": "Post Colonial Literature",
+   "name_hi": "उत्तर-औपनिवेशिक साहित्य",
+   "price": 49,
+   "link": "products/maeg-09.html"
+  },
+  {
+   "degree": "MAEGN",
+   "code": "MAEG-10",
+   "name_en": "American Literature",
+   "name_hi": "अमेरिकी साहित्य",
+   "price": 49,
+   "link": "products/maeg-10.html"
+  },
+  {
+   "degree": "MAEGN",
+   "code": "MAEG-11",
+   "name_en": "Canadian Literature",
+   "name_hi": "कनाडाई साहित्य",
+   "price": 49,
+   "link": "products/maeg-11.html"
+  },
+  {
+   "degree": "MAGEN",
+   "code": "MAGE-01",
+   "name_en": "Evolution of Geographical Thought",
+   "name_hi": "भौगोलिक चिन्तन का विकास",
+   "price": 49,
+   "link": "products/mage-01.html"
+  },
+  {
+   "degree": "MAGEN",
+   "code": "MAGE-02",
+   "name_en": "Physical Geography",
+   "name_hi": "भौतिक भूगोल",
+   "price": 49,
+   "link": "products/mage-02.html"
+  },
+  {
+   "degree": "MAGEN",
+   "code": "MAGE-03",
+   "name_en": "Principles of Economic Geography",
+   "name_hi": "आर्थिक भूगोल के सिद्धात",
+   "price": 49,
+   "link": "products/mage-03.html"
+  },
+  {
+   "degree": "MAGEN",
+   "code": "MAGE-04",
+   "name_en": "Geography of Environment",
+   "name_hi": "पर्यावरण भूगोल",
+   "price": 49,
+   "link": "products/mage-04.html"
+  },
+  {
+   "degree": "MAGEN",
+   "code": "MAGE-05",
+   "name_en": "Practical Geography*",
+   "name_hi": "प्रायोगिक भूगोल",
+   "price": 49,
+   "link": "products/mage-05.html"
+  },
+  {
+   "degree": "MAGEN",
+   "code": "MAGE-06",
+   "name_en": "Advanced Geography of India",
+   "name_hi": "भारत का वृहद भूगोल",
+   "price": 49,
+   "link": "products/mage-06.html"
+  },
+  {
+   "degree": "MAGEN",
+   "code": "MAGE-07",
+   "name_en": "Geography of Agriculture",
+   "name_hi": "कृषि भूगोल",
+   "price": 49,
+   "link": "products/mage-07.html"
+  },
+  {
+   "degree": "MAGEN",
+   "code": "MAGE-08",
+   "name_en": "Political Geography",
+   "name_hi": "राजनीतिक भूगोल",
+   "price": 49,
+   "link": "products/mage-08.html"
+  },
+  {
+   "degree": "MAGEN",
+   "code": "MAGE-09",
+   "name_en": "Urban Geography",
+   "name_hi": "नगरीय भूगोल",
+   "price": 49,
+   "link": "products/mage-09.html"
+  },
+  {
+   "degree": "MAGEN",
+   "code": "MAGE-10",
+   "name_en": "Practical Geography*",
+   "name_hi": "प्रायोगिक भूगोल",
+   "price": 49,
+   "link": "products/mage-10.html"
+  },
+  {
+   "degree": "MAGEN",
+   "code": "MAGE-11",
+   "name_en": "Research Methodology and Geographical Analysis",
+   "name_hi": "शोध विधितंत्र एवं भौगोलिक विश्लेषण",
+   "price": 49,
+   "link": "products/mage-11.html"
+  },
+  {
+   "degree": "MAHDN",
+   "code": "MAHD-01",
+   "name_en": "प्राचीन एवं मध्यकालीन काव्य",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mahd-01.html"
+  },
+  {
+   "degree": "MAHDN",
+   "code": "MAHD-02",
+   "name_en": "आधुनिक काव्य",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mahd-02.html"
+  },
+  {
+   "degree": "MAHDN",
+   "code": "MAHD-03",
+   "name_en": "हिन्दी साहित्य का इतिहास",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mahd-03.html"
+  },
+  {
+   "degree": "MAHDN",
+   "code": "MAHD-04",
+   "name_en": "काव्यशास्त्र व समालोचना",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mahd-04.html"
+  },
+  {
+   "degree": "MAHDN",
+   "code": "MAHD-10",
+   "name_en": "जनसंचार माध्यम और पत्रकारिता",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mahd-10.html"
+  },
+  {
+   "degree": "MAHDN",
+   "code": "MAHD-05",
+   "name_en": "नाटक और कथेतर गद्य विधाएँ",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mahd-05.html"
+  },
+  {
+   "degree": "MAHDN",
+   "code": "MAHD-06",
+   "name_en": "कथा साहित्य",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mahd-06.html"
+  },
+  {
+   "degree": "MAHDN",
+   "code": "MAHD-07",
+   "name_en": "भाषा विज्ञान",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mahd-07.html"
+  },
+  {
+   "degree": "MAHDN",
+   "code": "MAHD-08",
+   "name_en": "आधुनिक हिन्दी कविता और गीत परम्परा",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mahd-08.html"
+  },
+  {
+   "degree": "MAHDN",
+   "code": "MAHD-09",
+   "name_en": "लोक साहित्य",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mahd-09.html"
+  },
+  {
+   "degree": "MAHDN",
+   "code": "MAHD-11",
+   "name_en": "शोध का स्वरूप एवं प्रविधि",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mahd-11.html"
+  },
+  {
+   "degree": "MAHIN",
+   "code": "MAHI-01",
+   "name_en": "World History (Medieval Society and Era of Revolution)",
+   "name_hi": "विश्व इतिहास (मध्यकालीन समाज एवं क्रांति का युग)",
+   "price": 49,
+   "link": "products/mahi-01.html"
+  },
+  {
+   "degree": "MAHIN",
+   "code": "MAHI-02",
+   "name_en": "World History-(1815-1918) (Nationalism, Capitalism and Socialism)",
+   "name_hi": "विश्व इतिहास-(1815-1918) (राष्ट्रवाद, पूंजीवाद एवं समाजवाद)",
+   "price": 49,
+   "link": "products/mahi-02.html"
+  },
+  {
+   "degree": "MAHIN",
+   "code": "MAHI-03",
+   "name_en": "History of Modern World-(1919-1945) (War and Industrial Society)",
+   "name_hi": "आधुनिक विश्व का इतिहास (1919-1945)(युद्ध एवं औद्योगिक समाज)",
+   "price": 49,
+   "link": "products/mahi-03.html"
+  },
+  {
+   "degree": "MAHIN",
+   "code": "MAHI-04",
+   "name_en": "Historical Thoughts",
+   "name_hi": "ऐतिहासिक चिंतन",
+   "price": 49,
+   "link": "products/mahi-04.html"
+  },
+  {
+   "degree": "MAHIN",
+   "code": "MD-01",
+   "name_en": "Business Environment",
+   "name_hi": "व्यावसायिक वातावरण",
+   "price": 49,
+   "link": "products/md-01.html"
+  },
+  {
+   "degree": "MAHIN",
+   "code": "MD-02",
+   "name_en": "Writing for Mass Media",
+   "name_hi": "जनसंचार माध्यमों के लिए लेखन",
+   "price": 49,
+   "link": "products/md-02.html"
+  },
+  {
+   "degree": "MAHIN",
+   "code": "MD-03",
+   "name_en": "Society : Structure and Problems",
+   "name_hi": "समाजःसंरचना एवं समस्यायें",
+   "price": 49,
+   "link": "products/md-03.html"
+  },
+  {
+   "degree": "MAHIN",
+   "code": "MAHI-05",
+   "name_en": "State and Polity in Ancient India",
+   "name_hi": "प्राचीन भारत में राज्य एवं राजनीति",
+   "price": 49,
+   "link": "products/mahi-05.html"
+  },
+  {
+   "degree": "MAHIN",
+   "code": "MAHI-06",
+   "name_en": "Trade and Urbanisation in Ancient India",
+   "name_hi": "प्राचीन भारत में व्यापार एवं शहरीकरण",
+   "price": 49,
+   "link": "products/mahi-06.html"
+  },
+  {
+   "degree": "MAHIN",
+   "code": "MAHI-09",
+   "name_en": "Bhakti Movement and Sufism in India",
+   "name_hi": "भारत में भक्ति आन्दोलन एवं सूफीवाद",
+   "price": 49,
+   "link": "products/mahi-09.html"
+  },
+  {
+   "degree": "MAHIN",
+   "code": "MAHI-10",
+   "name_en": "Growth of Administrative Institutions in Medieval India",
+   "name_hi": "मध्यकालीन भारत में प्रशासकीय संस्थाओं का विकास",
+   "price": 49,
+   "link": "products/mahi-10.html"
+  },
+  {
+   "degree": "MAHIN",
+   "code": "MAHI-13",
+   "name_en": "Peasant Movement in India (1818-1951)",
+   "name_hi": "भारत में किसान आन्दोलन (1818-1951)",
+   "price": 49,
+   "link": "products/mahi-13.html"
+  },
+  {
+   "degree": "MAHIN",
+   "code": "MAHI-14",
+   "name_en": "Freedom Movements in India (1920-1947)",
+   "name_hi": "भारत में स्वतंत्रता आन्दोलन (1920-1947)",
+   "price": 49,
+   "link": "products/mahi-14.html"
+  },
+  {
+   "degree": "MAHIN",
+   "code": "MAHI-15",
+   "name_en": "Society and Economy in Modern Rajasthan",
+   "name_hi": "आधुनिक राजस्थान में समाज एवं अर्थव्यवस्था",
+   "price": 49,
+   "link": "products/mahi-15.html"
+  },
+  {
+   "degree": "MAHIN",
+   "code": "MARM",
+   "name_en": "Research Methodology",
+   "name_hi": "शोध प्रविधि",
+   "price": 49,
+   "link": "products/marm.html"
+  },
+  {
+   "degree": "MAPSN",
+   "code": "MAPS-01",
+   "name_en": "Political Thought",
+   "name_hi": "राजनीतिक चिन्तन",
+   "price": 49,
+   "link": "products/maps-01.html"
+  },
+  {
+   "degree": "MAPSN",
+   "code": "MAPS-02",
+   "name_en": "Comparative Politics",
+   "name_hi": "तुलनात्मक राजनीति",
+   "price": 49,
+   "link": "products/maps-02.html"
+  },
+  {
+   "degree": "MAPSN",
+   "code": "MAPS-03",
+   "name_en": "International Politics",
+   "name_hi": "अन्तर्राष्ट्रीय राजनीति",
+   "price": 49,
+   "link": "products/maps-03.html"
+  },
+  {
+   "degree": "MAPSN",
+   "code": "MAPS-04",
+   "name_en": "Indian Politics-I",
+   "name_hi": "भारतीय राजनीति-I",
+   "price": 49,
+   "link": "products/maps-04.html"
+  },
+  {
+   "degree": "MAPSN",
+   "code": "MD-01",
+   "name_en": "Business Environment",
+   "name_hi": "व्यावसायिक वातावरण",
+   "price": 49,
+   "link": "products/md-01.html"
+  },
+  {
+   "degree": "MAPSN",
+   "code": "MD-02",
+   "name_en": "Writing for Mass Media",
+   "name_hi": "जनसंचार माध्यमों के लिए लेखन",
+   "price": 49,
+   "link": "products/md-02.html"
+  },
+  {
+   "degree": "MAPSN",
+   "code": "MD-03",
+   "name_en": "Society : Structure and Problems",
+   "name_hi": "समाजसंरचना एवं समस्यायें",
+   "price": 49,
+   "link": "products/md-03.html"
+  },
+  {
+   "degree": "MAPSN",
+   "code": "MAPS-05",
+   "name_en": "Advanced Political Theory",
+   "name_hi": "विकसित राजनीतिक सिद्धांत",
+   "price": 49,
+   "link": "products/maps-05.html"
+  },
+  {
+   "degree": "MAPSN",
+   "code": "MAGP-01",
+   "name_en": "From Mohandas to Mahatma Gandhi",
+   "name_hi": "मोहनदास से महात्मा गांधी",
+   "price": 49,
+   "link": "products/magp-01.html"
+  },
+  {
+   "degree": "MAPSN",
+   "code": "MAPS-06",
+   "name_en": "Indian Politics-II",
+   "name_hi": "भारतीय राजनीति-II",
+   "price": 49,
+   "link": "products/maps-06.html"
+  },
+  {
+   "degree": "MAPSN",
+   "code": "MAGP-06",
+   "name_en": "Political Thought of Mahatma Gandhi",
+   "name_hi": "गाँधी के राजनीतिक विचार",
+   "price": 49,
+   "link": "products/magp-06.html"
+  },
+  {
+   "degree": "MAPSN",
+   "code": "MAPS-07",
+   "name_en": "Comparative Foreign Policy Studies with Special Reference to India",
+   "name_hi": "भारत के विशेष संदर्भ में तुलनात्मक विदेश नीति अध्ययन",
+   "price": 49,
+   "link": "products/maps-07.html"
+  },
+  {
+   "degree": "MAPSN",
+   "code": "MAGP-07",
+   "name_en": "Gandhian Ideas and Practices after Gandhi",
+   "name_hi": "गाँधी के बाद उनके विचार एवं प्रयोग",
+   "price": 49,
+   "link": "products/magp-07.html"
+  },
+  {
+   "degree": "MAPSN",
+   "code": "MAPS-08",
+   "name_en": "Public Policy",
+   "name_hi": "सार्वजनिक नीति",
+   "price": 49,
+   "link": "products/maps-08.html"
+  },
+  {
+   "degree": "MAPSN",
+   "code": "MAGP-08",
+   "name_en": "Gandhi and Contemporary Problems",
+   "name_hi": "समकालीन समस्याएँ और गाँधी",
+   "price": 49,
+   "link": "products/magp-08.html"
+  },
+  {
+   "degree": "MAPSN",
+   "code": "MARM",
+   "name_en": "Research Methodology",
+   "name_hi": "शोध प्रविधि",
+   "price": 49,
+   "link": "products/marm.html"
+  },
+  {
+   "degree": "MAPSTN",
+   "code": "MAPST-01",
+   "name_en": "Policing : Theory and Practice",
+   "name_hi": "पुलिसिंग : सिद्धान्त एवं व्यवहार",
+   "price": 49,
+   "link": "products/mapst-01.html"
+  },
+  {
+   "degree": "MAPSTN",
+   "code": "MAPST-02",
+   "name_en": "Legal Perspective on Police",
+   "name_hi": "पुलिस का विधिक परिप्रेक्ष्य",
+   "price": 49,
+   "link": "products/mapst-02.html"
+  },
+  {
+   "degree": "MAPSTN",
+   "code": "MAPST-03",
+   "name_en": "Criminology: The Police Perspectives",
+   "name_hi": "अपराध शास्त्रः पुलिस का परिप्रेक्ष्य",
+   "price": 49,
+   "link": "products/mapst-03.html"
+  },
+  {
+   "degree": "MAPSTN",
+   "code": "MAPST-04",
+   "name_en": "Policing in Democracy",
+   "name_hi": "लोकतंत्र में पुलिसिंग",
+   "price": 49,
+   "link": "products/mapst-04.html"
+  },
+  {
+   "degree": "MAPSTN",
+   "code": "MD-01",
+   "name_en": "Business Environment",
+   "name_hi": "व्यावसायिक वातावरण",
+   "price": 49,
+   "link": "products/md-01.html"
+  },
+  {
+   "degree": "MAPSTN",
+   "code": "MD-02",
+   "name_en": "Writing for Mass Media",
+   "name_hi": "जनसंचार माध्यमों के लिए लेखन",
+   "price": 49,
+   "link": "products/md-02.html"
+  },
+  {
+   "degree": "MAPSTN",
+   "code": "MD-03",
+   "name_en": "Society : Structure and Problems",
+   "name_hi": "समाजसंरचना एवं समस्यायें:",
+   "price": 49,
+   "link": "products/md-03.html"
+  },
+  {
+   "degree": "MAPSTN",
+   "code": "MAPST-05",
+   "name_en": "Police and Security",
+   "name_hi": "पुलिस और सुरक्षा",
+   "price": 49,
+   "link": "products/mapst-05.html"
+  },
+  {
+   "degree": "MAPSTN",
+   "code": "MAPST-06",
+   "name_en": "Police and Technology",
+   "name_hi": "पुलिस और प्राविधिक",
+   "price": 49,
+   "link": "products/mapst-06.html"
+  },
+  {
+   "degree": "MAPSTN",
+   "code": "MAPST-07",
+   "name_en": "Police and Management",
+   "name_hi": "पुलिस और प्रबन्ध",
+   "price": 49,
+   "link": "products/mapst-07.html"
+  },
+  {
+   "degree": "MAPSTN",
+   "code": "MAPST-08",
+   "name_en": "Police – Conflict Resolution",
+   "name_hi": "पुलिस - संघर्ष निवारण",
+   "price": 49,
+   "link": "products/mapst-08.html"
+  },
+  {
+   "degree": "MAPSTN",
+   "code": "MARM",
+   "name_en": "Research Methodology",
+   "name_hi": "शोध प्रविधि",
+   "price": 49,
+   "link": "products/marm.html"
+  },
+  {
+   "degree": "MARJN",
+   "code": "MARJ-01",
+   "name_en": "आधुनिक राजस्थानी गद्य साहित्य",
+   "name_hi": "आधुनिक राजस्थानी गद्य साहित्य",
+   "price": 49,
+   "link": "products/marj-01.html"
+  },
+  {
+   "degree": "MARJN",
+   "code": "MARJ-02",
+   "name_en": "आधुनिक राजस्थानी पद्य साहित्य",
+   "name_hi": "आधुनिक राजस्थानी पद्य साहित्य",
+   "price": 49,
+   "link": "products/marj-02.html"
+  },
+  {
+   "degree": "MARJN",
+   "code": "MARJ-03",
+   "name_en": "राजस्थानी साहित्य रो इतिहास",
+   "name_hi": "राजस्थानी साहित्य रो इतिहास",
+   "price": 49,
+   "link": "products/marj-03.html"
+  },
+  {
+   "degree": "MARJN",
+   "code": "MARJ-04",
+   "name_en": "राजस्थानी लोक साहित्य",
+   "name_hi": "राजस्थानी लोक साहित्य",
+   "price": 49,
+   "link": "products/marj-04.html"
+  },
+  {
+   "degree": "MARJN",
+   "code": "MARJ-10",
+   "name_en": "भाषा विज्ञान",
+   "name_hi": "भाषा विज्ञान",
+   "price": 49,
+   "link": "products/marj-10.html"
+  },
+  {
+   "degree": "MARJN",
+   "code": "MARJ-05",
+   "name_en": "प्राचीन अर मध्यकालीन राजस्थानी काव्य",
+   "name_hi": "प्राचीन अर मध्यकालीन राजस्थानी काव्य",
+   "price": 49,
+   "link": "products/marj-05.html"
+  },
+  {
+   "degree": "MARJN",
+   "code": "MARJ-06",
+   "name_en": "प्राचीन अर मध्यकालीन राजस्थानी गद्य",
+   "name_hi": "प्राचीन अर मध्यकालीन राजस्थानी गद्य",
+   "price": 49,
+   "link": "products/marj-06.html"
+  },
+  {
+   "degree": "MARJN",
+   "code": "MARJ-07",
+   "name_en": "साहित्य शास्त्र अर पाठालोचन",
+   "name_hi": "साहित्य शास्त्र अर पाठालोचन",
+   "price": 49,
+   "link": "products/marj-07.html"
+  },
+  {
+   "degree": "MARJN",
+   "code": "MARJ-08",
+   "name_en": "राजस्थानी भक्ति साहित्य",
+   "name_hi": "राजस्थानी भक्ति साहित्य",
+   "price": 49,
+   "link": "products/marj-08.html"
+  },
+  {
+   "degree": "MARJN",
+   "code": "MARJ-11",
+   "name_en": "शोध का स्वरूप एवं प्रविधि",
+   "name_hi": "शोध का स्वरूप एवं प्रविधि",
+   "price": 49,
+   "link": "products/marj-11.html"
+  },
+  {
+   "degree": "MASAN",
+   "code": "MASA-01",
+   "name_en": "वैदिक साहित्य एवं तुलनात्मक भाषा विज्ञान",
+   "name_hi": "वैदिक साहित्य एवं तुलनात्मक भाषा विज्ञान",
+   "price": 49,
+   "link": "products/masa-01.html"
+  },
+  {
+   "degree": "MASAN",
+   "code": "MASA-02",
+   "name_en": "ललित साहित्य एवं नाटक",
+   "name_hi": "ललित साहित्य एवं नाटक",
+   "price": 49,
+   "link": "products/masa-02.html"
+  },
+  {
+   "degree": "MASAN",
+   "code": "MASA-03",
+   "name_en": "भारतीय दर्शन",
+   "name_hi": "भारतीय दर्शन",
+   "price": 49,
+   "link": "products/masa-03.html"
+  },
+  {
+   "degree": "MASAN",
+   "code": "MASA-04",
+   "name_en": "भारतीय काव्यशास्त्र एवं व्याकरण",
+   "name_hi": "भारतीय काव्यशास्त्र एवं व्याकरण",
+   "price": 49,
+   "link": "products/masa-04.html"
+  },
+  {
+   "degree": "MASAN",
+   "code": "MASA-11",
+   "name_en": "संस्कृत साहित्य समीक्षा सिद्धान्त",
+   "name_hi": "संस्कृत साहित्य समीक्षा सिद्धान्त",
+   "price": 49,
+   "link": "products/masa-11.html"
+  },
+  {
+   "degree": "MASAN",
+   "code": "MASA-05",
+   "name_en": "गद्य तथा काव्य",
+   "name_hi": "गद्य तथा काव्य",
+   "price": 49,
+   "link": "products/masa-05.html"
+  },
+  {
+   "degree": "MASAN",
+   "code": "MASA-06",
+   "name_en": "नाटक तथा नाटकशास्त्र",
+   "name_hi": "नाटक तथा नाटकशास्त्र",
+   "price": 49,
+   "link": "products/masa-06.html"
+  },
+  {
+   "degree": "MASAN",
+   "code": "MASA-07",
+   "name_en": "साहित्यशास्त्र",
+   "name_hi": "साहित्यशास्त्र",
+   "price": 49,
+   "link": "products/masa-07.html"
+  },
+  {
+   "degree": "MASAN",
+   "code": "MASA-08",
+   "name_en": "आधुनिक संस्कृत साहित्य का इतिहास",
+   "name_hi": "आधुनिक संस्कृत साहित्य का इतिहास",
+   "price": 49,
+   "link": "products/masa-08.html"
+  },
+  {
+   "degree": "MASAN",
+   "code": "MASA-12",
+   "name_en": "शोधप्रविधि तथा पांडालोचन",
+   "name_hi": "शोधप्रविधि तथा पांडालोचन",
+   "price": 49,
+   "link": "products/masa-12.html"
+  },
+  {
+   "degree": "MASON",
+   "code": "MASO-01",
+   "name_en": "Foundations of Sociology",
+   "name_hi": "समाजशास्त्र के मूलतत्व",
+   "price": 49,
+   "link": "products/maso-01.html"
+  },
+  {
+   "degree": "MASON",
+   "code": "MASO-02",
+   "name_en": "Logic of Sociological Enquiry",
+   "name_hi": "समाजशास्त्रीय अनुसंधान का तर्क",
+   "price": 49,
+   "link": "products/maso-02.html"
+  },
+  {
+   "degree": "MASON",
+   "code": "MASO-03",
+   "name_en": "Indian Social System",
+   "name_hi": "भारतीय सामाजिक व्यवस्था",
+   "price": 49,
+   "link": "products/maso-03.html"
+  },
+  {
+   "degree": "MASON",
+   "code": "MASO-04",
+   "name_en": "Rural Sociology",
+   "name_hi": "ग्रामीण समाजशास्त्र",
+   "price": 49,
+   "link": "products/maso-04.html"
+  },
+  {
+   "degree": "MASON",
+   "code": "MD-01",
+   "name_en": "Business Environment",
+   "name_hi": "व्यावसायिक वातावरण",
+   "price": 49,
+   "link": "products/md-01.html"
+  },
+  {
+   "degree": "MASON",
+   "code": "MD-02",
+   "name_en": "Writing for Mass Media",
+   "name_hi": "जनसंचार माध्यमों के लिए लेखन",
+   "price": 49,
+   "link": "products/md-02.html"
+  },
+  {
+   "degree": "MASON",
+   "code": "MD-03",
+   "name_en": "Society : Structure and Problems",
+   "name_hi": "समाज एवं समस्याएँ : संरचना एवं समस्याएँ",
+   "price": 49,
+   "link": "products/md-03.html"
+  },
+  {
+   "degree": "MASON",
+   "code": "MASO-05",
+   "name_en": "Contemporary Sociological Theory",
+   "name_hi": "समकालीन समाजशास्त्रीय सिद्धान्त",
+   "price": 49,
+   "link": "products/maso-05.html"
+  },
+  {
+   "degree": "MASON",
+   "code": "MASO-06",
+   "name_en": "Sociological Thinkers",
+   "name_hi": "समाजशास्त्रीय विचारक",
+   "price": 49,
+   "link": "products/maso-06.html"
+  },
+  {
+   "degree": "MASON",
+   "code": "MASO-07",
+   "name_en": "Development of Sociology in India",
+   "name_hi": "भारत में समाजशास्त्र का विकास",
+   "price": 49,
+   "link": "products/maso-07.html"
+  },
+  {
+   "degree": "MASON",
+   "code": "MASO-08",
+   "name_en": "Criminology",
+   "name_hi": "अपराधशास्त्र",
+   "price": 49,
+   "link": "products/maso-08.html"
+  },
+  {
+   "degree": "MASON",
+   "code": "MARM",
+   "name_en": "Research Methodology",
+   "name_hi": "शोध प्रविधि",
+   "price": 49,
+   "link": "products/marm.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-101",
+   "name_en": "Management & Organizational Behaviour",
+   "name_hi": "प्रबंधन और संगठनात्मक व्यवहार",
+   "price": 49,
+   "link": "products/mp-101.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-102",
+   "name_en": "Managerial Economics",
+   "name_hi": "प्रबंधकीय अर्थशास्त्र",
+   "price": 49,
+   "link": "products/mp-102.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-103",
+   "name_en": "Accounting for Managers",
+   "name_hi": "प्रबंधकों के लिए लेखांकन",
+   "price": 49,
+   "link": "products/mp-103.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-104",
+   "name_en": "Fundamentals of Information Technology",
+   "name_hi": "सूचना प्रौद्योगिकी के मूल सिद्धांत",
+   "price": 49,
+   "link": "products/mp-104.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-105",
+   "name_en": "Business Ethics",
+   "name_hi": "व्यावसायिक नैतिकता",
+   "price": 49,
+   "link": "products/mp-105.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-106",
+   "name_en": "Marketing Management",
+   "name_hi": "विपणन प्रबंधन",
+   "price": 49,
+   "link": "products/mp-106.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-107",
+   "name_en": "Financial Management",
+   "name_hi": "वित्तीय प्रबंधन",
+   "price": 49,
+   "link": "products/mp-107.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-108",
+   "name_en": "Human Resource Management",
+   "name_hi": "मानव संसाधन प्रबंधन",
+   "price": 49,
+   "link": "products/mp-108.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-109",
+   "name_en": "Operations Management",
+   "name_hi": "संचालन प्रबंधन",
+   "price": 49,
+   "link": "products/mp-109.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-110",
+   "name_en": "Entrepreneurship & Small Business Management",
+   "name_hi": "उद्यमिता और लघु व्यवसाय प्रबंधन",
+   "price": 49,
+   "link": "products/mp-110.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-111",
+   "name_en": "Global Business Management",
+   "name_hi": "वैश्विक व्यवसाय प्रबंधन",
+   "price": 49,
+   "link": "products/mp-111.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-201",
+   "name_en": "Business Environment",
+   "name_hi": "व्यावसायिक परिवेश",
+   "price": 49,
+   "link": "products/mp-201.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-202",
+   "name_en": "Research Methodology",
+   "name_hi": "अनुसंधान प्रविधि",
+   "price": 49,
+   "link": "products/mp-202.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-203",
+   "name_en": "Management Information System",
+   "name_hi": "प्रबंधन सूचना प्रणाली",
+   "price": 49,
+   "link": "products/mp-203.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-204",
+   "name_en": "Quantitative Techniques",
+   "name_hi": "मात्रात्मक तकनीकें",
+   "price": 49,
+   "link": "products/mp-204.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-205",
+   "name_en": "Strategic Management",
+   "name_hi": "सामरिक प्रबंधन",
+   "price": 49,
+   "link": "products/mp-205.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-401",
+   "name_en": "Human Resource Development",
+   "name_hi": "मानव संसाधन विकास",
+   "price": 49,
+   "link": "products/mp-401.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-402",
+   "name_en": "Organizational Development & Training",
+   "name_hi": "संगठनात्मक विकास और प्रशिक्षण",
+   "price": 49,
+   "link": "products/mp-402.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-403",
+   "name_en": "Performance Management& Compensation",
+   "name_hi": "प्रदर्शन प्रबंधन और मुआवजा योजना",
+   "price": 49,
+   "link": "products/mp-403.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-404",
+   "name_en": "Indian Labour Legislation",
+   "name_hi": "भारतीय श्रम कानून",
+   "price": 49,
+   "link": "products/mp-404.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-405",
+   "name_en": "Collective Bargaining & Negotiation Skills",
+   "name_hi": "सामूहिक सौदेबाजी और वार्ता कौशल",
+   "price": 49,
+   "link": "products/mp-405.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-100",
+   "name_en": "Dissertation & Viva Voce (Equivalent to one Course of 100 Marks)",
+   "name_hi": "शोध प्रबंध और मौखिक परीक्षा",
+   "price": 49,
+   "link": "products/mp-100.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-501",
+   "name_en": "Security Analysis & Portfolio Management",
+   "name_hi": "प्रतिभूति विश्लेषण और पोर्टफोलियो प्रबंधन",
+   "price": 49,
+   "link": "products/mp-501.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-502",
+   "name_en": "Financial Services",
+   "name_hi": "वित्तीय सेवाएँ",
+   "price": 49,
+   "link": "products/mp-502.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-503",
+   "name_en": "Capital Market & SEBI Regulations",
+   "name_hi": "पूंजी बाजार और सेबी (SEBI) विनियम",
+   "price": 49,
+   "link": "products/mp-503.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-504",
+   "name_en": "International Financial Management",
+   "name_hi": "अंतर्राष्ट्रीय वित्तीय प्रबंधन",
+   "price": 49,
+   "link": "products/mp-504.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-505",
+   "name_en": "Project Management",
+   "name_hi": "परियोजना प्रबंधन",
+   "price": 49,
+   "link": "products/mp-505.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-601",
+   "name_en": "Consumer Behaviour & Market Research",
+   "name_hi": "उपभोक्ता व्यवहार और विपणन अनुसंधान",
+   "price": 49,
+   "link": "products/mp-601.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-602",
+   "name_en": "Retail Management",
+   "name_hi": "फुटकर व्यापार प्रबंधन",
+   "price": 49,
+   "link": "products/mp-602.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-603",
+   "name_en": "Product & Brand management",
+   "name_hi": "उत्पाद और ब्रांड प्रबंधन",
+   "price": 49,
+   "link": "products/mp-603.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-604",
+   "name_en": "Advertising & Sales Promotion",
+   "name_hi": "विज्ञापन और बिक्री संवर्धन",
+   "price": 49,
+   "link": "products/mp-604.html"
+  },
+  {
+   "degree": "MBAN",
+   "code": "MP-605",
+   "name_en": "Sales & Logistics Management",
+   "name_hi": "बिक्री और लॉजिस्टिक्स प्रबंधन",
+   "price": 49,
+   "link": "products/mp-605.html"
+  },
+  {
+   "degree": "MBON",
+   "code": "MBO-01",
+   "name_en": "Biology & Diversity of Microbes & Non-Vascular Cryptogams",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mbo-01.html"
+  },
+  {
+   "degree": "MBON",
+   "code": "MBO-02",
+   "name_en": "Pteridophytes, Gymnosperms and Paleobotany",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mbo-02.html"
+  },
+  {
+   "degree": "MBON",
+   "code": "MBO-03",
+   "name_en": "Cell Biology, Genetics, Biostatistics & Computational Biology",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mbo-03.html"
+  },
+  {
+   "degree": "MBON",
+   "code": "MBO-04",
+   "name_en": "Plant Physiology & Metabolism",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mbo-04.html"
+  },
+  {
+   "degree": "MBON",
+   "code": "MBO-05",
+   "name_en": "Practical Botany I",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mbo-05.html"
+  },
+  {
+   "degree": "MBON",
+   "code": "MBO-06",
+   "name_en": "Biosystematics of Angiosperms, Plant Development and Reproduction",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mbo-06.html"
+  },
+  {
+   "degree": "MBON",
+   "code": "MBO-07",
+   "name_en": "Plant Ecology, Plant Resource Utilization and Biodiversity Conservation",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mbo-07.html"
+  },
+  {
+   "degree": "MBON",
+   "code": "MSCRM",
+   "name_en": "Research Methodology",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mscrm.html"
+  },
+  {
+   "degree": "MBON",
+   "code": "MBO-08",
+   "name_en": "Biotechnology , Molecular Biology and Genetic Engineering of Plants",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mbo-08.html"
+  },
+  {
+   "degree": "MBON",
+   "code": "MBO-09",
+   "name_en": "Plant Pathology",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mbo-09.html"
+  },
+  {
+   "degree": "MBON",
+   "code": "MBO-10",
+   "name_en": "Practical Botany II",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mbo-10.html"
+  },
+  {
+   "degree": "MCOMN",
+   "code": "MCOM-01",
+   "name_en": "Organization and Management",
+   "name_hi": "संगठन एवं प्रबन्ध",
+   "price": 49,
+   "link": "products/mcom-01.html"
+  },
+  {
+   "degree": "MCOMN",
+   "code": "MCOM-02",
+   "name_en": "Business Environment",
+   "name_hi": "व्यावसायिक वातावरण",
+   "price": 49,
+   "link": "products/mcom-02.html"
+  },
+  {
+   "degree": "MCOMN",
+   "code": "MCOM-03",
+   "name_en": "Financial and Corporate Accounting",
+   "name_hi": "वित्तीय एवं निगम लेखांकन",
+   "price": 49,
+   "link": "products/mcom-03.html"
+  },
+  {
+   "degree": "MCOMN",
+   "code": "MCOM-04",
+   "name_en": "Financial Management",
+   "name_hi": "वित्तीय प्रबन्ध",
+   "price": 49,
+   "link": "products/mcom-04.html"
+  },
+  {
+   "degree": "MCOMN",
+   "code": "MD-02",
+   "name_en": "Writing for Mass Media",
+   "name_hi": "जनसंचारमाध्यमोंकेलिएलेखन",
+   "price": 49,
+   "link": "products/md-02.html"
+  },
+  {
+   "degree": "MCOMN",
+   "code": "MD-03",
+   "name_en": "Society : Structure and Problems",
+   "name_hi": "समाजःसंरचना एवं समस्यायें;",
+   "price": 49,
+   "link": "products/md-03.html"
+  },
+  {
+   "degree": "MCOMN",
+   "code": "MD-04",
+   "name_en": "Business Ethics *",
+   "name_hi": "व्यावसायिक नीति शास्त्र *",
+   "price": 49,
+   "link": "products/md-04.html"
+  },
+  {
+   "degree": "MCOMN",
+   "code": "MCOMR-01",
+   "name_en": "Research Methodology",
+   "name_hi": "शोध प्रविधि",
+   "price": 49,
+   "link": "products/mcomr-01.html"
+  },
+  {
+   "degree": "MCOMN",
+   "code": "MCOM-06",
+   "name_en": "Managerial Economics",
+   "name_hi": "प्रबंधकीय अर्थशास्त्र",
+   "price": 49,
+   "link": "products/mcom-06.html"
+  },
+  {
+   "degree": "MCOMN",
+   "code": "MCOM-10",
+   "name_en": "Indian Financial System*",
+   "name_hi": "भारतीय वित्तीय प्रणाली*",
+   "price": 49,
+   "link": "products/mcom-10.html"
+  },
+  {
+   "degree": "MCOMN",
+   "code": "MCOM-07",
+   "name_en": "International Business",
+   "name_hi": "अन्तर्राष्ट्रीय व्यवसाय",
+   "price": 49,
+   "link": "products/mcom-07.html"
+  },
+  {
+   "degree": "MCOMN",
+   "code": "MCOM-08",
+   "name_en": "Cost and Management Accounting",
+   "name_hi": "लागत एवं प्रबंध लेखांकन",
+   "price": 49,
+   "link": "products/mcom-08.html"
+  },
+  {
+   "degree": "MCOMN",
+   "code": "MCOM-11",
+   "name_en": "Public Finance*",
+   "name_hi": "लोक वित्त*",
+   "price": 49,
+   "link": "products/mcom-11.html"
+  },
+  {
+   "degree": "MCOMN",
+   "code": "MCOM-09",
+   "name_en": "Cost and Management Audit",
+   "name_hi": "लागत एवं प्रबन्ध अंकेक्षण",
+   "price": 49,
+   "link": "products/mcom-09.html"
+  },
+  {
+   "degree": "MCOMN",
+   "code": "MCOM-12",
+   "name_en": "Rural Development and Cooperation*",
+   "name_hi": "ग्रामीण विकास एवं सहकारिता*",
+   "price": 49,
+   "link": "products/mcom-12.html"
+  },
+  {
+   "degree": "MCOMN",
+   "code": "MCOMR-02",
+   "name_en": "Research Methodology",
+   "name_hi": "शोध प्रविधि",
+   "price": 49,
+   "link": "products/mcomr-02.html"
+  },
+  {
+   "degree": "MPHN",
+   "code": "MPH-01",
+   "name_en": "Classical Mechanics and Statistical Physics",
+   "name_hi": "एम.एससी. भौतिक विज्ञान",
+   "price": 49,
+   "link": "products/mph-01.html"
+  },
+  {
+   "degree": "MPHN",
+   "code": "MPH-02",
+   "name_en": "Mathematical Physics and Numerical Analysis",
+   "name_hi": "एम.एससी. भौतिक विज्ञान",
+   "price": 49,
+   "link": "products/mph-02.html"
+  },
+  {
+   "degree": "MPHN",
+   "code": "MPH-03",
+   "name_en": "Quantum Mechanics",
+   "name_hi": "®ेयांक",
+   "price": 49,
+   "link": "products/mph-03.html"
+  },
+  {
+   "degree": "MPHN",
+   "code": "MPH-04",
+   "name_en": "Classical Electrodynamics and Special Theory of Relativity",
+   "name_hi": "एम.एससी. भौतिक विज्ञान",
+   "price": 49,
+   "link": "products/mph-04.html"
+  },
+  {
+   "degree": "MPHN",
+   "code": "MPH-05",
+   "name_en": "Physics Lab-I",
+   "name_hi": "एम.एससी. भौतिक विज्ञान",
+   "price": 49,
+   "link": "products/mph-05.html"
+  },
+  {
+   "degree": "MPHN",
+   "code": "MPH-06",
+   "name_en": "Applied Electronics",
+   "name_hi": "एम.एससी. भौतिक विज्ञान",
+   "price": 49,
+   "link": "products/mph-06.html"
+  },
+  {
+   "degree": "MPHN",
+   "code": "MPH-07",
+   "name_en": "Solid State Physics",
+   "name_hi": "एम.एससी. भौतिक विज्ञान",
+   "price": 49,
+   "link": "products/mph-07.html"
+  },
+  {
+   "degree": "MPHN",
+   "code": "MSCRM",
+   "name_en": "Research Methodology",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mscrm.html"
+  },
+  {
+   "degree": "MPHN",
+   "code": "MPH-08",
+   "name_en": "Nuclear Physics, Atomic and Molecular Spectroscopy",
+   "name_hi": "एम.एससी. भौतिक विज्ञान",
+   "price": 49,
+   "link": "products/mph-08.html"
+  },
+  {
+   "degree": "MPHN",
+   "code": "MPH-09",
+   "name_en": "Plasma Physics and Lasers",
+   "name_hi": "एम.एससी. भौतिक विज्ञान",
+   "price": 49,
+   "link": "products/mph-09.html"
+  },
+  {
+   "degree": "MPHN",
+   "code": "MPH-10",
+   "name_en": "Physics Lab-II",
+   "name_hi": "एम.एससी. भौतिक विज्ञान",
+   "price": 49,
+   "link": "products/mph-10.html"
+  },
+  {
+   "degree": "MSCCHN",
+   "code": "MSCCH-01",
+   "name_en": "Inorganic Chemistry",
+   "name_hi": "अकार्बनिक रसायन",
+   "price": 49,
+   "link": "products/mscch-01.html"
+  },
+  {
+   "degree": "MSCCHN",
+   "code": "MSCCH-02",
+   "name_en": "Organic Chemistry",
+   "name_hi": "कार्बनिक रसायन",
+   "price": 49,
+   "link": "products/mscch-02.html"
+  },
+  {
+   "degree": "MSCCHN",
+   "code": "MSCCH-03",
+   "name_en": "Physical Chemistry",
+   "name_hi": "भौतिक रसायन",
+   "price": 49,
+   "link": "products/mscch-03.html"
+  },
+  {
+   "degree": "MSCCHN",
+   "code": "MSCCH-04",
+   "name_en": "Spectroscopy, Computers and Mathematics*/Biology**",
+   "name_hi": "स्पेक्ट्रोस्कोपी, कंप्यूटर और गणित/जीव विज्ञान",
+   "price": 49,
+   "link": "products/mscch-04.html"
+  },
+  {
+   "degree": "MSCCHN",
+   "code": "MSCCH-05",
+   "name_en": "Practical Chemistry I",
+   "name_hi": "प्रायोगिक रसायन I",
+   "price": 49,
+   "link": "products/mscch-05.html"
+  },
+  {
+   "degree": "MSCCHN",
+   "code": "MSCCH-06",
+   "name_en": "Reaction Mechanisms, Pericyclic Reactions, Organic Photochemistry & Stereochemistry",
+   "name_hi": "अभिक्रिया क्रियाविधि, पेरिसाइक्लिक अभिक्रियाएँ, कार्बनिक फोटोकैमिस्ट्री एवं स्टीरियोकेमिस्ट्री",
+   "price": 49,
+   "link": "products/mscch-06.html"
+  },
+  {
+   "degree": "MSCCHN",
+   "code": "MSCCH-07",
+   "name_en": "Synthetic Organic Chemistry",
+   "name_hi": "संश्लेषित कार्बनिक रसायन",
+   "price": 49,
+   "link": "products/mscch-07.html"
+  },
+  {
+   "degree": "MSCCHN",
+   "code": "MSCRM",
+   "name_en": "Research Methodology",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mscrm.html"
+  },
+  {
+   "degree": "MSCCHN",
+   "code": "MSCCH-08",
+   "name_en": "Natural Products, Heterocycles, Biogenesis and Spectroscopy",
+   "name_hi": "प्राकृतिक उत्पाद, हेटेरोसाइकिल, बायोजेनेसिस एवं स्पेक्ट्रोस्कोपी",
+   "price": 49,
+   "link": "products/mscch-08.html"
+  },
+  {
+   "degree": "MSCCHN",
+   "code": "MSCCH-09",
+   "name_en": "Drugs and Pharmaceuticals",
+   "name_hi": "ड्रग्स एवं फार्मास्यूटिकल्स",
+   "price": 49,
+   "link": "products/mscch-09.html"
+  },
+  {
+   "degree": "MSCCHN",
+   "code": "MSCCH-10",
+   "name_en": "Practical Chemistry II",
+   "name_hi": "प्रायोगिक रसायन II",
+   "price": 49,
+   "link": "products/mscch-10.html"
+  },
+  {
+   "degree": "MSCCSN",
+   "code": "MSCCS-101",
+   "name_en": "Computer Fundamental and System Software",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/msccs-101.html"
+  },
+  {
+   "degree": "MSCCSN",
+   "code": "MSCCS-102",
+   "name_en": "Application Software & Web Designing",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/msccs-102.html"
+  },
+  {
+   "degree": "MSCCSN",
+   "code": "MSCCS-103",
+   "name_en": "OOPS Programming with C++ and Java",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/msccs-103.html"
+  },
+  {
+   "degree": "MSCCSN",
+   "code": "MSCCS-104",
+   "name_en": "Programming in VB and Dot Net",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/msccs-104.html"
+  },
+  {
+   "degree": "MSCCSN",
+   "code": "MSCCS-105",
+   "name_en": "Computer Networking & Network & Internet",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/msccs-105.html"
+  },
+  {
+   "degree": "MSCCSN",
+   "code": "MSCCS-106",
+   "name_en": "Practical -I",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/msccs-106.html"
+  },
+  {
+   "degree": "MSCCSN",
+   "code": "MSCCS-107",
+   "name_en": "Advanced Web Technology",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/msccs-107.html"
+  },
+  {
+   "degree": "MSCCSN",
+   "code": "MSCCS-201",
+   "name_en": "Data Structure and Algorithm",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/msccs-201.html"
+  },
+  {
+   "degree": "MSCCSN",
+   "code": "MSCCS-202",
+   "name_en": "Computer Architecture & Microprocessors",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/msccs-202.html"
+  },
+  {
+   "degree": "MSCCSN",
+   "code": "MSCCS-203",
+   "name_en": "Software Engineering",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/msccs-203.html"
+  },
+  {
+   "degree": "MSCCSN",
+   "code": "MSCCS-204",
+   "name_en": "Operating System",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/msccs-204.html"
+  },
+  {
+   "degree": "MSCCSN",
+   "code": "MSCCS-205",
+   "name_en": "Data Communication and Networks",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/msccs-205.html"
+  },
+  {
+   "degree": "MSCCSN",
+   "code": "MSCCS-206",
+   "name_en": "Practical-II",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/msccs-206.html"
+  },
+  {
+   "degree": "MSCCSN",
+   "code": "MSCCSR-207",
+   "name_en": "Research Methodology",
+   "name_hi": "रिसर्च मेथोडोलॉजी",
+   "price": 49,
+   "link": "products/msccsr-207.html"
+  },
+  {
+   "degree": "MSCMTN",
+   "code": "MAT-101",
+   "name_en": "Advanced Algebra",
+   "name_hi": "एडवांसड अलजेब्रा",
+   "price": 49,
+   "link": "products/mat-101.html"
+  },
+  {
+   "degree": "MSCMTN",
+   "code": "MAT-102",
+   "name_en": "Real Analysis and Topology",
+   "name_hi": "रियल एनालिसिस एंड टोपोलॉजी",
+   "price": 49,
+   "link": "products/mat-102.html"
+  },
+  {
+   "degree": "MSCMTN",
+   "code": "MAT-103",
+   "name_en": "Integral Transform and Integral Equation",
+   "name_hi": "इंटीग्रल ट्रांसफॉर्म एंड इंटीग्रल इक्वेशन",
+   "price": 49,
+   "link": "products/mat-103.html"
+  },
+  {
+   "degree": "MSCMTN",
+   "code": "MAT-201",
+   "name_en": "Differential Equation, Calculus of Variation and Special Function",
+   "name_hi": "डिफरेंशियल इक्वेशन, कैलकुलस ऑफ वेरिएशन एंड स्पेशल फंक्शन",
+   "price": 49,
+   "link": "products/mat-201.html"
+  },
+  {
+   "degree": "MSCMTN",
+   "code": "MAT-202",
+   "name_en": "Mechanics",
+   "name_hi": "मैकेनिक्स",
+   "price": 49,
+   "link": "products/mat-202.html"
+  },
+  {
+   "degree": "MSCMTN",
+   "code": "MAT-203",
+   "name_en": "Viscous Fluid Dynamics",
+   "name_hi": "विस्कस फ्लूइड डायनामिक्स",
+   "price": 49,
+   "link": "products/mat-203.html"
+  },
+  {
+   "degree": "MSCMTN",
+   "code": "MAT-301",
+   "name_en": "Mathematical Programming",
+   "name_hi": "गणितीय प्रोग्रामिंग",
+   "price": 49,
+   "link": "products/mat-301.html"
+  },
+  {
+   "degree": "MSCMTN",
+   "code": "MAT-302",
+   "name_en": "Differential Geometry and Tensor",
+   "name_hi": "अवकल ज्यामिति और टेन्सर",
+   "price": 49,
+   "link": "products/mat-302.html"
+  },
+  {
+   "degree": "MSCMTN",
+   "code": "MAT-303",
+   "name_en": "Research Methods",
+   "name_hi": "अनुसंधान विधियाँ",
+   "price": 49,
+   "link": "products/mat-303.html"
+  },
+  {
+   "degree": "MSCMTN",
+   "code": "MAT-401",
+   "name_en": "Analysis and Advanced Calculus",
+   "name_hi": "विश्लेषण और उन्नत कलन",
+   "price": 49,
+   "link": "products/mat-401.html"
+  },
+  {
+   "degree": "MSCMTN",
+   "code": "MAT-402",
+   "name_en": "Numerical Analysis",
+   "name_hi": "संख्यात्मक विश्लेषण",
+   "price": 49,
+   "link": "products/mat-402.html"
+  },
+  {
+   "degree": "MSCMTN",
+   "code": "MAT-403",
+   "name_en": "Research Reflections and Reviews",
+   "name_hi": "अनुसंधान चिंतन और समीक्षाएँ",
+   "price": 49,
+   "link": "products/mat-403.html"
+  },
+  {
+   "degree": "MZON",
+   "code": "MZO-01",
+   "name_en": "Biosystematics, Structure and functions of Invertebrates",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mzo-01.html"
+  },
+  {
+   "degree": "MZON",
+   "code": "MZO-02",
+   "name_en": "Cell,Molecular Biology and Biotechnology",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mzo-02.html"
+  },
+  {
+   "degree": "MZON",
+   "code": "MZO-03",
+   "name_en": "Biochemistry,Physiology and Immunology",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mzo-03.html"
+  },
+  {
+   "degree": "MZON",
+   "code": "MZO-04",
+   "name_en": "Evolution,Biostatistics and Computer Application in Zoology",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mzo-04.html"
+  },
+  {
+   "degree": "MZON",
+   "code": "MZO-05",
+   "name_en": "Practical Zoology-I",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mzo-05.html"
+  },
+  {
+   "degree": "MZON",
+   "code": "MZO-06",
+   "name_en": "Biology of Chordates,Genetics and Microbiology",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mzo-06.html"
+  },
+  {
+   "degree": "MZON",
+   "code": "MZO-07",
+   "name_en": "Ecology,Ethology and Developmental Biology",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mzo-07.html"
+  },
+  {
+   "degree": "MZON",
+   "code": "MSCRM",
+   "name_en": "Research Methodology",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mscrm.html"
+  },
+  {
+   "degree": "MZON",
+   "code": "MZO-08",
+   "name_en": "Entomology I",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mzo-08.html"
+  },
+  {
+   "degree": "MZON",
+   "code": "MZO-09",
+   "name_en": "Entomology II",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mzo-09.html"
+  },
+  {
+   "degree": "MZON",
+   "code": "MZO-11",
+   "name_en": "Fish, Fisheries and Limnology",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mzo-11.html"
+  },
+  {
+   "degree": "MZON",
+   "code": "MZO-12",
+   "name_en": "Applied Aquaculture",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mzo-12.html"
+  },
+  {
+   "degree": "MZON",
+   "code": "MZO-10",
+   "name_en": "Practical Zoology II",
+   "name_hi": "",
+   "price": 49,
+   "link": "products/mzo-10.html"
+  }
+ ]
+}

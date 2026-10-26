@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aldhru Academy | VMOU Exam Guru</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif; scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased overflow-x-hidden">
+
+    <header class="pt-6 px-6 max-w-7xl mx-auto flex justify-between items-center relative z-20">
+        <div class="flex items-center gap-3">
+            <img src="logo.png" alt="Aldhru Academy Logo" class="h-14 w-14 rounded-full shadow-lg border-2 border-white object-cover" onerror="this.style.display='none'">
+            <h1 class="text-3xl font-black text-gray-900 tracking-tight">Aldhru<span class="text-purple-600">Academy</span></h1>
+        </div>
+        <nav class="hidden md:flex gap-8 font-bold text-gray-600 text-lg">
+            <a href="#products" class="hover:text-purple-600 transition duration-300">कोर्सेस (Courses)</a>
+            <a href="#contact" class="hover:text-purple-600 transition duration-300">सहायता (Support)</a>
+        </nav>
+    </header>
+
+    <section class="relative pt-20 pb-28 overflow-hidden">
+        <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-tr from-purple-500 via-pink-400 to-yellow-300 rounded-full blur-[120px] opacity-30 -z-10 animate-pulse"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <span class="bg-purple-100 text-purple-700 font-bold px-5 py-2 rounded-full text-sm tracking-wide mb-6 inline-block shadow-sm">🏆 VMOU Exam 2026 के लिए सर्वश्रेष्ठ सामग्री</span>
+            <h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-8 leading-tight">
+                Premium Guides के साथ <br> अपनी VMOU परीक्षा में <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">शानदार सफलता</span> पाएँ!
+            </h2>
+            <p class="text-xl md:text-2xl text-gray-600 mb-10 font-medium">सभी 36 डिग्री प्रोग्राम, 521 विषयों के लिए सटीक और हल किए गए प्रश्न पत्र!</p>
+            <a href="#products" class="bg-gray-900 hover:bg-purple-600 text-white font-bold text-lg px-10 py-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-105 inline-block">अपने विषय खोजें 👇</a>
+        </div>
+    </section>
+
+    <section id="products" class="max-w-7xl mx-auto px-6 relative z-10 pb-20">
+        <div id="courses-container" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div class="col-span-full flex justify-center py-10">
+                <p class="text-center text-purple-600 font-bold animate-bounce text-xl">सिस्टम लोड हो रहा है...</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-gray-900 text-white pt-20 pb-12 rounded-t-[3rem] relative overflow-hidden border-t-8 border-purple-500">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <h3 class="text-3xl font-black mb-4">Aldhru<span class="text-purple-400">Academy</span></h3>
+            <p class="text-purple-400 font-bold">📧 सपोर्ट ईमेल: support@aldhruacademy.com</p>
+            <p class="mt-6 text-gray-500 text-xs">&copy; 2026 Aldhru Academy. सर्वाधिकार सुरक्षित (All Rights Reserved).</p>
+        </div>
+    </section>
+
+    <script>
+        let allCourses = [];
+        let degreeFullNames = {};
+
+        fetch('catalogue.json')
+            .then(r => r.json())
+            .then(data => {
+                allCourses = data.papers;
+                degreeFullNames = data.degree_names;
+                renderDegreeCards();
+                // Deep link support: #degree=BED jumps straight to that degree's
+                // subject list -- used by the order-confirmation email's cross-sell
+                // "view all subjects" link.
+                var m = location.hash.match(/^#degree=([A-Za-z0-9]+)/);
+                if (m) { showSubjects(m[1].toUpperCase()); }
+            })
+            .catch(() => {
+                document.getElementById('courses-container').innerHTML =
+                    '<p class="text-red-500 text-center col-span-full font-bold text-xl">सिस्टम लोड करने में विफल! कृपया इंटरनेट कनेक्शन चेक करें।</p>';
+            });
+
+        function renderDegreeCards() {
+            const container = document.getElementById('courses-container');
+            const degrees = [...new Set(allCourses.map(c => c.degree))].sort();
+            let html = `<div class="col-span-full text-center mb-10">
+                <h3 class="text-3xl font-black text-gray-900">अपनी डिग्री का चुनाव करें</h3>
+                <p class="text-gray-500 mt-2 font-medium text-lg">नीचे दी गई सूची में से अपनी डिग्री पर क्लिक करें और विषय देखें</p>
+            </div>`;
+            degrees.forEach(degree => {
+                const info = degreeFullNames[degree] || { name_hi: degree, name_en: degree };
+                const subjectCount = allCourses.filter(c => c.degree === degree).length;
+                html += `<div onclick="showSubjects('${degree}')" class="bg-white p-8 rounded-[2rem] shadow-xl shadow-gray-200/50 border border-purple-50 hover:shadow-2xl hover:border-purple-400 hover:-translate-y-2 transition-all duration-300 cursor-pointer text-center group relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-pink-50 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+                    <div>
+                        <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🎓</div>
+                        <h4 class="text-4xl font-black text-gray-900 mb-1 tracking-tight">${degree}</h4>
+                        <p class="text-purple-600 font-bold h-12 flex items-center justify-center text-lg">${info.name_hi}</p>
+                    </div>
+                    <div class="mt-4 text-sm font-black text-gray-700 bg-gray-50 py-3 rounded-xl border border-gray-100 group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-pink-500 group-hover:text-white transition-all shadow-sm">${subjectCount} विषय (Subjects) देखें ➔</div>
+                </div>`;
+            });
+            container.innerHTML = html;
+        }
+
+        function showSubjects(degree) {
+            const container = document.getElementById('courses-container');
+            const filtered = allCourses.filter(c => c.degree === degree);
+            const info = degreeFullNames[degree] || { name_hi: degree, name_en: degree };
+            let html = `<div class="col-span-full mb-6 flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-purple-50 to-white p-6 md:p-8 rounded-3xl shadow-sm border border-purple-100">
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <h3 class="text-3xl font-black text-gray-900">${info.name_en} / ${info.name_hi} (${degree})</h3>
+                    <p class="text-purple-600 font-bold mt-2 text-lg">नीचे दिए गए अपने विषय (Subject Code) की बुकलेट खरीदें</p>
+                </div>
+                <button onclick="renderDegreeCards()" class="bg-gray-900 hover:bg-purple-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 whitespace-nowrap">⬅ सभी डिग्रियां (Go Back)</button>
+            </div>`;
+            filtered.forEach(c => {
+                html += `<div class="bg-white p-8 rounded-3xl shadow-xl shadow-gray-200/40 border border-gray-100 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-pink-50 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+                    <div class="z-10">
+                        <span class="bg-gray-900 text-white text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-md">${c.code}</span>
+                        <h4 class="text-lg font-bold text-gray-900 mt-6 mb-6 leading-snug">${c.name_hi}</h4>
+                    </div>
+                    <div class="mt-auto pt-6 border-t border-gray-100 z-10 w-full">
+                        <a href="${c.link}" class="w-full block bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-bold px-6 py-3 rounded-xl shadow-md transition transform hover:scale-105 text-center">PDF देखें ➔</a>
+                    </div>
+                </div>`;
+            });
+            container.innerHTML = html;
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+</body>
+</html>
