@@ -5,148 +5,208 @@
  "degree_names": {
   "BED": {
    "name_en": "Bachelor of Education",
-   "name_hi": "शिक्षा में स्नातक"
+   "name_hi": "शिक्षा में स्नातक",
+   "level": "Bachelor"
   },
   "BAN": {
    "name_en": "Bachelor of Arts Programme",
-   "name_hi": "कला में स्नातक कार्यक्रम"
+   "name_hi": "कला में स्नातक कार्यक्रम",
+   "level": "Bachelor"
   },
   "BJ": {
    "name_en": "Bachelor in Journalism (Lateral)",
-   "name_hi": "पत्रकारिता में स्नातक (लेटरल)"
+   "name_hi": "पत्रकारिता में स्नातक (लेटरल)",
+   "level": "Bachelor"
   },
   "BJN": {
    "name_en": "Bachelor of Journalism",
-   "name_hi": "पत्रकारिता में स्नातक कार्यक्रम"
+   "name_hi": "पत्रकारिता में स्नातक कार्यक्रम",
+   "level": "Bachelor"
   },
   "BLISN": {
    "name_en": "Bachelor of Library and Information Science Programme",
-   "name_hi": "पुस्तकालयएवंसूचना विज्ञानमेंस्नातक्क्रार्यक्रम"
+   "name_hi": "पुस्तकालयएवंसूचना विज्ञानमेंस्नातक्क्रार्यक्रम",
+   "level": "Bachelor"
   },
   "BSCN": {
    "name_en": "Bachelor of Science Programme",
-   "name_hi": "विज्ञान में स्नातक कार्यक्रम"
+   "name_hi": "विज्ञान में स्नातक कार्यक्रम",
+   "level": "Bachelor"
   },
   "CIJ": {
    "name_en": "Certificate in Falit Jyotish",
-   "name_hi": "फलित ज्योतिष में प्रमाण पत्र"
+   "name_hi": "फलित ज्योतिष में प्रमाण पत्र",
+   "level": "Certificate"
   },
   "CIK": {
    "name_en": "Certificate in Karmkand",
-   "name_hi": "कर्मकाण्ड में प्रमाण पत्र"
+   "name_hi": "कर्मकाण्ड में प्रमाण पत्र",
+   "level": "Certificate"
   },
   "CPNM": {
    "name_en": "Certificate in Mahatma Gandhi NREGA Mate",
-   "name_hi": "महात्मा गांधी नरेगा मेट में प्रमाण-पत्र"
+   "name_hi": "महात्मा गांधी नरेगा मेट में प्रमाण-पत्र",
+   "level": "Certificate"
   },
   "DCAM": {
    "name_en": "Diploma in Computer Accounting and Management(DCAM)",
-   "name_hi": "डिप्लोमा इन कम्प्यूटर अकाउंटिंग एंड मैनेजमेंट"
+   "name_hi": "डिप्लोमा इन कम्प्यूटर अकाउंटिंग एंड मैनेजमेंट",
+   "level": "Diploma"
   },
   "DCAN-OL": {
    "name_en": "Diploma in Computer Application (Online)",
-   "name_hi": "कंप्यूटर अनुप्रयोग में डिप्लोमा (ऑनलाइन)"
+   "name_hi": "कंप्यूटर अनुप्रयोग में डिप्लोमा (ऑनलाइन)",
+   "level": "Diploma"
   },
   "DCTN": {
    "name_en": "Diploma in Culture and Tourism",
-   "name_hi": "संस्कृति एवं पर्यटन में डिप्लोमा"
+   "name_hi": "संस्कृति एवं पर्यटन में डिप्लोमा",
+   "level": "Diploma"
   },
   "DLISN-OL": {
    "name_en": "Diploma in Library and Information Science (Online)",
-   "name_hi": "पुस्तकालय एवं सूचना विज्ञान में डिप्लोमा (ऑनलाइन)"
+   "name_hi": "पुस्तकालय एवं सूचना विज्ञान में डिप्लोमा (ऑनलाइन)",
+   "level": "Diploma"
   },
   "DLISN": {
    "name_en": "Diploma in Library and Information Science",
-   "name_hi": "पुस्तकालय एवं सूचना विज्ञान में डिप्लोमा"
+   "name_hi": "पुस्तकालय एवं सूचना विज्ञान में डिप्लोमा",
+   "level": "Diploma"
   },
   "DMCN": {
    "name_en": "Diploma in Mass Communication",
-   "name_hi": "डिप्लोमा इन मास कम्यूनिकेशन"
+   "name_hi": "डिप्लोमा इन मास कम्यूनिकेशन",
+   "level": "Diploma"
   },
   "DWSMN": {
    "name_en": "Diploma in Watershed Management",
-   "name_hi": "जल ग्रहण प्रबंध में डिप्लोमा"
+   "name_hi": "जल ग्रहण प्रबंध में डिप्लोमा",
+   "level": "Diploma"
   },
   "DYSN": {
    "name_en": "Diploma in YogaScience",
-   "name_hi": "योग विज्ञान में डिप्लोमा"
+   "name_hi": "योग विज्ञान में डिप्लोमा",
+   "level": "Diploma"
   },
   "MAECN": {
    "name_en": "M. A. Economics",
-   "name_hi": "एम.ए. अर्थशास्त्र"
+   "name_hi": "एम.ए. अर्थशास्त्र",
+   "level": "Master"
   },
   "MAEDN": {
    "name_en": "M.A. Education",
-   "name_hi": "एम.ए. शिक्षा"
+   "name_hi": "एम.ए. शिक्षा",
+   "level": "Master"
   },
   "MAEGN": {
    "name_en": "M. A. English",
-   "name_hi": "एम. ए. अंग्रेजी"
+   "name_hi": "एम. ए. अंग्रेजी",
+   "level": "Master"
   },
   "MAGEN": {
    "name_en": "M. A. Geography",
-   "name_hi": "एम. ए. भूगोल"
+   "name_hi": "एम. ए. भूगोल",
+   "level": "Master"
   },
   "MAHDN": {
    "name_en": "M. A. Hindi",
-   "name_hi": "एम.ए. हिन्दी"
+   "name_hi": "एम.ए. हिन्दी",
+   "level": "Master"
   },
   "MAHIN": {
    "name_en": "M. A. History",
-   "name_hi": "एम.ए. इतिहास"
+   "name_hi": "एम.ए. इतिहास",
+   "level": "Master"
   },
   "MAPSN": {
    "name_en": "M. A. Political Science",
-   "name_hi": "एम. ए. राजनीति विज्ञान"
+   "name_hi": "एम. ए. राजनीति विज्ञान",
+   "level": "Master"
   },
   "MAPSTN": {
    "name_en": "M. A. Police Administration",
-   "name_hi": "एम. ए. पुलिस प्रशासन"
+   "name_hi": "एम. ए. पुलिस प्रशासन",
+   "level": "Master"
   },
   "MARJN": {
    "name_en": "M.A. Rajasthani",
-   "name_hi": "एम.ए. राजस्थानी"
+   "name_hi": "एम.ए. राजस्थानी",
+   "level": "Master"
   },
   "MASAN": {
    "name_en": "M. A. Sanskrit",
-   "name_hi": "एम. ए. संस्कृत"
+   "name_hi": "एम. ए. संस्कृत",
+   "level": "Master"
   },
   "MASON": {
    "name_en": "M. A. Sociology",
-   "name_hi": "एम.ए. समाजशास्त्र"
+   "name_hi": "एम.ए. समाजशास्त्र",
+   "level": "Master"
   },
   "MBAN": {
    "name_en": "Master of Business Administration",
-   "name_hi": ""
+   "name_hi": "Master of Business Administration",
+   "level": "Master"
   },
   "MBON": {
    "name_en": "M.Sc. Botany",
-   "name_hi": "वनस्पति विज्ञान में स्नातकोत्तर उपाधि"
+   "name_hi": "वनस्पति विज्ञान में स्नातकोत्तर उपाधि",
+   "level": "Master"
   },
   "MCOMN": {
    "name_en": "Master of Commerce",
-   "name_hi": "मास्टर ऑफ कॉमर्स"
+   "name_hi": "मास्टर ऑफ कॉमर्स",
+   "level": "Master"
   },
   "MPHN": {
    "name_en": "M.Sc. Physics",
-   "name_hi": "भौतिक विज्ञान में स्नातकोत्तर उपाधि"
+   "name_hi": "भौतिक विज्ञान में स्नातकोत्तर उपाधि",
+   "level": "Master"
   },
   "MSCCHN": {
    "name_en": "M.Sc. Chemistry",
-   "name_hi": "रसायन विज्ञान में स्नातकोत्तर उपाधि (M.Sc. Chemistry)"
+   "name_hi": "रसायन विज्ञान में स्नातकोत्तर उपाधि (M.Sc. Chemistry)",
+   "level": "Master"
   },
   "MSCCSN": {
    "name_en": "Master of Science (Computer Science)",
-   "name_hi": "कम्प्यूटर विज्ञान में स्नातकोत्तर उपाधि"
+   "name_hi": "कम्प्यूटर विज्ञान में स्नातकोत्तर उपाधि",
+   "level": "Master"
   },
   "MSCMTN": {
    "name_en": "M.Sc. Mathematics",
-   "name_hi": "एम.एससी. गणित"
+   "name_hi": "एम.एससी. गणित",
+   "level": "Master"
   },
   "MZON": {
    "name_en": "M.Sc. Zoology",
-   "name_hi": "प्राणी विज्ञान में स्नातकोत्तर उपाधि"
+   "name_hi": "प्राणी विज्ञान में स्नातकोत्तर उपाधि",
+   "level": "Master"
   }
+ },
+ "subject_area_labels": {
+  "EC": "अर्थशास्त्र (Economics)",
+  "EG": "अंग्रेजी (English)",
+  "GE": "भूगोल (Geography)",
+  "CS": "कंप्यूटर विज्ञान (Computer Science)",
+  "HD": "हिंदी (Hindi)",
+  "HI": "इतिहास (History)",
+  "MT": "गणित (Mathematics)",
+  "PS": "राजनीति विज्ञान (Political Science)",
+  "PA": "लोक प्रशासन (Public Administration)",
+  "SO": "समाजशास्त्र (Sociology)",
+  "SA": "संस्कृत (Sanskrit)",
+  "JM": "पत्रकारिता एवं जनसंचार (Journalism & Mass Comm.)",
+  "ED": "शिक्षा (Education)",
+  "GP": "गांधीवादी अध्ययन (Gandhian Studies)",
+  "RJ": "राजस्थानी (Rajasthani)",
+  "SW": "समाज कार्य (Social Work)",
+  "UD": "उर्दू (Urdu)",
+  "HM": "गृह विज्ञान (Home Science)",
+  "BO": "वनस्पति विज्ञान (Botany)",
+  "CH": "रसायन विज्ञान (Chemistry)",
+  "PH": "भौतिक विज्ञान (Physics)",
+  "ZO": "प्राणी विज्ञान (Zoology)"
  },
  "papers": [
   {
@@ -657,7 +717,7 @@
    "degree": "BAN",
    "code": "CS-03",
    "name_en": "Practical in Web Authoring Tools",
-   "name_hi": "",
+   "name_hi": "Practical in Web Authoring Tools",
    "price": 49,
    "link": "products/cs-03.html"
   },
@@ -793,7 +853,7 @@
    "degree": "BAN",
    "code": "PEL-01",
    "name_en": "Proficiency in English Language-I",
-   "name_hi": "",
+   "name_hi": "Proficiency in English Language-I",
    "price": 49,
    "link": "products/pel-01.html"
   },
@@ -801,7 +861,7 @@
    "degree": "BAN",
    "code": "CCE-01",
    "name_en": "Principles of Creative Writing",
-   "name_hi": "",
+   "name_hi": "Principles of Creative Writing",
    "price": 49,
    "link": "products/cce-01.html"
   },
@@ -969,7 +1029,7 @@
    "degree": "BAN",
    "code": "PEL-02",
    "name_en": "Proficiency in English Language-II",
-   "name_hi": "",
+   "name_hi": "Proficiency in English Language-II",
    "price": 49,
    "link": "products/pel-02.html"
   },
@@ -977,7 +1037,7 @@
    "degree": "BAN",
    "code": "CCE-02",
    "name_en": "Elements of Creative Writing",
-   "name_hi": "",
+   "name_hi": "Elements of Creative Writing",
    "price": 49,
    "link": "products/cce-02.html"
   },
@@ -1033,7 +1093,7 @@
    "degree": "BAN",
    "code": "CS-06",
    "name_en": "Practical in Programming in C",
-   "name_hi": "",
+   "name_hi": "Practical in Programming in C",
    "price": 49,
    "link": "products/cs-06.html"
   },
@@ -1385,7 +1445,7 @@
    "degree": "BAN",
    "code": "CS-09",
    "name_en": "Practical in JAVA",
-   "name_hi": "",
+   "name_hi": "Practical in JAVA",
    "price": 49,
    "link": "products/cs-09.html"
   },
@@ -1664,16 +1724,16 @@
   {
    "degree": "BSCN",
    "code": "HBK-01",
-   "name_en": "Hindi Bhasha Kaushal-1",
-   "name_hi": "हिन्दी भाषा कौशल-1",
+   "name_en": "हिन्दी भाषा कौशल-I",
+   "name_hi": "हिन्दी भाषा कौशल-I",
    "price": 49,
    "link": "products/hbk-01.html"
   },
   {
    "degree": "BSCN",
    "code": "TT-01",
-   "name_en": "",
-   "name_hi": "",
+   "name_en": "यात्रा एवं पर्यटन-I",
+   "name_hi": "यात्रा एवं पर्यटन-I",
    "price": 49,
    "link": "products/tt-01.html"
   },
@@ -1752,7 +1812,7 @@
   {
    "degree": "BSCN",
    "code": "HBK-02",
-   "name_en": "Hindi Bhasha Kaushal-II",
+   "name_en": "हिन्दी भाषा कौशल-II",
    "name_hi": "हिन्दी भाषा कौशल-II",
    "price": 49,
    "link": "products/hbk-02.html"
@@ -1760,16 +1820,16 @@
   {
    "degree": "BSCN",
    "code": "TT-02",
-   "name_en": "Yatra evam Paryatan-II",
-   "name_hi": "यात्रा एवं पर्यटन-II",
+   "name_en": "यात्रा एवं पर्यटन -II",
+   "name_hi": "यात्रा एवं पर्यटन -II",
    "price": 49,
    "link": "products/tt-02.html"
   },
   {
    "degree": "BSCN",
    "code": "CIN-01",
-   "name_en": "Srijan Mahamudra",
-   "name_hi": "सृजन महामुद्रा",
+   "name_en": "प्राथमिक चिकित्सा",
+   "name_hi": "प्राथमिक चिकित्सा",
    "price": 49,
    "link": "products/cin-01.html"
   },
@@ -1816,7 +1876,7 @@
   {
    "degree": "BSCN",
    "code": "MT-03",
-   "name_en": "Coordinate Geometry and Mathematical Programming",
+   "name_en": "Co-ordinate Geometry and Mathematical Programming",
    "name_hi": "निर्देशांक ज्यामिति एवं गणितीय प्रोग्रामिंग",
    "price": 49,
    "link": "products/mt-03.html"
@@ -1857,22 +1917,22 @@
    "degree": "BSCN",
    "code": "PEL-01",
    "name_en": "Proficiency in English Language-I",
-   "name_hi": "",
+   "name_hi": "Proficiency in English Language-I",
    "price": 49,
    "link": "products/pel-01.html"
   },
   {
    "degree": "BSCN",
    "code": "CCE-01",
-   "name_en": "General Principles of Creative Writing",
-   "name_hi": "",
+   "name_en": "Principles of Creative Writing",
+   "name_hi": "Principles of Creative Writing",
    "price": 49,
    "link": "products/cce-01.html"
   },
   {
    "degree": "BSCN",
    "code": "EE",
-   "name_en": "Paryavaran Shiksha",
+   "name_en": "पर्यावरण शिक्षा",
    "name_hi": "पर्यावरण शिक्षा",
    "price": 49,
    "link": "products/ee.html"
@@ -1888,7 +1948,7 @@
   {
    "degree": "BSCN",
    "code": "CCP-01",
-   "name_en": "Fasal Utpadan",
+   "name_en": "फसल उत्पादन",
    "name_hi": "फसल उत्पादन",
    "price": 49,
    "link": "products/ccp-01.html"
@@ -1929,7 +1989,7 @@
    "degree": "BSCN",
    "code": "MT-04",
    "name_en": "Real Analysis & Metric Space",
-   "name_hi": "वास्तविक विश्लेषण एवं दूरीक समष्टि",
+   "name_hi": "वास्तविक विश्लेषण एवं दुरिक समष्टि",
    "price": 49,
    "link": "products/mt-04.html"
   },
@@ -1969,7 +2029,7 @@
    "degree": "BSCN",
    "code": "PEL-02",
    "name_en": "Proficiency in English Language-II",
-   "name_hi": "",
+   "name_hi": "Proficiency in English Language-II",
    "price": 49,
    "link": "products/pel-02.html"
   },
@@ -1977,14 +2037,14 @@
    "degree": "BSCN",
    "code": "CCE-02",
    "name_en": "Elements of Creative Writing",
-   "name_hi": "",
+   "name_hi": "Elements of Creative Writing",
    "price": 49,
    "link": "products/cce-02.html"
   },
   {
    "degree": "BSCN",
    "code": "ICA",
-   "name_en": "Computer Anuprayog Parichay",
+   "name_en": "कंप्यूटर अनुप्रयोग परिचय",
    "name_hi": "कंप्यूटर अनुप्रयोग परिचय",
    "price": 49,
    "link": "products/ica.html"
@@ -2072,23 +2132,23 @@
   {
    "degree": "BSCN",
    "code": "CPGM-01",
-   "name_en": "Gandhi: Jeevan va Vichar",
-   "name_hi": "गांधीः जीवन व विचार",
+   "name_en": "दक्षिण जीवन व विचार",
+   "name_hi": "दक्षिण जीवन व विचार",
    "price": 49,
    "link": "products/cpgm-01.html"
   },
   {
    "degree": "BSCN",
    "code": "CPGM-02",
-   "name_en": "Gandhi: Drishti",
-   "name_hi": "गांधीः दृष्टि",
+   "name_en": "गांधीः धृति",
+   "name_hi": "गांधीः धृति",
    "price": 49,
    "link": "products/cpgm-02.html"
   },
   {
    "degree": "BSCN",
    "code": "CCP-02",
-   "name_en": "Udyan Vigyan",
+   "name_en": "उद्यान विज्ञान",
    "name_hi": "उद्यान विज्ञान",
    "price": 49,
    "link": "products/ccp-02.html"
@@ -2168,8 +2228,8 @@
   {
    "degree": "BSCN",
    "code": "DGA-05",
-   "name_en": "Krishi Vipnan evam Vistar Shiksha",
-   "name_hi": "कृषि विपणनएवं विस्तार शिक्षा",
+   "name_en": "कृषि विपणन एवं विस्तार शिक्षा",
+   "name_hi": "कृषि विपणन एवं विस्तार शिक्षा",
    "price": 49,
    "link": "products/dga-05.html"
   },
@@ -2520,8 +2580,8 @@
   {
    "degree": "DLISN",
    "code": "DLIS-01",
-   "name_en": "Library Classification and Cataloguing - Theory",
-   "name_hi": "पुस्तकालय वर्गीकरण एवं सूचीकरण - सिद्धांत",
+   "name_en": "Library Classification and Cataloguing-Principles",
+   "name_hi": "पुस्तकालय वर्गीकरण एवं सूचीकरण-सिद्धांत",
    "price": 49,
    "link": "products/dlis-01.html"
   },
@@ -2544,8 +2604,8 @@
   {
    "degree": "DLISN",
    "code": "DLIS-04",
-   "name_en": "Library Routine and Reference Work",
-   "name_hi": "पुस्तकालय नित्यचर्या एवं संदर्भकार्य",
+   "name_en": "Library Management and Reference Work",
+   "name_hi": "पुस्तकालय व्यवस्था एवं सन्दर्भ कार्य",
    "price": 49,
    "link": "products/dlis-04.html"
   },
@@ -2913,7 +2973,7 @@
    "degree": "MAEGN",
    "code": "MAEG-01",
    "name_en": "English Language Usage and Communication Skills",
-   "name_hi": "",
+   "name_hi": "English Language Usage and Communication Skills",
    "price": 49,
    "link": "products/maeg-01.html"
   },
@@ -2985,7 +3045,7 @@
    "degree": "MAEGN",
    "code": "MAEG-12",
    "name_en": "Research Method & Critical Theories",
-   "name_hi": "",
+   "name_hi": "Research Method & Critical Theories",
    "price": 49,
    "link": "products/maeg-12.html"
   },
@@ -3105,7 +3165,7 @@
    "degree": "MAHDN",
    "code": "MAHD-01",
    "name_en": "प्राचीन एवं मध्यकालीन काव्य",
-   "name_hi": "",
+   "name_hi": "प्राचीन एवं मध्यकालीन काव्य",
    "price": 49,
    "link": "products/mahd-01.html"
   },
@@ -3113,7 +3173,7 @@
    "degree": "MAHDN",
    "code": "MAHD-02",
    "name_en": "आधुनिक काव्य",
-   "name_hi": "",
+   "name_hi": "आधुनिक काव्य",
    "price": 49,
    "link": "products/mahd-02.html"
   },
@@ -3121,7 +3181,7 @@
    "degree": "MAHDN",
    "code": "MAHD-03",
    "name_en": "हिन्दी साहित्य का इतिहास",
-   "name_hi": "",
+   "name_hi": "हिन्दी साहित्य का इतिहास",
    "price": 49,
    "link": "products/mahd-03.html"
   },
@@ -3129,7 +3189,7 @@
    "degree": "MAHDN",
    "code": "MAHD-04",
    "name_en": "काव्यशास्त्र व समालोचना",
-   "name_hi": "",
+   "name_hi": "काव्यशास्त्र व समालोचना",
    "price": 49,
    "link": "products/mahd-04.html"
   },
@@ -3137,7 +3197,7 @@
    "degree": "MAHDN",
    "code": "MAHD-10",
    "name_en": "जनसंचार माध्यम और पत्रकारिता",
-   "name_hi": "",
+   "name_hi": "जनसंचार माध्यम और पत्रकारिता",
    "price": 49,
    "link": "products/mahd-10.html"
   },
@@ -3145,7 +3205,7 @@
    "degree": "MAHDN",
    "code": "MAHD-05",
    "name_en": "नाटक और कथेतर गद्य विधाएँ",
-   "name_hi": "",
+   "name_hi": "नाटक और कथेतर गद्य विधाएँ",
    "price": 49,
    "link": "products/mahd-05.html"
   },
@@ -3153,7 +3213,7 @@
    "degree": "MAHDN",
    "code": "MAHD-06",
    "name_en": "कथा साहित्य",
-   "name_hi": "",
+   "name_hi": "कथा साहित्य",
    "price": 49,
    "link": "products/mahd-06.html"
   },
@@ -3161,7 +3221,7 @@
    "degree": "MAHDN",
    "code": "MAHD-07",
    "name_en": "भाषा विज्ञान",
-   "name_hi": "",
+   "name_hi": "भाषा विज्ञान",
    "price": 49,
    "link": "products/mahd-07.html"
   },
@@ -3169,7 +3229,7 @@
    "degree": "MAHDN",
    "code": "MAHD-08",
    "name_en": "आधुनिक हिन्दी कविता और गीत परम्परा",
-   "name_hi": "",
+   "name_hi": "आधुनिक हिन्दी कविता और गीत परम्परा",
    "price": 49,
    "link": "products/mahd-08.html"
   },
@@ -3177,7 +3237,7 @@
    "degree": "MAHDN",
    "code": "MAHD-09",
    "name_en": "लोक साहित्य",
-   "name_hi": "",
+   "name_hi": "लोक साहित्य",
    "price": 49,
    "link": "products/mahd-09.html"
   },
@@ -3185,7 +3245,7 @@
    "degree": "MAHDN",
    "code": "MAHD-11",
    "name_en": "शोध का स्वरूप एवं प्रविधि",
-   "name_hi": "",
+   "name_hi": "शोध का स्वरूप एवं प्रविधि",
    "price": 49,
    "link": "products/mahd-11.html"
   },
@@ -3241,7 +3301,7 @@
    "degree": "MAHIN",
    "code": "MD-03",
    "name_en": "Society : Structure and Problems",
-   "name_hi": "समाजःसंरचना एवं समस्यायें",
+   "name_hi": "समाजसंरचना एवं समस्यायें:",
    "price": 49,
    "link": "products/md-03.html"
   },
@@ -3361,7 +3421,7 @@
    "degree": "MAPSN",
    "code": "MD-03",
    "name_en": "Society : Structure and Problems",
-   "name_hi": "समाजसंरचना एवं समस्यायें",
+   "name_hi": "समाजसंरचना एवं समस्यायें:",
    "price": 49,
    "link": "products/md-03.html"
   },
@@ -3745,7 +3805,7 @@
    "degree": "MASON",
    "code": "MD-03",
    "name_en": "Society : Structure and Problems",
-   "name_hi": "समाज एवं समस्याएँ : संरचना एवं समस्याएँ",
+   "name_hi": "समाजसंरचना एवं समस्यायें:",
    "price": 49,
    "link": "products/md-03.html"
   },
@@ -4049,7 +4109,7 @@
    "degree": "MBON",
    "code": "MBO-01",
    "name_en": "Biology & Diversity of Microbes & Non-Vascular Cryptogams",
-   "name_hi": "",
+   "name_hi": "Biology & Diversity of Microbes & Non-Vascular Cryptogams",
    "price": 49,
    "link": "products/mbo-01.html"
   },
@@ -4057,7 +4117,7 @@
    "degree": "MBON",
    "code": "MBO-02",
    "name_en": "Pteridophytes, Gymnosperms and Paleobotany",
-   "name_hi": "",
+   "name_hi": "Pteridophytes, Gymnosperms and Paleobotany",
    "price": 49,
    "link": "products/mbo-02.html"
   },
@@ -4065,7 +4125,7 @@
    "degree": "MBON",
    "code": "MBO-03",
    "name_en": "Cell Biology, Genetics, Biostatistics & Computational Biology",
-   "name_hi": "",
+   "name_hi": "Cell Biology, Genetics, Biostatistics & Computational Biology",
    "price": 49,
    "link": "products/mbo-03.html"
   },
@@ -4073,7 +4133,7 @@
    "degree": "MBON",
    "code": "MBO-04",
    "name_en": "Plant Physiology & Metabolism",
-   "name_hi": "",
+   "name_hi": "Plant Physiology & Metabolism",
    "price": 49,
    "link": "products/mbo-04.html"
   },
@@ -4081,7 +4141,7 @@
    "degree": "MBON",
    "code": "MBO-05",
    "name_en": "Practical Botany I",
-   "name_hi": "",
+   "name_hi": "Practical Botany I",
    "price": 49,
    "link": "products/mbo-05.html"
   },
@@ -4089,7 +4149,7 @@
    "degree": "MBON",
    "code": "MBO-06",
    "name_en": "Biosystematics of Angiosperms, Plant Development and Reproduction",
-   "name_hi": "",
+   "name_hi": "Biosystematics of Angiosperms, Plant Development and Reproduction",
    "price": 49,
    "link": "products/mbo-06.html"
   },
@@ -4097,7 +4157,7 @@
    "degree": "MBON",
    "code": "MBO-07",
    "name_en": "Plant Ecology, Plant Resource Utilization and Biodiversity Conservation",
-   "name_hi": "",
+   "name_hi": "Plant Ecology, Plant Resource Utilization and Biodiversity Conservation",
    "price": 49,
    "link": "products/mbo-07.html"
   },
@@ -4105,7 +4165,7 @@
    "degree": "MBON",
    "code": "MSCRM",
    "name_en": "Research Methodology",
-   "name_hi": "",
+   "name_hi": "Research Methodology",
    "price": 49,
    "link": "products/mscrm.html"
   },
@@ -4113,7 +4173,7 @@
    "degree": "MBON",
    "code": "MBO-08",
    "name_en": "Biotechnology , Molecular Biology and Genetic Engineering of Plants",
-   "name_hi": "",
+   "name_hi": "Biotechnology , Molecular Biology and Genetic Engineering of Plants",
    "price": 49,
    "link": "products/mbo-08.html"
   },
@@ -4121,7 +4181,7 @@
    "degree": "MBON",
    "code": "MBO-09",
    "name_en": "Plant Pathology",
-   "name_hi": "",
+   "name_hi": "Plant Pathology",
    "price": 49,
    "link": "products/mbo-09.html"
   },
@@ -4129,7 +4189,7 @@
    "degree": "MBON",
    "code": "MBO-10",
    "name_en": "Practical Botany II",
-   "name_hi": "",
+   "name_hi": "Practical Botany II",
    "price": 49,
    "link": "products/mbo-10.html"
   },
@@ -4169,7 +4229,7 @@
    "degree": "MCOMN",
    "code": "MD-02",
    "name_en": "Writing for Mass Media",
-   "name_hi": "जनसंचारमाध्यमोंकेलिएलेखन",
+   "name_hi": "जनसंचार माध्यमों के लिए लेखन",
    "price": 49,
    "link": "products/md-02.html"
   },
@@ -4177,7 +4237,7 @@
    "degree": "MCOMN",
    "code": "MD-03",
    "name_en": "Society : Structure and Problems",
-   "name_hi": "समाजःसंरचना एवं समस्यायें;",
+   "name_hi": "समाजसंरचना एवं समस्यायें:",
    "price": 49,
    "link": "products/md-03.html"
   },
@@ -4321,7 +4381,7 @@
    "degree": "MPHN",
    "code": "MSCRM",
    "name_en": "Research Methodology",
-   "name_hi": "",
+   "name_hi": "Research Methodology",
    "price": 49,
    "link": "products/mscrm.html"
   },
@@ -4409,7 +4469,7 @@
    "degree": "MSCCHN",
    "code": "MSCRM",
    "name_en": "Research Methodology",
-   "name_hi": "",
+   "name_hi": "Research Methodology",
    "price": 49,
    "link": "products/mscrm.html"
   },
@@ -4441,7 +4501,7 @@
    "degree": "MSCCSN",
    "code": "MSCCS-101",
    "name_en": "Computer Fundamental and System Software",
-   "name_hi": "",
+   "name_hi": "Computer Fundamental and System Software",
    "price": 49,
    "link": "products/msccs-101.html"
   },
@@ -4449,7 +4509,7 @@
    "degree": "MSCCSN",
    "code": "MSCCS-102",
    "name_en": "Application Software & Web Designing",
-   "name_hi": "",
+   "name_hi": "Application Software & Web Designing",
    "price": 49,
    "link": "products/msccs-102.html"
   },
@@ -4457,7 +4517,7 @@
    "degree": "MSCCSN",
    "code": "MSCCS-103",
    "name_en": "OOPS Programming with C++ and Java",
-   "name_hi": "",
+   "name_hi": "OOPS Programming with C++ and Java",
    "price": 49,
    "link": "products/msccs-103.html"
   },
@@ -4465,7 +4525,7 @@
    "degree": "MSCCSN",
    "code": "MSCCS-104",
    "name_en": "Programming in VB and Dot Net",
-   "name_hi": "",
+   "name_hi": "Programming in VB and Dot Net",
    "price": 49,
    "link": "products/msccs-104.html"
   },
@@ -4473,7 +4533,7 @@
    "degree": "MSCCSN",
    "code": "MSCCS-105",
    "name_en": "Computer Networking & Network & Internet",
-   "name_hi": "",
+   "name_hi": "Computer Networking & Network & Internet",
    "price": 49,
    "link": "products/msccs-105.html"
   },
@@ -4481,7 +4541,7 @@
    "degree": "MSCCSN",
    "code": "MSCCS-106",
    "name_en": "Practical -I",
-   "name_hi": "",
+   "name_hi": "Practical -I",
    "price": 49,
    "link": "products/msccs-106.html"
   },
@@ -4489,7 +4549,7 @@
    "degree": "MSCCSN",
    "code": "MSCCS-107",
    "name_en": "Advanced Web Technology",
-   "name_hi": "",
+   "name_hi": "Advanced Web Technology",
    "price": 49,
    "link": "products/msccs-107.html"
   },
@@ -4497,7 +4557,7 @@
    "degree": "MSCCSN",
    "code": "MSCCS-201",
    "name_en": "Data Structure and Algorithm",
-   "name_hi": "",
+   "name_hi": "Data Structure and Algorithm",
    "price": 49,
    "link": "products/msccs-201.html"
   },
@@ -4505,7 +4565,7 @@
    "degree": "MSCCSN",
    "code": "MSCCS-202",
    "name_en": "Computer Architecture & Microprocessors",
-   "name_hi": "",
+   "name_hi": "Computer Architecture & Microprocessors",
    "price": 49,
    "link": "products/msccs-202.html"
   },
@@ -4513,7 +4573,7 @@
    "degree": "MSCCSN",
    "code": "MSCCS-203",
    "name_en": "Software Engineering",
-   "name_hi": "",
+   "name_hi": "Software Engineering",
    "price": 49,
    "link": "products/msccs-203.html"
   },
@@ -4521,7 +4581,7 @@
    "degree": "MSCCSN",
    "code": "MSCCS-204",
    "name_en": "Operating System",
-   "name_hi": "",
+   "name_hi": "Operating System",
    "price": 49,
    "link": "products/msccs-204.html"
   },
@@ -4529,7 +4589,7 @@
    "degree": "MSCCSN",
    "code": "MSCCS-205",
    "name_en": "Data Communication and Networks",
-   "name_hi": "",
+   "name_hi": "Data Communication and Networks",
    "price": 49,
    "link": "products/msccs-205.html"
   },
@@ -4537,7 +4597,7 @@
    "degree": "MSCCSN",
    "code": "MSCCS-206",
    "name_en": "Practical-II",
-   "name_hi": "",
+   "name_hi": "Practical-II",
    "price": 49,
    "link": "products/msccs-206.html"
   },
@@ -4616,7 +4676,7 @@
   {
    "degree": "MSCMTN",
    "code": "MAT-303",
-   "name_en": "Research Methods",
+   "name_en": "Research Method & Critical Theories",
    "name_hi": "अनुसंधान विधियाँ",
    "price": 49,
    "link": "products/mat-303.html"
@@ -4649,7 +4709,7 @@
    "degree": "MZON",
    "code": "MZO-01",
    "name_en": "Biosystematics, Structure and functions of Invertebrates",
-   "name_hi": "",
+   "name_hi": "Biosystematics, Structure and functions of Invertebrates",
    "price": 49,
    "link": "products/mzo-01.html"
   },
@@ -4657,7 +4717,7 @@
    "degree": "MZON",
    "code": "MZO-02",
    "name_en": "Cell,Molecular Biology and Biotechnology",
-   "name_hi": "",
+   "name_hi": "Cell,Molecular Biology and Biotechnology",
    "price": 49,
    "link": "products/mzo-02.html"
   },
@@ -4665,7 +4725,7 @@
    "degree": "MZON",
    "code": "MZO-03",
    "name_en": "Biochemistry,Physiology and Immunology",
-   "name_hi": "",
+   "name_hi": "Biochemistry,Physiology and Immunology",
    "price": 49,
    "link": "products/mzo-03.html"
   },
@@ -4673,7 +4733,7 @@
    "degree": "MZON",
    "code": "MZO-04",
    "name_en": "Evolution,Biostatistics and Computer Application in Zoology",
-   "name_hi": "",
+   "name_hi": "Evolution,Biostatistics and Computer Application in Zoology",
    "price": 49,
    "link": "products/mzo-04.html"
   },
@@ -4681,7 +4741,7 @@
    "degree": "MZON",
    "code": "MZO-05",
    "name_en": "Practical Zoology-I",
-   "name_hi": "",
+   "name_hi": "Practical Zoology-I",
    "price": 49,
    "link": "products/mzo-05.html"
   },
@@ -4689,7 +4749,7 @@
    "degree": "MZON",
    "code": "MZO-06",
    "name_en": "Biology of Chordates,Genetics and Microbiology",
-   "name_hi": "",
+   "name_hi": "Biology of Chordates,Genetics and Microbiology",
    "price": 49,
    "link": "products/mzo-06.html"
   },
@@ -4697,7 +4757,7 @@
    "degree": "MZON",
    "code": "MZO-07",
    "name_en": "Ecology,Ethology and Developmental Biology",
-   "name_hi": "",
+   "name_hi": "Ecology,Ethology and Developmental Biology",
    "price": 49,
    "link": "products/mzo-07.html"
   },
@@ -4705,7 +4765,7 @@
    "degree": "MZON",
    "code": "MSCRM",
    "name_en": "Research Methodology",
-   "name_hi": "",
+   "name_hi": "Research Methodology",
    "price": 49,
    "link": "products/mscrm.html"
   },
@@ -4713,7 +4773,7 @@
    "degree": "MZON",
    "code": "MZO-08",
    "name_en": "Entomology I",
-   "name_hi": "",
+   "name_hi": "Entomology I",
    "price": 49,
    "link": "products/mzo-08.html"
   },
@@ -4721,7 +4781,7 @@
    "degree": "MZON",
    "code": "MZO-09",
    "name_en": "Entomology II",
-   "name_hi": "",
+   "name_hi": "Entomology II",
    "price": 49,
    "link": "products/mzo-09.html"
   },
@@ -4729,7 +4789,7 @@
    "degree": "MZON",
    "code": "MZO-11",
    "name_en": "Fish, Fisheries and Limnology",
-   "name_hi": "",
+   "name_hi": "Fish, Fisheries and Limnology",
    "price": 49,
    "link": "products/mzo-11.html"
   },
@@ -4737,7 +4797,7 @@
    "degree": "MZON",
    "code": "MZO-12",
    "name_en": "Applied Aquaculture",
-   "name_hi": "",
+   "name_hi": "Applied Aquaculture",
    "price": 49,
    "link": "products/mzo-12.html"
   },
@@ -4745,7 +4805,7 @@
    "degree": "MZON",
    "code": "MZO-10",
    "name_en": "Practical Zoology II",
-   "name_hi": "",
+   "name_hi": "Practical Zoology II",
    "price": 49,
    "link": "products/mzo-10.html"
   }

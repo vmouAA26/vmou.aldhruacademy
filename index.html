@@ -63,13 +63,23 @@
     <script>
         let allCourses = [];
         let degreeFullNames = {};
+        let subjectAreaLabels = {};
+        const CATEGORY_ORDER = ['Master', 'Bachelor', 'Diploma', 'Certificate'];
+        const CATEGORY_LABELS = {
+            Master: 'स्नातकोत्तर उपाधियाँ (Master\'s Degrees)',
+            Bachelor: 'स्नातक उपाधियाँ (Bachelor\'s Degrees)',
+            Diploma: 'डिप्लोमा (Diplomas)',
+            Certificate: 'प्रमाण पत्र (Certificates)',
+        };
+        const SUBJECT_AREA_MIN_SIZE = 4;
 
         fetch('catalogue.json')
             .then(r => r.json())
             .then(data => {
                 allCourses = data.papers;
                 degreeFullNames = data.degree_names;
-                renderDegreeCards();
+                subjectAreaLabels = data.subject_area_labels || {};
+                renderHomeView();
                 // Deep link support: #degree=BED jumps straight to that degree's
                 // subject list -- used by the order-confirmation email's cross-sell
                 // "view all subjects" link.
@@ -77,7 +87,7 @@
                 if (m) { showSubjects(m[1].toUpperCase()); }
                 document.getElementById('search-input').addEventListener('input', function(e) {
                     const q = e.target.value.trim();
-                    if (q.length === 0) { renderDegreeCards(); return; }
+                    if (q.length === 0) { renderHomeView(); return; }
                     renderSearchResults(q);
                 });
             })
@@ -120,43 +130,136 @@
             container.innerHTML = html;
         }
 
-        function renderDegreeCards() {
-            const container = document.getElementById('courses-container');
-            const degrees = [...new Set(allCourses.map(c => c.degree))].sort();
-            let html = `<div class="col-span-full text-center mb-10">
-                <h3 class="text-3xl font-black text-gray-900">अपनी डिग्री का चुनाव करें</h3>
-                <p class="text-gray-500 mt-2 font-medium text-lg">नीचे दी गई सूची में से अपनी डिग्री पर क्लिक करें और विषय देखें</p>
+        function degreeCardHtml(degree) {
+            const info = degreeFullNames[degree] || { name_hi: degree, name_en: degree };
+            const subjectCount = allCourses.filter(c => c.degree === degree).length;
+            return `<div onclick="showSubjects('${degree}')" class="bg-white p-7 rounded-[2rem] shadow-xl shadow-gray-200/50 border border-purple-50 hover:shadow-2xl hover:border-purple-400 hover:-translate-y-2 transition-all duration-300 cursor-pointer text-center group relative overflow-hidden flex flex-col justify-between">
+                <div class="absolute top-0 right-0 w-28 h-28 bg-gradient-to-br from-purple-100 to-pink-50 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+                <div>
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🎓</div>
+                    <h4 class="text-3xl font-black text-gray-900 mb-1 tracking-tight">${degree}</h4>
+                    <p class="text-purple-600 font-bold min-h-[3.5rem] flex items-center justify-center text-base leading-snug">${info.name_hi}</p>
+                </div>
+                <div class="mt-4 text-sm font-black text-gray-700 bg-gray-50 py-3 rounded-xl border border-gray-100 group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-pink-500 group-hover:text-white transition-all shadow-sm">${subjectCount} विषय (Subjects) देखें ➔</div>
             </div>`;
-            degrees.forEach(degree => {
-                const info = degreeFullNames[degree] || { name_hi: degree, name_en: degree };
-                const subjectCount = allCourses.filter(c => c.degree === degree).length;
-                html += `<div onclick="showSubjects('${degree}')" class="bg-white p-8 rounded-[2rem] shadow-xl shadow-gray-200/50 border border-purple-50 hover:shadow-2xl hover:border-purple-400 hover:-translate-y-2 transition-all duration-300 cursor-pointer text-center group relative overflow-hidden flex flex-col justify-between">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-pink-50 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-                    <div>
-                        <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🎓</div>
-                        <h4 class="text-4xl font-black text-gray-900 mb-1 tracking-tight">${degree}</h4>
-                        <p class="text-purple-600 font-bold h-12 flex items-center justify-center text-lg">${info.name_hi}</p>
-                    </div>
-                    <div class="mt-4 text-sm font-black text-gray-700 bg-gray-50 py-3 rounded-xl border border-gray-100 group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-pink-500 group-hover:text-white transition-all shadow-sm">${subjectCount} विषय (Subjects) देखें ➔</div>
+        }
+
+        function renderHomeView() {
+            const container = document.getElementById('courses-container');
+            const degrees = [...new Set(allCourses.map(c => c.degree))];
+            let html = `<div class="col-span-full text-center mb-4">
+                <h3 class="text-3xl font-black text-gray-900">अपनी डिग्री का चुनाव करें</h3>
+                <p class="text-gray-500 mt-2 font-medium text-lg">नीचे दी गई श्रेणियों में से अपनी डिग्री पर क्लिक करें और विषय देखें</p>
+            </div>`;
+            CATEGORY_ORDER.forEach(category => {
+                const inCategory = degrees.filter(d => (degreeFullNames[d] || {}).level === category).sort();
+                if (inCategory.length === 0) return;
+                html += `<div class="col-span-full mt-8 mb-2 flex items-center gap-4">
+                    <h4 class="text-lg sm:text-xl font-black text-gray-800">${CATEGORY_LABELS[category]}</h4>
+                    <div class="flex-1 h-px bg-gray-200 min-w-[16px]"></div>
                 </div>`;
+                html += `<div class="col-span-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-4">`;
+                html += inCategory.map(degreeCardHtml).join('');
+                html += `</div>`;
             });
+            // Any degree whose level didn't match a known category (data-quality
+            // safety net -- degreeCardHtml already handles a missing level fine,
+            // this just makes sure such a degree is never silently dropped).
+            const uncategorized = degrees.filter(d => !CATEGORY_ORDER.includes((degreeFullNames[d] || {}).level)).sort();
+            if (uncategorized.length > 0) {
+                html += `<div class="col-span-full mt-8 mb-2 flex items-center gap-4">
+                    <h4 class="text-lg sm:text-xl font-black text-gray-800">अन्य (Other)</h4>
+                    <div class="flex-1 h-px bg-gray-200"></div>
+                </div>`;
+                html += `<div class="col-span-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-4">`;
+                html += uncategorized.map(degreeCardHtml).join('');
+                html += `</div>`;
+            }
             container.innerHTML = html;
+        }
+
+        function subjectAreasFor(degree) {
+            const papers = allCourses.filter(c => c.degree === degree);
+            const groups = {};
+            papers.forEach(c => {
+                const prefix = c.code.split('-')[0];
+                (groups[prefix] = groups[prefix] || []).push(c);
+            });
+            const prefixes = Object.keys(groups);
+            // Only worth a sub-area view if the degree actually has more than one
+            // real subject area of meaningful size -- a single-prefix degree (every
+            // paper literally starts with the same code, e.g. all BED-*) has nothing
+            // to segregate by, and a degree with only small elective groups doesn't
+            // either.
+            const bigPrefixes = prefixes.filter(p => groups[p].length >= SUBJECT_AREA_MIN_SIZE);
+            if (prefixes.length <= 1 || bigPrefixes.length === 0) return null;
+            return groups;
         }
 
         function showSubjects(degree) {
             const container = document.getElementById('courses-container');
-            const filtered = allCourses.filter(c => c.degree === degree);
             const info = degreeFullNames[degree] || { name_hi: degree, name_en: degree };
+            const groups = subjectAreasFor(degree);
             let html = `<div class="col-span-full mb-6 flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-purple-50 to-white p-6 md:p-8 rounded-3xl shadow-sm border border-purple-100">
                 <div class="text-center md:text-left mb-6 md:mb-0">
-                    <h3 class="text-3xl font-black text-gray-900">${info.name_en} / ${info.name_hi} (${degree})</h3>
-                    <p class="text-purple-600 font-bold mt-2 text-lg">नीचे दिए गए अपने विषय (Subject Code) की बुकलेट खरीदें</p>
+                    <h3 class="text-3xl font-black text-gray-900">${degree} <span class="text-xl font-bold text-purple-600">— ${info.name_hi}</span></h3>
+                    <p class="text-gray-500 mt-1 text-base">${info.name_en}</p>
                 </div>
-                <button onclick="renderDegreeCards()" class="bg-gray-900 hover:bg-purple-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 whitespace-nowrap">⬅ सभी डिग्रियां (Go Back)</button>
+                <button onclick="renderHomeView()" class="bg-gray-900 hover:bg-purple-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 whitespace-nowrap">⬅ सभी डिग्रियां (Go Back)</button>
             </div>`;
-            filtered.forEach(c => {
-                html += subjectCardHtml(c);
-            });
+
+            if (groups) {
+                html += `<div class="col-span-full text-center mb-4">
+                    <p class="text-purple-600 font-bold text-lg">इस डिग्री में कई विषय क्षेत्र हैं — पहले अपना विषय क्षेत्र चुनें</p>
+                </div>`;
+                const prefixes = Object.keys(groups).sort((a, b) => groups[b].length - groups[a].length);
+                const bigPrefixes = prefixes.filter(p => groups[p].length >= SUBJECT_AREA_MIN_SIZE);
+                const smallPrefixes = prefixes.filter(p => groups[p].length < SUBJECT_AREA_MIN_SIZE);
+                bigPrefixes.forEach(prefix => {
+                    const label = subjectAreaLabels[prefix] || prefix;
+                    html += `<div onclick="showSubjectArea('${degree}','${prefix}')" class="bg-white p-6 rounded-3xl shadow-lg shadow-gray-200/40 border border-gray-100 hover:shadow-2xl hover:-translate-y-1 hover:border-purple-300 transition-all duration-300 cursor-pointer text-center group">
+                        <div class="text-4xl mb-3">📘</div>
+                        <h4 class="text-lg font-black text-gray-900">${label}</h4>
+                        <p class="text-sm text-gray-500 font-bold mt-2">${groups[prefix].length} विषय</p>
+                    </div>`;
+                });
+                if (smallPrefixes.length > 0) {
+                    const otherCount = smallPrefixes.reduce((n, p) => n + groups[p].length, 0);
+                    html += `<div onclick="showSubjectArea('${degree}','__other__')" class="bg-white p-6 rounded-3xl shadow-lg shadow-gray-200/40 border border-gray-100 hover:shadow-2xl hover:-translate-y-1 hover:border-purple-300 transition-all duration-300 cursor-pointer text-center group">
+                        <div class="text-4xl mb-3">📎</div>
+                        <h4 class="text-lg font-black text-gray-900">अन्य ऐच्छिक/कौशल पत्र (Other Papers)</h4>
+                        <p class="text-sm text-gray-500 font-bold mt-2">${otherCount} विषय</p>
+                    </div>`;
+                }
+            } else {
+                allCourses.filter(c => c.degree === degree).forEach(c => { html += subjectCardHtml(c); });
+            }
+            container.innerHTML = html;
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function showSubjectArea(degree, prefix) {
+            const container = document.getElementById('courses-container');
+            const info = degreeFullNames[degree] || { name_hi: degree, name_en: degree };
+            const groups = subjectAreasFor(degree) || {};
+            let papers;
+            let areaLabel;
+            if (prefix === '__other__') {
+                const bigPrefixes = Object.keys(groups).filter(p => groups[p].length >= SUBJECT_AREA_MIN_SIZE);
+                papers = allCourses.filter(c => c.degree === degree && !bigPrefixes.includes(c.code.split('-')[0]));
+                areaLabel = 'अन्य ऐच्छिक/कौशल पत्र (Other Papers)';
+            } else {
+                papers = groups[prefix] || [];
+                areaLabel = subjectAreaLabels[prefix] || prefix;
+            }
+            let html = `<div class="col-span-full mb-6 flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-purple-50 to-white p-6 md:p-8 rounded-3xl shadow-sm border border-purple-100">
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <h3 class="text-2xl font-black text-gray-900">${degree} — ${info.name_hi}</h3>
+                    <p class="text-purple-600 font-bold mt-1 text-lg">${areaLabel}</p>
+                </div>
+                <button onclick="showSubjects('${degree}')" class="bg-gray-900 hover:bg-purple-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 whitespace-nowrap">⬅ विषय क्षेत्र (Go Back)</button>
+            </div>`;
+            papers.forEach(c => { html += subjectCardHtml(c); });
             container.innerHTML = html;
             document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
