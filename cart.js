@@ -91,6 +91,26 @@
             '</div>';
     }
 
+    function showSuccessState() {
+        try { localStorage.setItem(CART_KEY, JSON.stringify([])); } catch (e) {}
+        renderPill();
+        var body = document.getElementById('vmou-cart-body');
+        var countEl = document.getElementById('vmou-cart-count');
+        if (countEl) countEl.textContent = '';
+        if (body) {
+            body.innerHTML = 
+                '<div class="bg-green-50 border-2 border-green-400 rounded-2xl p-6 text-center my-6 shadow-sm">' +
+                '<div class="text-5xl mb-3">✅</div>' +
+                '<p class="font-black text-green-700 text-xl">पेमेंट सफल!</p>' +
+                '<p class="text-gray-700 mt-2 text-sm leading-relaxed">आपकी सभी PDF <b>5 मिनट के भीतर</b> आपकी ईमेल पर भेज दी जाएँगी।</p>' +
+                '<p class="text-xs text-gray-500 mt-3 font-medium">कृपया अपना Inbox और Spam/Promotions फ़ोल्डर चेक करें।</p>' +
+                '<button id="vmou-cart-success-close" class="mt-6 w-full bg-[#392E7C] hover:bg-[#2d2461] text-white py-3.5 rounded-xl font-bold text-sm shadow-md transition-colors">बंद करें (Close)</button>' +
+                '</div>';
+            var closeBtn = document.getElementById('vmou-cart-success-close');
+            if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+        }
+    }
+
     function renderDrawer() {
         var items = getCart();
         var body = document.getElementById('vmou-cart-body');
@@ -175,9 +195,8 @@
                 prefill: { name: name, email: email, contact: phone },
                 theme: { color: '#392E7C' },
                 handler: function() {
-                    clearCart();
-                    form.classList.add('hidden');
-                    document.querySelector('.cart-success').classList.remove('hidden');
+                    sessionStorage.setItem('vmou_payment_success', 'true');
+                    showSuccessState();
                 },
                 modal: { ondismiss: function() { btn.disabled = false; btn.textContent = 'सुरक्षित भुगतान करें (₹' + tieredTotal(items.length) + ')'; } }
             });
@@ -237,6 +256,11 @@
     document.addEventListener('DOMContentLoaded', function() {
         injectMarkup();
         renderPill();
+        if (sessionStorage.getItem('vmou_payment_success') === 'true') {
+            sessionStorage.removeItem('vmou_payment_success');
+            openDrawer();
+            showSuccessState();
+        }
         document.body.addEventListener('click', function(e) {
             var btn = e.target.closest('.add-cart-btn');
             if (!btn) return;
