@@ -67,8 +67,9 @@
                     <input type="tel" class="buyer-phone-input w-full border-2 border-[#392E7C]/15 focus:border-[#C9A227] outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="जैसे: 9876543210" maxlength="10">
                 </div>
                 <button type="button" class="buy-now-btn w-full block text-center bg-[#392E7C] hover:bg-[#2d2461] text-white font-black text-lg px-10 py-4 rounded-2xl shadow-xl transition transform hover:scale-105 disabled:opacity-60 disabled:hover:scale-100 ring-2 ring-transparent hover:ring-[#C9A227]">
-                    अभी खरीदें ➔
+                    ⚡ अभी खरीदें (Buy Now) ➔
                 </button>
+                <button type="button" class="add-cart-btn w-full mt-3 block text-center bg-white border-2 border-[#392E7C]/20 hover:border-[#C9A227] text-[#392E7C] font-bold px-10 py-3.5 rounded-2xl transition" data-item='{"code": "EG-02", "name_hi": "गद्य और कथा साहित्य-I", "name_en": "Prose and Fiction", "price": 79, "degree": "BAN"}'>🛒 कार्ट में जोड़ें (Add to Cart)</button>
                 <p class="checkout-error hidden text-red-600 text-sm font-bold text-center mt-3"></p>
                 <p class="text-xs text-center text-gray-400 mt-3">Secure payment powered by Razorpay · By continuing you agree to our Terms &amp; Refund Policy.</p>
             </div>
@@ -185,5 +186,6 @@
         });
     })();
     </script>
+    <script src="/cart.js"></script>
 </body>
 </html>
