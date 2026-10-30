@@ -139,10 +139,46 @@
         <svg viewBox="0 0 32 32" class="w-7 h-7 fill-white"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.837.744 5.5 2.04 7.805L0 32l8.4-2.01A15.9 15.9 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.09c-2.49 0-4.83-.68-6.84-1.87l-.49-.29-5.01 1.2 1.23-4.87-.32-.5A13.06 13.06 0 0 1 2.91 16C2.91 8.78 8.78 2.91 16 2.91S29.09 8.78 29.09 16 23.22 29.09 16 29.09zm7.18-9.79c-.39-.2-2.3-1.13-2.66-1.26-.36-.13-.62-.2-.88.2-.26.39-1.01 1.26-1.24 1.52-.23.26-.46.29-.85.1-.39-.2-1.64-.6-3.12-1.92-1.15-1.03-1.93-2.3-2.16-2.69-.23-.39-.02-.6.17-.8.18-.18.39-.46.59-.7.2-.23.26-.39.39-.65.13-.26.07-.49-.03-.68-.1-.2-.88-2.13-1.21-2.92-.32-.76-.64-.66-.88-.67l-.75-.01c-.26 0-.68.1-1.04.49-.36.39-1.36 1.33-1.36 3.25s1.4 3.77 1.59 4.03c.2.26 2.76 4.21 6.68 5.9.93.4 1.66.64 2.23.82.94.3 1.79.26 2.47.16.75-.11 2.3-.94 2.63-1.85.33-.91.33-1.68.23-1.85-.1-.16-.36-.26-.75-.46z"/></svg>
     </a>
 
+    <div id="bundle-modal" class="hidden fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
+        <div class="bg-white rounded-[2rem] shadow-2xl max-w-md w-full p-7 md:p-8 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeBundleCheckout()" class="absolute top-5 right-5 text-gray-400 hover:text-gray-700 text-2xl leading-none">&times;</button>
+            <div class="text-center mb-5">
+                <span class="bg-[#C9A227] text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide">Bundle</span>
+                <h3 id="bundle-modal-label" class="font-display text-xl font-black text-gray-900 mt-3"></h3>
+                <div class="flex items-end justify-center gap-3 mt-2">
+                    <span id="bundle-modal-price" class="text-3xl font-black text-gray-900"></span>
+                    <span id="bundle-modal-strike" class="text-lg text-gray-400 line-through mb-0.5"></span>
+                </div>
+            </div>
+            <div class="bundle-success hidden bg-green-50 border-2 border-green-400 rounded-2xl p-5 text-center mb-4">
+                <p class="font-black text-green-700 text-lg">✅ पेमेंट सफल!</p>
+                <p class="text-gray-700 mt-1 text-sm">आपकी सभी PDF 5 मिनट के भीतर आपकी ईमेल पर भेज दी जाएँगी।</p>
+            </div>
+            <form class="bundle-checkout-form space-y-4">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">आपका पूरा नाम *</label>
+                    <input type="text" class="bundle-name-input w-full border-2 border-[#392E7C]/15 focus:border-[#C9A227] outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="जैसे: Rohit Sharma">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">आपकी ईमेल आईडी *</label>
+                    <input type="email" class="bundle-email-input w-full border-2 border-[#392E7C]/15 focus:border-[#C9A227] outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="जैसे: rohit@gmail.com">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">आपका मोबाइल नंबर *</label>
+                    <input type="tel" class="bundle-phone-input w-full border-2 border-[#392E7C]/15 focus:border-[#C9A227] outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="जैसे: 9876543210" maxlength="10">
+                </div>
+                <button type="button" class="bundle-buy-btn w-full bg-[#392E7C] hover:bg-[#2d2461] text-white font-black text-lg px-10 py-4 rounded-2xl shadow-xl transition transform hover:scale-105 disabled:opacity-60 disabled:hover:scale-100 ring-2 ring-transparent hover:ring-[#C9A227]">बंडल खरीदें ➔</button>
+                <p class="bundle-checkout-error hidden text-red-600 text-sm font-bold text-center"></p>
+                <p class="text-xs text-center text-gray-400">Secure payment powered by Razorpay</p>
+            </form>
+        </div>
+    </div>
+
     <script>
         let allCourses = [];
         let degreeFullNames = {};
         let subjectAreaLabels = {};
+        let allBundles = [];
         const CATEGORY_ORDER = ['Master', 'Bachelor', 'Diploma', 'Certificate'];
         const CATEGORY_LABELS = {
             Master: 'स्नातकोत्तर उपाधियाँ (Master\'s Degrees)',
@@ -164,6 +200,7 @@
                 allCourses = data.papers;
                 degreeFullNames = data.degree_names;
                 subjectAreaLabels = data.subject_area_labels || {};
+                allBundles = data.bundles || [];
                 renderHomeView();
                 // Deep link support: #degree=BED jumps straight to that degree's
                 // subject list -- used by the order-confirmation email's cross-sell
@@ -247,12 +284,40 @@
             </div>`;
         }
 
+        // Real historical order data (06_Website/order-tracking Sheet.xlsx, 71 real
+        // sales -- not a guess) decided this list outright: MAHIN(17)/MAHDN(11)/
+        // MAEDN(11)/MAPSN(9)/BAN(6) orders, with a clean gap before the 6th-place
+        // degree (MAGEN, 5) -- no tie at the cutoff, so no size-based fallback needed.
+        const TOP_5_DEGREES = ['MAHIN', 'MAHDN', 'MAEDN', 'MAPSN', 'BAN'];
+
         function renderHomeView() {
             const container = document.getElementById('courses-container');
-            const degrees = [...new Set(allCourses.map(c => c.degree))];
             let html = `<div class="col-span-full text-center mb-4">
-                <h3 class="text-3xl font-black text-gray-900">अपनी डिग्री श्रेणी चुनें</h3>
-                <p class="text-gray-500 mt-2 font-medium text-lg">अपनी श्रेणी पर क्लिक करें और फिर डिग्री चुनें</p>
+                <h3 class="text-3xl font-black text-gray-900">सबसे ज़्यादा खरीदी गई डिग्री</h3>
+                <p class="text-gray-500 mt-2 font-medium text-lg">अपनी डिग्री चुनें, या नीचे से सभी डिग्री देखें</p>
+            </div>`;
+            html += `<div class="col-span-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">`;
+            TOP_5_DEGREES.forEach(degree => {
+                if (allCourses.some(c => c.degree === degree)) { html += degreeCardHtml(degree); }
+            });
+            html += `<div onclick="renderCategoryOverview()" class="card-in bg-[#392E7C] rounded-[2rem] shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer text-center group relative overflow-hidden flex flex-col items-center justify-center p-8 min-h-[260px]">
+                <div class="text-5xl mb-4 text-white group-hover:scale-110 transition-transform duration-300">🔎</div>
+                <h4 class="text-xl font-black text-white mb-1">सभी डिग्री देखें</h4>
+                <p class="text-[#C9A227] font-bold text-sm mt-2">Explore All Degrees ➔</p>
+            </div>`;
+            html += `</div>`;
+            container.innerHTML = html;
+        }
+
+        function renderCategoryOverview() {
+            const container = document.getElementById('courses-container');
+            const degrees = [...new Set(allCourses.map(c => c.degree))];
+            let html = `<div class="col-span-full mb-4 flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-[#392E7C]/5 to-white p-6 md:p-8 rounded-3xl shadow-sm border border-[#392E7C]/10">
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <h3 class="text-2xl md:text-3xl font-black text-gray-900">अपनी डिग्री श्रेणी चुनें</h3>
+                    <p class="text-[#392E7C] font-bold mt-1 text-lg">अपनी श्रेणी पर क्लिक करें और फिर डिग्री चुनें</p>
+                </div>
+                <button onclick="renderHomeView()" class="bg-gray-900 hover:bg-[#2d2461] text-white font-bold px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 whitespace-nowrap">⬅ होमपेज (Go Back)</button>
             </div>`;
             html += `<div class="col-span-full grid grid-cols-2 lg:grid-cols-4 gap-5 md:gap-8">`;
             CATEGORY_ORDER.forEach(category => {
@@ -279,7 +344,7 @@
                     <h3 class="text-2xl md:text-3xl font-black text-gray-900">${CATEGORY_ICONS[category] || ''} ${CATEGORY_LABELS[category]}</h3>
                     <p class="text-[#392E7C] font-bold mt-2 text-lg">अपनी डिग्री पर क्लिक करें और विषय देखें</p>
                 </div>
-                <button onclick="renderHomeView()" class="bg-gray-900 hover:bg-[#2d2461] text-white font-bold px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 whitespace-nowrap">⬅ सभी श्रेणियां (Go Back)</button>
+                <button onclick="renderCategoryOverview()" class="bg-gray-900 hover:bg-[#2d2461] text-white font-bold px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 whitespace-nowrap">⬅ सभी श्रेणियां (Go Back)</button>
             </div>`;
             html += degrees.map(degreeCardHtml).join('');
             container.innerHTML = html;
@@ -287,21 +352,38 @@
         }
 
         function subjectAreasFor(degree) {
+            // Trusts the same is_multi_area classification the Python bundle logic
+            // uses (verified against real curriculum "optional" flags, not a prefix-
+            // counting guess) -- a degree with a real compulsory core (e.g. MAHIN,
+            // MAPSN) is single-track even if it happens to have a big subject-code
+            // prefix, so it must NOT show a pointless one-tile "choose your area"
+            // screen, which an earlier, inconsistent prefix-only heuristic did.
+            if (!(degreeFullNames[degree] || {}).is_multi_area) return null;
             const papers = allCourses.filter(c => c.degree === degree);
             const groups = {};
             papers.forEach(c => {
                 const prefix = c.code.split('-')[0];
                 (groups[prefix] = groups[prefix] || []).push(c);
             });
-            const prefixes = Object.keys(groups);
-            // Only worth a sub-area view if the degree actually has more than one
-            // real subject area of meaningful size -- a single-prefix degree (every
-            // paper literally starts with the same code, e.g. all BED-*) has nothing
-            // to segregate by, and a degree with only small elective groups doesn't
-            // either.
-            const bigPrefixes = prefixes.filter(p => groups[p].length >= SUBJECT_AREA_MIN_SIZE);
-            if (prefixes.length <= 1 || bigPrefixes.length === 0) return null;
             return groups;
+        }
+
+        function bundleCardHtml(bundle) {
+            return `<div class="col-span-full card-in bg-gradient-to-r from-[#392E7C] to-[#241c54] rounded-3xl shadow-xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-4 mb-4">
+                <div class="text-center md:text-left">
+                    <span class="bg-[#C9A227] text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide">💰 Bundle Offer</span>
+                    <h4 class="text-xl md:text-2xl font-black text-white mt-2">${bundle.label}</h4>
+                    <p class="text-[#C9C3F5] text-sm mt-1">अलग-अलग खरीदने पर ₹${bundle.individual_total} — बंडल में सिर्फ ₹${bundle.price} (₹${bundle.savings} की बचत)</p>
+                </div>
+                <button onclick="openBundleCheckout('${bundle.bundle_code}')" class="bg-[#C9A227] hover:bg-[#b08f20] text-white font-black px-8 py-4 rounded-2xl shadow-lg transition transform hover:scale-105 whitespace-nowrap">बंडल खरीदें ➔</button>
+            </div>`;
+        }
+
+        function bundleFor(degree, prefix) {
+            if (prefix) {
+                return allBundles.find(b => b.degree === degree && b.bundle_code === `${degree}-${prefix}-BUNDLE`);
+            }
+            return allBundles.find(b => b.degree === degree && b.bundle_code === `${degree}-CORE-BUNDLE`);
         }
 
         function showSubjects(degree) {
@@ -340,6 +422,8 @@
                     </div>`;
                 }
             } else {
+                const bundle = bundleFor(degree);
+                if (bundle) { html += bundleCardHtml(bundle); }
                 allCourses.filter(c => c.degree === degree).forEach(c => { html += subjectCardHtml(c); });
             }
             container.innerHTML = html;
@@ -367,10 +451,93 @@
                 </div>
                 <button onclick="showSubjects('${degree}')" class="bg-gray-900 hover:bg-[#2d2461] text-white font-bold px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 whitespace-nowrap">⬅ विषय क्षेत्र (Go Back)</button>
             </div>`;
+            if (prefix !== '__other__') {
+                const bundle = bundleFor(degree, prefix);
+                if (bundle) { html += bundleCardHtml(bundle); }
+            }
             papers.forEach(c => { html += subjectCardHtml(c); });
             container.innerHTML = html;
             document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+
+        var ORDER_ENDPOINT = "https://asia-south1-aldhru-academy-cloud.cloudfunctions.net/create-razorpay-order";
+        var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        var PHONE_RE = /^[6-9]\d{9}$/;
+        var currentBundle = null;
+
+        function openBundleCheckout(bundleCode) {
+            currentBundle = allBundles.find(b => b.bundle_code === bundleCode);
+            if (!currentBundle) return;
+            document.getElementById('bundle-modal-label').textContent = currentBundle.label;
+            document.getElementById('bundle-modal-price').textContent = '₹' + currentBundle.price;
+            document.getElementById('bundle-modal-strike').textContent = '₹' + currentBundle.individual_total;
+            document.querySelector('.bundle-checkout-form').classList.remove('hidden');
+            document.querySelector('.bundle-success').classList.add('hidden');
+            document.querySelector('.bundle-checkout-error').classList.add('hidden');
+            document.getElementById('bundle-modal').classList.remove('hidden');
+        }
+
+        function closeBundleCheckout() {
+            document.getElementById('bundle-modal').classList.add('hidden');
+        }
+
+        document.querySelector('.bundle-buy-btn').addEventListener('click', function() {
+            if (!currentBundle || !ORDER_ENDPOINT) return;
+            var form = document.querySelector('.bundle-checkout-form');
+            var btn = form.querySelector('.bundle-buy-btn');
+            var nameInput = form.querySelector('.bundle-name-input');
+            var emailInput = form.querySelector('.bundle-email-input');
+            var phoneInput = form.querySelector('.bundle-phone-input');
+            var errorEl = form.querySelector('.bundle-checkout-error');
+
+            var name = nameInput.value.trim();
+            var email = emailInput.value.trim();
+            var phone = phoneInput.value.replace(/\D/g, '');
+            errorEl.classList.add('hidden');
+            if (!name) { nameInput.focus(); return; }
+            if (!EMAIL_RE.test(email)) { emailInput.focus(); return; }
+            if (!PHONE_RE.test(phone)) { phoneInput.focus(); return; }
+
+            btn.disabled = true;
+            btn.textContent = 'कृपया प्रतीक्षा करें...';
+
+            fetch(ORDER_ENDPOINT, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({bundle_code: currentBundle.bundle_code, buyer_name: name, buyer_email: email, buyer_phone: phone})
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (!data.order_id) { throw new Error(data.error || 'Order creation failed'); }
+                var rzp = new Razorpay({
+                    key: data.key_id, amount: data.amount, currency: data.currency, order_id: data.order_id,
+                    name: 'Aldhru Academy', description: currentBundle.label,
+                    prefill: { name: name, email: email, contact: phone },
+                    theme: { color: '#392E7C' },
+                    handler: function() {
+                        form.classList.add('hidden');
+                        document.querySelector('.bundle-success').classList.remove('hidden');
+                    },
+                    modal: { ondismiss: function() { btn.disabled = false; btn.textContent = 'बंडल खरीदें ➔'; } }
+                });
+                rzp.on('payment.failed', function() {
+                    errorEl.textContent = 'पेमेंट असफल रहा, कृपया दोबारा कोशिश करें।';
+                    errorEl.classList.remove('hidden');
+                    btn.disabled = false;
+                    btn.textContent = 'बंडल खरीदें ➔';
+                });
+                rzp.open();
+                btn.disabled = false;
+                btn.textContent = 'बंडल खरीदें ➔';
+            })
+            .catch(() => {
+                errorEl.textContent = 'कुछ गड़बड़ हुई, कृपया दोबारा कोशिश करें।';
+                errorEl.classList.remove('hidden');
+                btn.disabled = false;
+                btn.textContent = 'बंडल खरीदें ➔';
+            });
+        });
     </script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </body>
 </html>
