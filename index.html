@@ -22,13 +22,17 @@
 
     <header class="sticky top-0 z-30 px-6 py-4 bg-white/80 backdrop-blur-md border-b border-gray-100/80">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-3">
+            <a href="/index.html" class="flex items-center gap-3">
                 <img src="logo.png" alt="Aldhru Academy Logo" class="h-12 w-12 rounded-full shadow-md border-2 border-white object-cover" onerror="this.style.display='none'">
                 <h1 class="font-display text-2xl font-black text-gray-900 tracking-tight">Aldhru<span class="text-[#392E7C]">Academy</span></h1>
-            </div>
-            <nav class="hidden md:flex gap-8 font-bold text-gray-600 text-base">
-                <a href="#products" class="hover:text-[#392E7C] transition duration-300">कोर्सेस (Courses)</a>
-                <a href="/support.html" class="hover:text-[#392E7C] transition duration-300">सहायता (Support)</a>
+            </a>
+            <nav class="hidden md:flex gap-6 font-bold text-gray-600 text-sm lg:text-base overflow-x-auto">
+                <a href="/index.html" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap">होम (Home)</a>
+                <a href="#masters" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap">मास्टर्स (Master's)</a>
+                <a href="#bachelors" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap">स्नातक (Bachelor's)</a>
+                <a href="#diploma" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap">डिप्लोमा (Diploma)</a>
+                <a href="#certificate" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap">सर्टिफिकेट (Certificate)</a>
+                <a href="/support.html" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap">सहायता (Support)</a>
             </nav>
         </div>
     </header>
@@ -236,83 +240,51 @@
 
         const CATEGORY_ICONS = { Master: '🎓', Bachelor: '📘', Diploma: '📜', Certificate: '🏅' };
 
-        function categoryTileHtml(category, count) {
-            const accent = CATEGORY_ACCENTS[category] || CATEGORY_ACCENTS.Master;
-            return `<div onclick="showCategory('${category}')" class="card-in bg-white rounded-[2rem] shadow-xl shadow-gray-200/50 border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer text-center group relative overflow-hidden">
-                <div class="h-2 w-full bg-gradient-to-r ${accent.bar}"></div>
-                <div class="p-8">
-                    <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">${CATEGORY_ICONS[category] || '🎓'}</div>
-                    <h4 class="text-xl font-black text-gray-900 mb-1">${CATEGORY_LABELS[category]}</h4>
-                    <div class="mt-4 inline-block text-sm font-black px-4 py-2 rounded-full ${accent.badge}">${count} डिग्री</div>
-                </div>
-            </div>`;
-        }
+        // Homepage layout (2026-10-30): instead of a top-5 pick + a click into a
+        // separate category-overview screen, all 4 degree categories are shown
+        // directly, each in its own anchored section -- so the header nav tabs
+        // (#masters/#bachelors/#diploma/#certificate) jump straight to real
+        // content instead of a page that still needs another click.
+        const CATEGORY_ANCHORS = { Master: 'masters', Bachelor: 'bachelors', Diploma: 'diploma', Certificate: 'certificate' };
 
-        // Real historical order data (06_Website/order-tracking Sheet.xlsx, 71 real
-        // sales -- not a guess) decided this list outright: MAHIN(17)/MAHDN(11)/
-        // MAEDN(11)/MAPSN(9)/BAN(6) orders, with a clean gap before the 6th-place
-        // degree (MAGEN, 5) -- no tie at the cutoff, so no size-based fallback needed.
-        const TOP_5_DEGREES = ['MAHIN', 'MAHDN', 'MAEDN', 'MAPSN', 'BAN'];
+        function categorySectionHtml(category, degrees) {
+            if (degrees.length === 0) return '';
+            const anchor = CATEGORY_ANCHORS[category] || category.toLowerCase();
+            let html = `<div id="${anchor}" class="col-span-full scroll-mt-24">
+                <div class="flex items-center gap-3 mb-6 mt-4">
+                    <span class="text-3xl">${CATEGORY_ICONS[category] || '🎓'}</span>
+                    <h3 class="text-2xl md:text-3xl font-black text-gray-900">${CATEGORY_LABELS[category]}</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">`;
+            html += degrees.map(degreeCardHtml).join('');
+            html += `</div></div>`;
+            return html;
+        }
 
         function renderHomeView() {
             const container = document.getElementById('courses-container');
-            let html = `<div class="col-span-full text-center mb-4">
-                <h3 class="text-3xl font-black text-gray-900">सबसे ज़्यादा खरीदी गई डिग्री</h3>
-                <p class="text-gray-500 mt-2 font-medium text-lg">अपनी डिग्री चुनें, या नीचे से सभी डिग्री देखें</p>
-            </div>`;
-            html += `<div class="col-span-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">`;
-            TOP_5_DEGREES.forEach(degree => {
-                if (allCourses.some(c => c.degree === degree)) { html += degreeCardHtml(degree); }
-            });
-            html += `<div onclick="renderCategoryOverview()" class="card-in bg-[#392E7C] rounded-[2rem] shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer text-center group relative overflow-hidden flex flex-col items-center justify-center p-8 min-h-[260px]">
-                <div class="text-5xl mb-4 text-white group-hover:scale-110 transition-transform duration-300">🔎</div>
-                <h4 class="text-xl font-black text-white mb-1">सभी डिग्री देखें</h4>
-                <p class="text-[#C9A227] font-bold text-sm mt-2">Explore All Degrees ➔</p>
-            </div>`;
-            html += `</div>`;
-            container.innerHTML = html;
-        }
-
-        function renderCategoryOverview() {
-            const container = document.getElementById('courses-container');
             const degrees = [...new Set(allCourses.map(c => c.degree))];
-            let html = `<div class="col-span-full mb-4 flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-[#392E7C]/5 to-white p-6 md:p-8 rounded-3xl shadow-sm border border-[#392E7C]/10">
-                <div class="text-center md:text-left mb-6 md:mb-0">
-                    <h3 class="text-2xl md:text-3xl font-black text-gray-900">अपनी डिग्री श्रेणी चुनें</h3>
-                    <p class="text-[#392E7C] font-bold mt-1 text-lg">अपनी श्रेणी पर क्लिक करें और फिर डिग्री चुनें</p>
-                </div>
-                <button onclick="renderHomeView()" class="bg-gray-900 hover:bg-[#2d2461] text-white font-bold px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 whitespace-nowrap">⬅ होमपेज (Go Back)</button>
+            let html = `<div class="col-span-full text-center mb-2">
+                <h3 class="text-3xl font-black text-gray-900">अपनी डिग्री चुनें</h3>
+                <p class="text-gray-500 mt-2 font-medium text-lg">श्रेणी अनुसार सभी डिग्री प्रोग्राम नीचे देखें</p>
             </div>`;
-            html += `<div class="col-span-full grid grid-cols-2 lg:grid-cols-4 gap-5 md:gap-8">`;
             CATEGORY_ORDER.forEach(category => {
-                const count = degrees.filter(d => (degreeFullNames[d] || {}).level === category).length;
-                if (count === 0) return;
-                html += categoryTileHtml(category, count);
+                const inCategory = degrees.filter(d => (degreeFullNames[d] || {}).level === category).sort();
+                html += categorySectionHtml(category, inCategory);
             });
-            html += `</div>`;
             container.innerHTML = html;
-            // No auto-scroll here -- this also runs on first page load (via the
-            // initial fetch().then() call below), and scrolling away from the hero
-            // immediately on load would hide it entirely. "Go Back" buttons from a
-            // deeper view don't need to re-scroll either, since the user is already
-            // sitting at the #products section when they click them.
         }
 
-        function showCategory(category) {
-            const container = document.getElementById('courses-container');
-            const degrees = [...new Set(allCourses.map(c => c.degree))]
-                .filter(d => (degreeFullNames[d] || {}).level === category)
-                .sort();
-            let html = `<div class="col-span-full mb-6 flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-[#392E7C]/5 to-white p-6 md:p-8 rounded-3xl shadow-sm border border-[#392E7C]/10">
-                <div class="text-center md:text-left mb-6 md:mb-0">
-                    <h3 class="text-2xl md:text-3xl font-black text-gray-900">${CATEGORY_ICONS[category] || ''} ${CATEGORY_LABELS[category]}</h3>
-                    <p class="text-[#392E7C] font-bold mt-2 text-lg">अपनी डिग्री पर क्लिक करें और विषय देखें</p>
-                </div>
-                <button onclick="renderCategoryOverview()" class="bg-gray-900 hover:bg-[#2d2461] text-white font-bold px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 whitespace-nowrap">⬅ सभी श्रेणियां (Go Back)</button>
-            </div>`;
-            html += degrees.map(degreeCardHtml).join('');
-            container.innerHTML = html;
-            document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        function goHome(anchor) {
+            renderHomeView();
+            if (anchor) {
+                requestAnimationFrame(() => {
+                    const el = document.getElementById(anchor);
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            } else {
+                document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
 
         function subjectAreasFor(degree) {
@@ -341,7 +313,7 @@
                     <h3 class="text-3xl font-black text-gray-900">${degree} <span class="text-xl font-bold text-[#392E7C]">— ${info.name_hi}</span></h3>
                     <p class="text-gray-500 mt-1 text-base">${info.name_en}</p>
                 </div>
-                <button onclick="showCategory('${info.level}')" class="bg-gray-900 hover:bg-[#2d2461] text-white font-bold px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 whitespace-nowrap">⬅ ${CATEGORY_LABELS[info.level] || 'सभी डिग्रियां'} (Go Back)</button>
+                <button onclick="goHome('${CATEGORY_ANCHORS[info.level] || ''}')" class="bg-gray-900 hover:bg-[#2d2461] text-white font-bold px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 whitespace-nowrap">⬅ ${CATEGORY_LABELS[info.level] || 'सभी डिग्रियां'} (Go Back)</button>
             </div>`;
 
             if (groups) {
