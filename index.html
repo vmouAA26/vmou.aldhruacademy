@@ -13,6 +13,13 @@
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
         .card-in { animation: fadeInUp 0.45s ease-out both; }
         ::selection { background: #c4b5fd; color: #1e1b4b; }
+        .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        /* Desktop-only floating cart pill (#vmou-cart-pill): "hidden" alone keeps it
+           off on mobile at every breakpoint (the mobile floating bar covers that job
+           instead), while this empty-state class -- toggled by cart.js -- is the only
+           thing that hides it on desktop, independent of the responsive "sm:flex". */
+        .cart-pill-empty { display: none !important; }
     </style>
     <!-- Cloudflare Web Analytics -->
     <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e614852cf9514a66ae9ff8e68e4829b6"}'></script>
@@ -20,20 +27,30 @@
 </head>
 <body class="bg-[#FAF8F3] text-gray-800 antialiased overflow-x-hidden">
 
-    <header class="sticky top-0 z-30 px-6 py-4 bg-white/80 backdrop-blur-md border-b border-gray-100/80">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="/index.html" class="flex items-center gap-3">
-                <img src="logo.png" alt="Aldhru Academy Logo" class="h-12 w-12 rounded-full shadow-md border-2 border-white object-cover" onerror="this.style.display='none'">
-                <h1 class="font-display text-2xl font-black text-gray-900 tracking-tight">Aldhru<span class="text-[#392E7C]">Academy</span></h1>
-            </a>
-            <nav class="hidden md:flex gap-6 font-bold text-gray-600 text-sm lg:text-base overflow-x-auto">
-                <a href="/index.html" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap">होम (Home)</a>
-                <a href="#masters" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap">मास्टर्स (Master's)</a>
-                <a href="#bachelors" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap">स्नातक (Bachelor's)</a>
-                <a href="#diploma" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap">डिप्लोमा (Diploma)</a>
-                <a href="#certificate" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap">सर्टिफिकेट (Certificate)</a>
-                <a href="/support.html" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap">सहायता (Support)</a>
-            </nav>
+    <header class="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-gray-100/80">
+        <div class="px-6 py-4">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <a href="/index.html" class="flex items-center gap-3">
+                    <img src="logo.png" alt="Aldhru Academy Logo" class="h-12 w-12 rounded-full shadow-md border-2 border-white object-cover" onerror="this.style.display='none'">
+                    <h1 class="font-display text-2xl font-black text-gray-900 tracking-tight">Aldhru<span class="text-[#392E7C]">Academy</span></h1>
+                </a>
+                <nav class="hidden md:flex gap-6 font-bold text-gray-600 text-sm lg:text-base overflow-x-auto">
+                    <button onclick="goHome()" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap bg-transparent">होम (Home)</button>
+                    <button onclick="showCategory('Master')" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap bg-transparent">मास्टर्स (Master's)</button>
+                    <button onclick="showCategory('Bachelor')" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap bg-transparent">स्नातक (Bachelor's)</button>
+                    <button onclick="showCategory('Diploma')" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap bg-transparent">डिप्लोमा (Diploma)</button>
+                    <button onclick="showCategory('Certificate')" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap bg-transparent">सर्टिफिकेट (Certificate)</button>
+                    <a href="/support.html" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap">सहायता (Support)</a>
+                </nav>
+            </div>
+        </div>
+        <div class="md:hidden flex items-center gap-2 overflow-x-auto py-2.5 px-4 border-t border-gray-100 no-scrollbar text-sm font-bold">
+            <button onclick="goHome()" class="cat-pill flex items-center gap-1.5 px-3.5 py-2.5 rounded-full whitespace-nowrap bg-[#392E7C] text-white transition shadow-sm min-h-[44px]" data-pill="home">🏠 होम</button>
+            <button onclick="showCategory('Master')" class="cat-pill flex items-center gap-1.5 px-3.5 py-2.5 rounded-full whitespace-nowrap bg-gray-100 text-gray-700 hover:bg-gray-200 transition min-h-[44px]" data-pill="Master">🎓 मास्टर्स <span id="pill-count-Master" class="opacity-70"></span></button>
+            <button onclick="showCategory('Bachelor')" class="cat-pill flex items-center gap-1.5 px-3.5 py-2.5 rounded-full whitespace-nowrap bg-gray-100 text-gray-700 hover:bg-gray-200 transition min-h-[44px]" data-pill="Bachelor">📚 बैचलर्स <span id="pill-count-Bachelor" class="opacity-70"></span></button>
+            <button onclick="showCategory('Diploma')" class="cat-pill flex items-center gap-1.5 px-3.5 py-2.5 rounded-full whitespace-nowrap bg-gray-100 text-gray-700 hover:bg-gray-200 transition min-h-[44px]" data-pill="Diploma">📜 डिप्लोमा <span id="pill-count-Diploma" class="opacity-70"></span></button>
+            <button onclick="showCategory('Certificate')" class="cat-pill flex items-center gap-1.5 px-3.5 py-2.5 rounded-full whitespace-nowrap bg-gray-100 text-gray-700 hover:bg-gray-200 transition min-h-[44px]" data-pill="Certificate">📑 सर्टिफिकेट <span id="pill-count-Certificate" class="opacity-70"></span></button>
+            <a href="/support.html" class="flex items-center gap-1.5 px-3.5 py-2.5 rounded-full whitespace-nowrap bg-amber-50 text-amber-900 hover:bg-amber-100 transition min-h-[44px]">💬 सहायता</a>
         </div>
     </header>
 
@@ -154,6 +171,19 @@
             Diploma: 'डिप्लोमा (Diplomas)',
             Certificate: 'प्रमाण पत्र (Certificates)',
         };
+        const CATEGORY_LABELS_SHORT = { Master: 'मास्टर्स', Bachelor: 'बैचलर्स', Diploma: 'डिप्लोमा', Certificate: 'सर्टिफिकेट' };
+        // Real historical order data (06_Website/order-tracking Sheet.xlsx) decided
+        // Master's; Bachelor's/Diploma/Certificate picked by paper-count size as a
+        // reasonable stand-in until there's enough Analytics traffic to replace them.
+        // curatedDegreesFor() below falls back to size order for any category with
+        // fewer than 3 entries here, or degrees not in the list, so this never needs
+        // to be kept in sync with every new degree added to the database.
+        const POPULAR_DEGREES = {
+            Master: ['MAHIN', 'MAPSN', 'MAEDN'],
+            Bachelor: ['BAN', 'BSCN', 'BED'],
+            Diploma: ['DLISN', 'DYSN', 'DCAM'],
+            Certificate: ['CIJ', 'CIK', 'CPNM'],
+        };
         const SUBJECT_AREA_MIN_SIZE = 4;
         const CATEGORY_ACCENTS = {
             Master: { bar: 'from-[#392E7C] to-[#241c54]', badge: 'bg-[#392E7C]/10 text-[#392E7C]' },
@@ -168,12 +198,12 @@
                 allCourses = data.papers;
                 degreeFullNames = data.degree_names;
                 subjectAreaLabels = data.subject_area_labels || {};
-                renderHomeView();
-                // Deep link support: #degree=BED jumps straight to that degree's
-                // subject list -- used by the order-confirmation email's cross-sell
-                // "view all subjects" link.
-                var m = location.hash.match(/^#degree=([A-Za-z0-9]+)/);
-                if (m) { showSubjects(m[1].toUpperCase()); }
+                updatePillCounts();
+                // handleHashRoute() reads location.hash itself -- #degree=BED (the
+                // order-confirmation email's cross-sell "view all subjects" link) or
+                // #category=Master both work the same way a click would, and an
+                // empty hash falls through to the home view.
+                handleHashRoute();
                 document.getElementById('search-input').addEventListener('input', function(e) {
                     const q = e.target.value.trim();
                     if (q.length === 0) { renderHomeView(); return; }
@@ -186,15 +216,15 @@
             });
 
         function subjectCardHtml(c) {
-            return `<div class="card-in bg-white p-8 rounded-3xl shadow-xl shadow-gray-200/40 border border-gray-100 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
+            return `<div class="card-in bg-white p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl shadow-gray-200/40 border border-gray-100 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#392E7C]/8 to-[#C9A227]/10 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
                 <div class="z-10">
                     <span class="bg-gray-900 text-white text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-md">${c.code}</span>
                     <h4 class="text-lg font-bold text-gray-900 mt-6 mb-6 leading-snug">${c.name_hi}</h4>
                 </div>
                 <div class="mt-auto pt-6 border-t border-gray-100 z-10 w-full flex flex-col gap-2">
-                    <a href="${c.link}" class="w-full block bg-[#392E7C] hover:bg-[#2d2461] text-white font-bold px-6 py-3 rounded-xl shadow-md transition transform hover:scale-105 text-center">PDF देखें ➔</a>
-                    <button class="add-cart-btn w-full bg-white border-2 border-[#392E7C]/20 hover:border-[#C9A227] text-[#392E7C] font-bold px-6 py-2.5 rounded-xl transition text-sm" data-item='${JSON.stringify({code: c.code, name_hi: c.name_hi, name_en: c.name_en, price: c.price, degree: c.degree}).replace(/'/g, "&#39;")}'>🛒 कार्ट में जोड़ें</button>
+                    <a href="${c.link}" class="w-full block bg-[#392E7C] hover:bg-[#2d2461] text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition transform hover:scale-105 text-center min-h-[44px]">PDF देखें ➔</a>
+                    <button class="add-cart-btn w-full bg-white border-2 border-[#392E7C]/20 hover:border-[#C9A227] text-[#392E7C] font-bold px-6 py-3 rounded-xl transition text-sm min-h-[44px]" data-item='${JSON.stringify({code: c.code, name_hi: c.name_hi, name_en: c.name_en, price: c.price, degree: c.degree}).replace(/'/g, "&#39;")}'>🛒 कार्ट में जोड़ें</button>
                 </div>
             </div>`;
         }
@@ -224,40 +254,76 @@
             const info = degreeFullNames[degree] || { name_hi: degree, name_en: degree };
             const subjectCount = allCourses.filter(c => c.degree === degree).length;
             const accent = CATEGORY_ACCENTS[info.level] || CATEGORY_ACCENTS.Master;
-            return `<div onclick="showSubjects('${degree}')" class="card-in bg-white rounded-[2rem] shadow-xl shadow-gray-200/50 border border-[#392E7C]/5 hover:shadow-2xl hover:border-[#C9A227]/60 hover:-translate-y-2 transition-all duration-300 cursor-pointer text-center group relative overflow-hidden flex flex-col justify-between">
+            return `<div onclick="showSubjects('${degree}')" class="card-in bg-white rounded-2xl sm:rounded-[2rem] shadow-xl shadow-gray-200/50 border border-[#392E7C]/5 hover:shadow-2xl hover:border-[#C9A227]/60 hover:-translate-y-2 transition-all duration-300 cursor-pointer text-center group relative overflow-hidden flex flex-col justify-between">
                 <div class="h-1.5 w-full bg-gradient-to-r ${accent.bar}"></div>
-                <div class="p-7 flex flex-col justify-between flex-1">
+                <div class="p-4 sm:p-7 flex flex-col justify-between flex-1">
                 <div class="absolute top-0 right-0 w-28 h-28 bg-gradient-to-br from-[#392E7C]/8 to-[#C9A227]/10 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
                 <div>
                     <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🎓</div>
                     <h4 class="text-3xl font-black text-gray-900 mb-1 tracking-tight">${degree}</h4>
                     <p class="text-[#392E7C] font-bold min-h-[3.5rem] flex items-center justify-center text-base leading-snug">${info.name_hi}</p>
                 </div>
-                <div class="mt-4 text-sm font-black text-gray-700 bg-gray-50 py-3 rounded-xl border border-gray-100 group-hover:bg-gradient-to-r group-hover:bg-[#392E7C] group-hover:text-white transition-all shadow-sm">${subjectCount} विषय (Subjects) देखें ➔</div>
+                <div class="mt-4 text-sm font-black text-gray-700 bg-gray-50 py-3.5 rounded-xl border border-gray-100 group-hover:bg-gradient-to-r group-hover:bg-[#392E7C] group-hover:text-white transition-all shadow-sm min-h-[44px] flex items-center justify-center">${subjectCount} विषय (Subjects) देखें ➔</div>
                 </div>
             </div>`;
         }
 
         const CATEGORY_ICONS = { Master: '🎓', Bachelor: '📘', Diploma: '📜', Certificate: '🏅' };
 
-        // Homepage layout (2026-10-30): instead of a top-5 pick + a click into a
-        // separate category-overview screen, all 4 degree categories are shown
-        // directly, each in its own anchored section -- so the header nav tabs
-        // (#masters/#bachelors/#diploma/#certificate) jump straight to real
-        // content instead of a page that still needs another click.
-        const CATEGORY_ANCHORS = { Master: 'masters', Bachelor: 'bachelors', Diploma: 'diploma', Certificate: 'certificate' };
+        // Mobile-first navigation (2026-10-30): the homepage used to render every
+        // degree in every category in one long scroll (6500px+ on a phone). Now the
+        // homepage shows only a curated 3-degree pick per category + a "view all"
+        // CTA into a dedicated showCategory() view, and every top-level view
+        // (home/category/degree) is driven by the URL hash so the phone's native
+        // back-swipe/back-button works without a page reload. Subject-area browsing
+        // inside a degree stays a plain function call (not hash-routed) -- it's a
+        // sub-step of showSubjects, not a top-level destination worth a back-button
+        // stop of its own.
+        function navigateTo(hash) {
+            if (location.hash === hash) { handleHashRoute(); }
+            else { location.hash = hash; }
+        }
+        function goHome() { navigateTo(''); }
+        function showCategory(category) { navigateTo('#category=' + category); }
+        function showSubjects(degree) { navigateTo('#degree=' + degree); }
 
-        function categorySectionHtml(category, degrees) {
+        function handleHashRoute() {
+            if (allCourses.length === 0) return; // catalogue.json not loaded yet
+            const hash = location.hash;
+            const degMatch = hash.match(/^#degree=([A-Za-z0-9_-]+)/);
+            const catMatch = hash.match(/^#category=([A-Za-z0-9_-]+)/);
+            if (degMatch) { renderSubjects(degMatch[1].toUpperCase()); }
+            else if (catMatch) { renderCategoryView(catMatch[1]); }
+            else { renderHomeView(); }
+        }
+        window.addEventListener('hashchange', handleHashRoute);
+
+        function curatedDegreesFor(category, degrees) {
+            if (degrees.length <= 3) return degrees;
+            const popular = (POPULAR_DEGREES[category] || []).filter(d => degrees.includes(d));
+            const rest = degrees.filter(d => popular.indexOf(d) === -1);
+            return popular.concat(rest).slice(0, 3);
+        }
+
+        function homeCategorySectionHtml(category, degrees) {
             if (degrees.length === 0) return '';
-            const anchor = CATEGORY_ANCHORS[category] || category.toLowerCase();
-            let html = `<div id="${anchor}" class="col-span-full scroll-mt-24">
+            const curated = curatedDegreesFor(category, degrees);
+            let html = `<div class="col-span-full">
                 <div class="flex items-center gap-3 mb-6 mt-4">
                     <span class="text-3xl">${CATEGORY_ICONS[category] || '🎓'}</span>
                     <h3 class="text-2xl md:text-3xl font-black text-gray-900">${CATEGORY_LABELS[category]}</h3>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">`;
-            html += degrees.map(degreeCardHtml).join('');
-            html += `</div></div>`;
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">`;
+            html += curated.map(degreeCardHtml).join('');
+            html += `</div>`;
+            if (degrees.length > curated.length) {
+                html += `<div class="text-center mt-5">
+                    <button onclick="showCategory('${category}')" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#392E7C] to-[#5B4FE0] hover:from-[#2d2461] hover:to-[#4a3ec4] text-white font-black text-base sm:text-lg px-8 py-4 rounded-2xl shadow-lg shadow-[#392E7C]/20 hover:shadow-xl transition transform hover:-translate-y-0.5 cursor-pointer min-h-[48px]">
+                        <span>सभी ${CATEGORY_LABELS_SHORT[category]} देखें (${degrees.length} डिग्रियां) →</span>
+                    </button>
+                </div>`;
+            }
+            html += `</div>`;
             return html;
         }
 
@@ -266,25 +332,75 @@
             const degrees = [...new Set(allCourses.map(c => c.degree))];
             let html = `<div class="col-span-full text-center mb-2">
                 <h3 class="text-3xl font-black text-gray-900">अपनी डिग्री चुनें</h3>
-                <p class="text-gray-500 mt-2 font-medium text-lg">श्रेणी अनुसार सभी डिग्री प्रोग्राम नीचे देखें</p>
+                <p class="text-gray-500 mt-2 font-medium text-lg">श्रेणी अनुसार सबसे लोकप्रिय डिग्री नीचे देखें</p>
             </div>`;
             CATEGORY_ORDER.forEach(category => {
                 const inCategory = degrees.filter(d => (degreeFullNames[d] || {}).level === category).sort();
-                html += categorySectionHtml(category, inCategory);
+                html += homeCategorySectionHtml(category, inCategory);
             });
             container.innerHTML = html;
+            updateActivePill('');
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        function goHome(anchor) {
-            renderHomeView();
-            if (anchor) {
-                requestAnimationFrame(() => {
-                    const el = document.getElementById(anchor);
-                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                });
-            } else {
-                document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        function categoryDegreeGridHtml(degrees, query) {
+            const q = (query || '').trim().toLowerCase();
+            const filtered = q
+                ? degrees.filter(d => d.toLowerCase().includes(q) || (degreeFullNames[d] || {}).name_hi?.includes(query) || (degreeFullNames[d] || {}).name_en?.toLowerCase().includes(q))
+                : degrees;
+            if (filtered.length === 0) {
+                return '<div class="col-span-full text-center py-10"><p class="text-gray-500 font-bold text-lg">कुछ नहीं मिला — कृपया दूसरा नाम आज़माएँ।</p></div>';
             }
+            return filtered.map(degreeCardHtml).join('');
+        }
+
+        function renderCategoryView(category) {
+            const container = document.getElementById('courses-container');
+            const degrees = [...new Set(allCourses.map(c => c.degree))]
+                .filter(d => (degreeFullNames[d] || {}).level === category)
+                .sort();
+            const papersCount = allCourses.filter(c => degrees.includes(c.degree)).length;
+            const backBtn = `<button onclick="goHome()" class="bg-gray-900 hover:bg-[#2d2461] text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition transform hover:-translate-y-1 whitespace-nowrap min-h-[44px]">⬅ होम पेज पर वापस जाएं (Back to Home)</button>`;
+            let html = `<div class="col-span-full mb-6 bg-gradient-to-r from-[#392E7C]/5 to-white p-5 sm:p-8 rounded-3xl shadow-sm border border-[#392E7C]/10">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-5">
+                    <div class="text-center sm:text-left">
+                        <h3 class="text-2xl md:text-3xl font-black text-gray-900 flex items-center gap-3 justify-center sm:justify-start"><span class="text-3xl">${CATEGORY_ICONS[category] || '🎓'}</span> ${CATEGORY_LABELS[category]}</h3>
+                        <div class="mt-2 inline-block text-sm font-black px-4 py-1.5 rounded-full ${(CATEGORY_ACCENTS[category] || CATEGORY_ACCENTS.Master).badge}">${degrees.length} डिग्री प्रोग्राम • ${papersCount} बुकलेट</div>
+                    </div>
+                    ${backBtn}
+                </div>
+                <input id="category-search-input" type="text" placeholder="🔍 इस श्रेणी में डिग्री खोजें..." class="w-full px-5 py-3.5 rounded-2xl border-2 border-[#392E7C]/15 focus:border-[#C9A227] outline-none text-base font-medium shadow-sm min-h-[44px]">
+            </div>`;
+            html += `<div id="category-degree-grid" class="col-span-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-8">`;
+            html += categoryDegreeGridHtml(degrees, '');
+            html += `</div>`;
+            html += `<div class="col-span-full text-center mt-8">${backBtn}</div>`;
+            container.innerHTML = html;
+            updateActivePill(category);
+            document.getElementById('category-search-input').addEventListener('input', e => {
+                document.getElementById('category-degree-grid').innerHTML = categoryDegreeGridHtml(degrees, e.target.value);
+            });
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function updatePillCounts() {
+            const degrees = [...new Set(allCourses.map(c => c.degree))];
+            CATEGORY_ORDER.forEach(category => {
+                const el = document.getElementById('pill-count-' + category);
+                if (!el) return;
+                const count = degrees.filter(d => (degreeFullNames[d] || {}).level === category).length;
+                el.textContent = count > 0 ? '(' + count + ')' : '';
+            });
+        }
+
+        function updateActivePill(category) {
+            document.querySelectorAll('.cat-pill').forEach(el => {
+                const isActive = el.getAttribute('data-pill') === (category || 'home');
+                el.classList.toggle('bg-[#392E7C]', isActive);
+                el.classList.toggle('text-white', isActive);
+                el.classList.toggle('bg-gray-100', !isActive);
+                el.classList.toggle('text-gray-700', !isActive);
+            });
         }
 
         function subjectAreasFor(degree) {
@@ -304,16 +420,16 @@
             return groups;
         }
 
-        function showSubjects(degree) {
+        function renderSubjects(degree) {
             const container = document.getElementById('courses-container');
             const info = degreeFullNames[degree] || { name_hi: degree, name_en: degree };
             const groups = subjectAreasFor(degree);
-            let html = `<div class="col-span-full mb-6 flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-[#392E7C]/5 to-white p-6 md:p-8 rounded-3xl shadow-sm border border-[#392E7C]/10">
+            let html = `<div class="col-span-full mb-6 flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-[#392E7C]/5 to-white p-5 sm:p-8 rounded-3xl shadow-sm border border-[#392E7C]/10">
                 <div class="text-center md:text-left mb-6 md:mb-0">
                     <h3 class="text-3xl font-black text-gray-900">${degree} <span class="text-xl font-bold text-[#392E7C]">— ${info.name_hi}</span></h3>
                     <p class="text-gray-500 mt-1 text-base">${info.name_en}</p>
                 </div>
-                <button onclick="goHome('${CATEGORY_ANCHORS[info.level] || ''}')" class="bg-gray-900 hover:bg-[#2d2461] text-white font-bold px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 whitespace-nowrap">⬅ ${CATEGORY_LABELS[info.level] || 'सभी डिग्रियां'} (Go Back)</button>
+                <button onclick="showCategory('${info.level}')" class="bg-gray-900 hover:bg-[#2d2461] text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition transform hover:-translate-y-1 whitespace-nowrap min-h-[44px]">⬅ ${CATEGORY_LABELS[info.level] || 'सभी डिग्रियां'} (Go Back)</button>
             </div>`;
 
             if (groups) {

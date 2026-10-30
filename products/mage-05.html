@@ -13,6 +13,13 @@
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
         .card-in { animation: fadeInUp 0.45s ease-out both; }
         ::selection { background: #c4b5fd; color: #1e1b4b; }
+        .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        /* Desktop-only floating cart pill (#vmou-cart-pill): "hidden" alone keeps it
+           off on mobile at every breakpoint (the mobile floating bar covers that job
+           instead), while this empty-state class -- toggled by cart.js -- is the only
+           thing that hides it on desktop, independent of the responsive "sm:flex". */
+        .cart-pill-empty { display: none !important; }
     </style>
     <!-- Cloudflare Web Analytics -->
     <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e614852cf9514a66ae9ff8e68e4829b6"}'></script>

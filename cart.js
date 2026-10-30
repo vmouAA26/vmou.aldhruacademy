@@ -60,10 +60,20 @@
     function renderPill() {
         var items = getCart();
         var pill = document.getElementById('vmou-cart-pill');
-        if (items.length === 0) { pill.classList.add('hidden'); return; }
-        pill.classList.remove('hidden');
+        var mobileBar = document.getElementById('mobile-floating-cart');
+        if (items.length === 0) {
+            pill.classList.add('cart-pill-empty');
+            if (mobileBar) mobileBar.classList.add('hidden');
+            return;
+        }
+        pill.classList.remove('cart-pill-empty');
         document.getElementById('vmou-cart-pill-text').textContent =
             'कार्ट (' + items.length + ' पत्र) • ₹' + tieredTotal(items.length);
+        if (mobileBar) {
+            mobileBar.classList.remove('hidden');
+            document.getElementById('mobile-cart-count').textContent = items.length;
+            document.getElementById('mobile-cart-total').textContent = '₹' + tieredTotal(items.length);
+        }
     }
 
     function incentiveBannerHtml(n) {
@@ -243,9 +253,15 @@
                 '</div>' +
                 '<div id="vmou-cart-body" class="flex-1 overflow-y-auto px-5 py-4"></div>' +
             '</div>' +
-            '<button id="vmou-cart-pill" class="hidden fixed bottom-6 left-6 z-40 bg-[#392E7C] hover:bg-[#2d2461] text-white font-bold px-5 py-3 rounded-full shadow-2xl flex items-center gap-2 transition-transform hover:scale-105">' +
+            '<button id="vmou-cart-pill" class="cart-pill-empty hidden sm:flex fixed bottom-6 left-6 z-40 bg-[#392E7C] hover:bg-[#2d2461] text-white font-bold px-5 py-3 rounded-full shadow-2xl items-center gap-2 transition-transform hover:scale-105">' +
                 '<span>🛒</span><span id="vmou-cart-pill-text"></span>' +
             '</button>' +
+            '<div id="mobile-floating-cart" class="hidden fixed bottom-4 left-4 right-4 z-40 sm:hidden">' +
+                '<button onclick="openDrawer()" class="w-full bg-gradient-to-r from-[#10B981] to-[#059669] text-white font-black py-3.5 px-5 rounded-2xl shadow-2xl flex items-center justify-between text-base border border-emerald-400/30 min-h-[48px]">' +
+                    '<span class="flex items-center gap-2"><span>🛒 कार्ट (<span id="mobile-cart-count">0</span>)</span></span>' +
+                    '<span class="flex items-center gap-1"><span id="mobile-cart-total">₹0</span><span>ऑर्डर पूरा करें →</span></span>' +
+                '</button>' +
+            '</div>' +
             '<div id="vmou-cart-toast" class="hidden fixed bottom-24 left-6 z-50 bg-gray-900 text-white font-bold px-5 py-3 rounded-xl shadow-2xl text-sm max-w-[80vw]"></div>'
         );
         document.getElementById('vmou-cart-pill').addEventListener('click', openDrawer);
