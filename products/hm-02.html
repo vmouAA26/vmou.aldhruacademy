@@ -28,6 +28,25 @@
            instead), while this empty-state class -- toggled by cart.js -- is the only
            thing that hides it on desktop, independent of the responsive "sm:flex". */
         .cart-pill-empty { display: none !important; }
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: inline-flex;
+            white-space: nowrap;
+            animation: marquee 28s linear infinite;
+        }
+        .animate-marquee:hover, .animate-marquee:active {
+            animation-play-state: paused;
+        }
+        .carousel-slide {
+            display: none;
+            transition: opacity 0.4s ease-in-out;
+        }
+        .carousel-slide.active {
+            display: block;
+        }
     </style>
     <!-- Cloudflare Web Analytics -->
     <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e614852cf9514a66ae9ff8e68e4829b6"}'></script>

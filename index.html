@@ -28,12 +28,33 @@
            instead), while this empty-state class -- toggled by cart.js -- is the only
            thing that hides it on desktop, independent of the responsive "sm:flex". */
         .cart-pill-empty { display: none !important; }
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: inline-flex;
+            white-space: nowrap;
+            animation: marquee 28s linear infinite;
+        }
+        .animate-marquee:hover, .animate-marquee:active {
+            animation-play-state: paused;
+        }
+        .carousel-slide {
+            display: none;
+            transition: opacity 0.4s ease-in-out;
+        }
+        .carousel-slide.active {
+            display: block;
+        }
     </style>
     <!-- Cloudflare Web Analytics -->
     <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e614852cf9514a66ae9ff8e68e4829b6"}'></script>
     <!-- End Cloudflare Web Analytics -->
 </head>
 <body class="bg-[#FAF8F3] text-gray-800 antialiased overflow-x-hidden">
+
+    <div class="bg-gradient-to-r from-[#241c54] via-[#392E7C] to-[#5B4FE0] text-amber-300 font-bold py-2 text-xs sm:text-sm border-b border-[#C9A227]/30 overflow-hidden whitespace-nowrap"><div class="animate-marquee"><span>⚡ विशेष छूट: 2 या अधिक विषयों पर भारी डिस्काउंट — 5 बुकलेट्स केवल ₹330 में (₹65 की बचत)!&nbsp;&nbsp;•&nbsp;&nbsp;🎓 VMOU सत्रांत परीक्षा 2026: सभी 36 डिग्री व 575+ विषयों के 100% सटीक हल प्रश्न पत्र उपलब्ध!&nbsp;&nbsp;•&nbsp;&nbsp;🚀 इंस्टेंट डिलीवरी: पेमेंट के मात्र 5 मिनट में पर्सनलाइज़्ड PDF सीधे ईमेल पर!&nbsp;&nbsp;•&nbsp;&nbsp;💬 24x7 WhatsApp सपोर्ट उपलब्ध!&nbsp;&nbsp;•&nbsp;&nbsp;</span><span aria-hidden="true">⚡ विशेष छूट: 2 या अधिक विषयों पर भारी डिस्काउंट — 5 बुकलेट्स केवल ₹330 में (₹65 की बचत)!&nbsp;&nbsp;•&nbsp;&nbsp;🎓 VMOU सत्रांत परीक्षा 2026: सभी 36 डिग्री व 575+ विषयों के 100% सटीक हल प्रश्न पत्र उपलब्ध!&nbsp;&nbsp;•&nbsp;&nbsp;🚀 इंस्टेंट डिलीवरी: पेमेंट के मात्र 5 मिनट में पर्सनलाइज़्ड PDF सीधे ईमेल पर!&nbsp;&nbsp;•&nbsp;&nbsp;💬 24x7 WhatsApp सपोर्ट उपलब्ध!&nbsp;&nbsp;•&nbsp;&nbsp;</span></div></div>
 
     <header class="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-gray-100/80">
         <div class="px-6 py-4">
@@ -51,6 +72,10 @@
                         <img src="/icons/youtube.png" alt="YouTube" class="w-4 h-4 sm:w-5 sm:h-5 object-contain">
                         <span>फ्री वीडियो</span>
                     </a>
+                </div>
+                <div class="relative order-last w-full sm:order-none sm:w-64 lg:w-80">
+                    <input id="search-input" type="text" placeholder="🔍 विषय खोजें... BED-101, इतिहास"
+                        class="w-full px-4 py-2.5 sm:py-2 rounded-full border border-gray-200 focus:border-[#C9A227] outline-none text-sm min-h-[42px]">
                 </div>
                 <nav class="hidden md:flex gap-6 font-bold text-gray-600 text-sm lg:text-base overflow-x-auto">
                     <button onclick="goHome()" class="hover:text-[#392E7C] transition duration-300 whitespace-nowrap bg-transparent">होम (Home)</button>
@@ -74,36 +99,40 @@
         </div>
     </header>
 
-    <section class="relative pt-20 pb-28 overflow-hidden">
-        <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-tr from-[#392E7C] via-[#5B4FE0] to-[#C9A227] rounded-full blur-[130px] opacity-[0.15] -z-10"></div>
-        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <span class="bg-white/80 backdrop-blur-sm border border-[#C9A227]/40 text-[#392E7C] font-bold px-5 py-2 rounded-full text-sm tracking-wide mb-6 inline-block shadow-sm">🏆 VMOU Exam 2026 के लिए सर्वश्रेष्ठ सामग्री</span>
-            <h2 class="font-display text-5xl md:text-6xl font-black text-gray-900 mb-8 leading-tight">
-                Premium Guides के साथ <br> अपनी VMOU परीक्षा में <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#392E7C] to-[#C9A227]">शानदार सफलता</span> पाएँ!
-            </h2>
-            <p class="text-xl md:text-2xl text-gray-600 mb-10 font-medium">सभी 36 डिग्री प्रोग्राम, 521 विषयों के लिए सटीक और हल किए गए प्रश्न पत्र!</p>
-            <a href="#products" class="bg-[#392E7C] hover:bg-[#C9A227] text-white font-bold text-lg px-10 py-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-105 inline-block">अपने विषय खोजें 👇</a>
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 pt-8 pb-4"><div id="hero-carousel" class="relative"><div class="relative"><div class="carousel-slide active" data-index="0"><div class="bg-gradient-to-br from-[#392E7C] to-[#1e174a] rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl px-6 sm:px-12 py-10 sm:py-14 text-center text-white relative overflow-hidden"><div class="text-5xl sm:text-6xl mb-4">🎓</div><h3 class="font-display text-2xl sm:text-4xl font-black mb-3">स्नातकोत्तर उपाधियाँ (Master's Degrees)</h3><p class="text-base sm:text-lg font-bold text-white/90 mb-1">19 डिग्री प्रोग्राम &nbsp;•&nbsp; 258+ विषय</p><p class="text-sm sm:text-base text-white/70 mb-7 max-w-xl mx-auto leading-relaxed">टॉप पिक्स: इतिहास (MAHIN) &nbsp;•&nbsp; राजनीति विज्ञान (MAPSN) &nbsp;•&nbsp; शिक्षा (MAEDN) &nbsp;•&nbsp; MBA (MBAN)</p><button onclick="showCategory('Master')" class="bg-white text-gray-900 hover:bg-[#C9A227] hover:text-white font-black px-6 sm:px-8 py-3 sm:py-4 rounded-2xl shadow-xl transition transform hover:-translate-y-0.5 text-sm sm:text-base min-h-[44px]">मास्टर्स विषय देखें (19 डिग्रियां) →</button></div></div><div class="carousel-slide" data-index="1"><div class="bg-gradient-to-br from-teal-800 to-slate-900 rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl px-6 sm:px-12 py-10 sm:py-14 text-center text-white relative overflow-hidden"><div class="text-5xl sm:text-6xl mb-4">📚</div><h3 class="font-display text-2xl sm:text-4xl font-black mb-3">स्नातक उपाधियाँ (Bachelor's Degrees)</h3><p class="text-base sm:text-lg font-bold text-white/90 mb-1">6 डिग्री प्रोग्राम &nbsp;•&nbsp; 263+ विषय</p><p class="text-sm sm:text-base text-white/70 mb-7 max-w-xl mx-auto leading-relaxed">टॉप पिक्स: B.A. (BAN) &nbsp;•&nbsp; B.Sc. (BSCN) &nbsp;•&nbsp; B.Ed. (BED)</p><button onclick="showCategory('Bachelor')" class="bg-white text-gray-900 hover:bg-[#C9A227] hover:text-white font-black px-6 sm:px-8 py-3 sm:py-4 rounded-2xl shadow-xl transition transform hover:-translate-y-0.5 text-sm sm:text-base min-h-[44px]">बैचलर्स विषय देखें (6 डिग्रियां) →</button></div></div><div class="carousel-slide" data-index="2"><div class="bg-gradient-to-br from-[#8a6d1a] to-[#3d3009] rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl px-6 sm:px-12 py-10 sm:py-14 text-center text-white relative overflow-hidden"><div class="text-5xl sm:text-6xl mb-4">📜</div><h3 class="font-display text-2xl sm:text-4xl font-black mb-3">डिप्लोमा कार्यक्रम (Diploma Programmes)</h3><p class="text-base sm:text-lg font-bold text-white/90 mb-1">8 डिग्री प्रोग्राम &nbsp;•&nbsp; 45+ विषय</p><p class="text-sm sm:text-base text-white/70 mb-7 max-w-xl mx-auto leading-relaxed">टॉप पिक्स: लाइब्रेरी साइंस (DLISN) &nbsp;•&nbsp; योग विज्ञान (DYSN) &nbsp;•&nbsp; कम्प्यूटर अकाउंटिंग (DCAM)</p><button onclick="showCategory('Diploma')" class="bg-white text-gray-900 hover:bg-[#C9A227] hover:text-white font-black px-6 sm:px-8 py-3 sm:py-4 rounded-2xl shadow-xl transition transform hover:-translate-y-0.5 text-sm sm:text-base min-h-[44px]">डिप्लोमा विषय देखें (8 डिप्लोमा) →</button></div></div><div class="carousel-slide" data-index="3"><div class="bg-gradient-to-br from-rose-950 to-slate-900 rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl px-6 sm:px-12 py-10 sm:py-14 text-center text-white relative overflow-hidden"><div class="text-5xl sm:text-6xl mb-4">🏅</div><h3 class="font-display text-2xl sm:text-4xl font-black mb-3">प्रमाणपत्र कार्यक्रम (Certificate Programmes)</h3><p class="text-base sm:text-lg font-bold text-white/90 mb-1">3 डिग्री प्रोग्राम &nbsp;•&nbsp; 9+ विषय</p><p class="text-sm sm:text-base text-white/70 mb-7 max-w-xl mx-auto leading-relaxed">टॉप पिक्स: फलित ज्योतिष (CIJ) &nbsp;•&nbsp; कर्मकाण्ड (CIK) &nbsp;•&nbsp; नरेगा मेट (CPNM)</p><button onclick="showCategory('Certificate')" class="bg-white text-gray-900 hover:bg-[#C9A227] hover:text-white font-black px-6 sm:px-8 py-3 sm:py-4 rounded-2xl shadow-xl transition transform hover:-translate-y-0.5 text-sm sm:text-base min-h-[44px]">सर्टिफिकेट विषय देखें (3 सर्टिफिकेट) →</button></div></div></div><button id="carousel-prev" class="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-11 h-11 bg-white rounded-full shadow-xl items-center justify-center text-xl font-black text-gray-700 hover:text-[#392E7C] transition z-10" aria-label="Previous slide">‹</button><button id="carousel-next" class="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-11 h-11 bg-white rounded-full shadow-xl items-center justify-center text-xl font-black text-gray-700 hover:text-[#392E7C] transition z-10" aria-label="Next slide">›</button><div class="flex justify-center items-center gap-2 mt-6"><button class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all bg-[#392E7C] w-6 sm:w-8" data-index="0" aria-label="Slide 1"></button><button class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all bg-gray-300" data-index="1" aria-label="Slide 2"></button><button class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all bg-gray-300" data-index="2" aria-label="Slide 3"></button><button class="carousel-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all bg-gray-300" data-index="3" aria-label="Slide 4"></button></div><div class="flex sm:hidden justify-center gap-4 mt-3"><button id="carousel-prev-mobile" class="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-lg font-black text-gray-700" aria-label="Previous slide">‹</button><button id="carousel-next-mobile" class="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-lg font-black text-gray-700" aria-label="Next slide">›</button></div></div></section>
 
-            <div class="mt-16 grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto">
-                <div class="bg-white/60 backdrop-blur-sm border border-[#392E7C]/10 rounded-2xl py-5 px-2 shadow-sm">
-                    <div class="font-display text-3xl md:text-4xl font-black text-[#392E7C]">521+</div>
-                    <div class="text-xs md:text-sm text-gray-600 font-bold mt-1">विषय (Papers)</div>
-                </div>
-                <div class="bg-white/60 backdrop-blur-sm border border-[#392E7C]/10 rounded-2xl py-5 px-2 shadow-sm">
-                    <div class="font-display text-3xl md:text-4xl font-black text-[#392E7C]">36</div>
-                    <div class="text-xs md:text-sm text-gray-600 font-bold mt-1">डिग्री (Degrees)</div>
-                </div>
-                <div class="bg-white/60 backdrop-blur-sm border border-[#392E7C]/10 rounded-2xl py-5 px-2 shadow-sm">
-                    <div class="font-display text-3xl md:text-4xl font-black text-[#392E7C]">5 मिनट</div>
-                    <div class="text-xs md:text-sm text-gray-600 font-bold mt-1">में डिलीवरी</div>
-                </div>
-            </div>
+    <section id="products" class="max-w-7xl mx-auto px-6 relative z-10 pt-6 pb-20">
+        <div id="courses-container" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div class="animate-pulse bg-white rounded-[2rem] border border-gray-100 p-7 h-56 flex flex-col gap-4"><div class="h-4 w-16 bg-gray-200 rounded-full mx-auto"></div><div class="h-6 w-24 bg-gray-200 rounded mx-auto mt-4"></div><div class="h-4 w-32 bg-gray-100 rounded mx-auto"></div><div class="h-10 bg-gray-100 rounded-xl mt-auto"></div></div>
+            <div class="animate-pulse bg-white rounded-[2rem] border border-gray-100 p-7 h-56 flex flex-col gap-4"><div class="h-4 w-16 bg-gray-200 rounded-full mx-auto"></div><div class="h-6 w-24 bg-gray-200 rounded mx-auto mt-4"></div><div class="h-4 w-32 bg-gray-100 rounded mx-auto"></div><div class="h-10 bg-gray-100 rounded-xl mt-auto"></div></div>
+            <div class="animate-pulse bg-white rounded-[2rem] border border-gray-100 p-7 h-56 flex flex-col gap-4"><div class="h-4 w-16 bg-gray-200 rounded-full mx-auto"></div><div class="h-6 w-24 bg-gray-200 rounded mx-auto mt-4"></div><div class="h-4 w-32 bg-gray-100 rounded mx-auto"></div><div class="h-10 bg-gray-100 rounded-xl mt-auto"></div></div>
+            <div class="animate-pulse bg-white rounded-[2rem] border border-gray-100 p-7 h-56 flex flex-col gap-4"><div class="h-4 w-16 bg-gray-200 rounded-full mx-auto"></div><div class="h-6 w-24 bg-gray-200 rounded mx-auto mt-4"></div><div class="h-4 w-32 bg-gray-100 rounded mx-auto"></div><div class="h-10 bg-gray-100 rounded-xl mt-auto"></div></div>
+            <div class="animate-pulse bg-white rounded-[2rem] border border-gray-100 p-7 h-56 flex flex-col gap-4"><div class="h-4 w-16 bg-gray-200 rounded-full mx-auto"></div><div class="h-6 w-24 bg-gray-200 rounded mx-auto mt-4"></div><div class="h-4 w-32 bg-gray-100 rounded mx-auto"></div><div class="h-10 bg-gray-100 rounded-xl mt-auto"></div></div>
+            <div class="animate-pulse bg-white rounded-[2rem] border border-gray-100 p-7 h-56 flex flex-col gap-4"><div class="h-4 w-16 bg-gray-200 rounded-full mx-auto"></div><div class="h-6 w-24 bg-gray-200 rounded mx-auto mt-4"></div><div class="h-4 w-32 bg-gray-100 rounded mx-auto"></div><div class="h-10 bg-gray-100 rounded-xl mt-auto"></div></div>
+            <div class="animate-pulse bg-white rounded-[2rem] border border-gray-100 p-7 h-56 flex flex-col gap-4"><div class="h-4 w-16 bg-gray-200 rounded-full mx-auto"></div><div class="h-6 w-24 bg-gray-200 rounded mx-auto mt-4"></div><div class="h-4 w-32 bg-gray-100 rounded mx-auto"></div><div class="h-10 bg-gray-100 rounded-xl mt-auto"></div></div>
+            <div class="animate-pulse bg-white rounded-[2rem] border border-gray-100 p-7 h-56 flex flex-col gap-4"><div class="h-4 w-16 bg-gray-200 rounded-full mx-auto"></div><div class="h-6 w-24 bg-gray-200 rounded mx-auto mt-4"></div><div class="h-4 w-32 bg-gray-100 rounded mx-auto"></div><div class="h-10 bg-gray-100 rounded-xl mt-auto"></div></div>
         </div>
     </section>
 
-    <section class="max-w-5xl mx-auto px-6 pb-20">
-        <h3 class="font-display text-3xl font-black text-center text-gray-900 mb-2">यह कैसे काम करता है?</h3>
-        <p class="text-center text-gray-500 font-medium mb-10">सिर्फ 3 आसान स्टेप्स में अपनी बुकलेट पाएँ</p>
+    <section class="max-w-5xl mx-auto px-6 py-20">
+        <h3 class="font-display text-3xl font-black text-center text-gray-900 mb-2">Aldhru Academy ही क्यों चुनें? — VMOU परीक्षा में सफलता की गारंटी</h3>
+        <p class="text-center text-gray-500 font-medium mb-10">सिर्फ 3 आसान स्टेप्स में अपनी बुकलेट पाएं</p>
+
+        <div class="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto mb-14">
+            <div class="bg-white border border-[#392E7C]/10 rounded-2xl py-5 px-2 shadow-sm text-center">
+                <div class="font-display text-3xl md:text-4xl font-black text-[#392E7C]">521+</div>
+                <div class="text-xs md:text-sm text-gray-600 font-bold mt-1">विषय (Papers)</div>
+            </div>
+            <div class="bg-white border border-[#392E7C]/10 rounded-2xl py-5 px-2 shadow-sm text-center">
+                <div class="font-display text-3xl md:text-4xl font-black text-[#392E7C]">36</div>
+                <div class="text-xs md:text-sm text-gray-600 font-bold mt-1">डिग्री (Degrees)</div>
+            </div>
+            <div class="bg-white border border-[#392E7C]/10 rounded-2xl py-5 px-2 shadow-sm text-center">
+                <div class="font-display text-3xl md:text-4xl font-black text-[#392E7C]">5 मिनट</div>
+                <div class="text-xs md:text-sm text-gray-600 font-bold mt-1">में डिलीवरी</div>
+            </div>
+        </div>
+
         <div class="grid md:grid-cols-3 gap-6">
             <div class="bg-white rounded-3xl p-7 border border-gray-100 shadow-lg shadow-gray-200/40 text-center relative">
                 <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-9 h-9 bg-[#C9A227] text-white rounded-full flex items-center justify-center font-black text-sm shadow-lg">1</div>
@@ -123,25 +152,6 @@
                 <h4 class="font-black text-lg text-gray-900 mb-2">तुरंत PDF पाएँ</h4>
                 <p class="text-sm text-gray-500 leading-relaxed">5 मिनट के भीतर पर्सनलाइज़्ड PDF आपकी ईमेल पर आ जाती है</p>
             </div>
-        </div>
-    </section>
-
-    <section id="products" class="max-w-7xl mx-auto px-6 relative z-10 pb-20">
-        <div class="max-w-xl mx-auto mb-10">
-            <div class="relative">
-                <input id="search-input" type="text" placeholder="🔍 विषय कोड या नाम खोजें... जैसे: BED-101, इतिहास"
-                    class="w-full px-6 py-4 rounded-2xl border-2 border-[#392E7C]/15 focus:border-[#C9A227] outline-none text-base font-medium shadow-sm">
-            </div>
-        </div>
-        <div id="courses-container" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            <div class="animate-pulse bg-white rounded-[2rem] border border-gray-100 p-7 h-56 flex flex-col gap-4"><div class="h-4 w-16 bg-gray-200 rounded-full mx-auto"></div><div class="h-6 w-24 bg-gray-200 rounded mx-auto mt-4"></div><div class="h-4 w-32 bg-gray-100 rounded mx-auto"></div><div class="h-10 bg-gray-100 rounded-xl mt-auto"></div></div>
-            <div class="animate-pulse bg-white rounded-[2rem] border border-gray-100 p-7 h-56 flex flex-col gap-4"><div class="h-4 w-16 bg-gray-200 rounded-full mx-auto"></div><div class="h-6 w-24 bg-gray-200 rounded mx-auto mt-4"></div><div class="h-4 w-32 bg-gray-100 rounded mx-auto"></div><div class="h-10 bg-gray-100 rounded-xl mt-auto"></div></div>
-            <div class="animate-pulse bg-white rounded-[2rem] border border-gray-100 p-7 h-56 flex flex-col gap-4"><div class="h-4 w-16 bg-gray-200 rounded-full mx-auto"></div><div class="h-6 w-24 bg-gray-200 rounded mx-auto mt-4"></div><div class="h-4 w-32 bg-gray-100 rounded mx-auto"></div><div class="h-10 bg-gray-100 rounded-xl mt-auto"></div></div>
-            <div class="animate-pulse bg-white rounded-[2rem] border border-gray-100 p-7 h-56 flex flex-col gap-4"><div class="h-4 w-16 bg-gray-200 rounded-full mx-auto"></div><div class="h-6 w-24 bg-gray-200 rounded mx-auto mt-4"></div><div class="h-4 w-32 bg-gray-100 rounded mx-auto"></div><div class="h-10 bg-gray-100 rounded-xl mt-auto"></div></div>
-            <div class="animate-pulse bg-white rounded-[2rem] border border-gray-100 p-7 h-56 flex flex-col gap-4"><div class="h-4 w-16 bg-gray-200 rounded-full mx-auto"></div><div class="h-6 w-24 bg-gray-200 rounded mx-auto mt-4"></div><div class="h-4 w-32 bg-gray-100 rounded mx-auto"></div><div class="h-10 bg-gray-100 rounded-xl mt-auto"></div></div>
-            <div class="animate-pulse bg-white rounded-[2rem] border border-gray-100 p-7 h-56 flex flex-col gap-4"><div class="h-4 w-16 bg-gray-200 rounded-full mx-auto"></div><div class="h-6 w-24 bg-gray-200 rounded mx-auto mt-4"></div><div class="h-4 w-32 bg-gray-100 rounded mx-auto"></div><div class="h-10 bg-gray-100 rounded-xl mt-auto"></div></div>
-            <div class="animate-pulse bg-white rounded-[2rem] border border-gray-100 p-7 h-56 flex flex-col gap-4"><div class="h-4 w-16 bg-gray-200 rounded-full mx-auto"></div><div class="h-6 w-24 bg-gray-200 rounded mx-auto mt-4"></div><div class="h-4 w-32 bg-gray-100 rounded mx-auto"></div><div class="h-10 bg-gray-100 rounded-xl mt-auto"></div></div>
-            <div class="animate-pulse bg-white rounded-[2rem] border border-gray-100 p-7 h-56 flex flex-col gap-4"><div class="h-4 w-16 bg-gray-200 rounded-full mx-auto"></div><div class="h-6 w-24 bg-gray-200 rounded mx-auto mt-4"></div><div class="h-4 w-32 bg-gray-100 rounded mx-auto"></div><div class="h-10 bg-gray-100 rounded-xl mt-auto"></div></div>
         </div>
     </section>
 
@@ -176,10 +186,71 @@
         </div>
     </footer>
 
-    <a href="https://whatsapp.com/channel/0029Vb7r6dVHrDZk2srINm2G" target="_blank" class="fixed bottom-6 right-6 z-40 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-transform hover:scale-110" aria-label="WhatsApp पर सहायता">
-        <svg viewBox="0 0 32 32" class="w-7 h-7 fill-white"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.837.744 5.5 2.04 7.805L0 32l8.4-2.01A15.9 15.9 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.09c-2.49 0-4.83-.68-6.84-1.87l-.49-.29-5.01 1.2 1.23-4.87-.32-.5A13.06 13.06 0 0 1 2.91 16C2.91 8.78 8.78 2.91 16 2.91S29.09 8.78 29.09 16 23.22 29.09 16 29.09zm7.18-9.79c-.39-.2-2.3-1.13-2.66-1.26-.36-.13-.62-.2-.88.2-.26.39-1.01 1.26-1.24 1.52-.23.26-.46.29-.85.1-.39-.2-1.64-.6-3.12-1.92-1.15-1.03-1.93-2.3-2.16-2.69-.23-.39-.02-.6.17-.8.18-.18.39-.46.59-.7.2-.23.26-.39.39-.65.13-.26.07-.49-.03-.68-.1-.2-.88-2.13-1.21-2.92-.32-.76-.64-.66-.88-.67l-.75-.01c-.26 0-.68.1-1.04.49-.36.39-1.36 1.33-1.36 3.25s1.4 3.77 1.59 4.03c.2.26 2.76 4.21 6.68 5.9.93.4 1.66.64 2.23.82.94.3 1.79.26 2.47.16.75-.11 2.3-.94 2.63-1.85.33-.91.33-1.68.23-1.85-.1-.16-.36-.26-.75-.46z"/></svg>
+    <!-- bottom-24 (not the directive's literal bottom-4/bottom-6) on every breakpoint,
+         deliberately -- the floating cart pill/bar (cart.js) also lives at the bottom-
+         left corner (bottom-6 left-6 desktop, bottom-4 left-4/right-4 mobile) whenever
+         the cart has items, and bottom-24 is the smallest offset confirmed clear of
+         both in testing. -->
+    <a href="https://whatsapp.com/channel/0029Vb7r6dVHrDZk2srINm2G" target="_blank" rel="noopener noreferrer" class="fixed bottom-24 left-4 sm:left-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2 text-sm border-2 border-white transition transform hover:scale-105" aria-label="WhatsApp पर सहायता">
+        <svg viewBox="0 0 32 32" class="w-5 h-5 fill-white flex-shrink-0"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.837.744 5.5 2.04 7.805L0 32l8.4-2.01A15.9 15.9 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.09c-2.49 0-4.83-.68-6.84-1.87l-.49-.29-5.01 1.2 1.23-4.87-.32-.5A13.06 13.06 0 0 1 2.91 16C2.91 8.78 8.78 2.91 16 2.91S29.09 8.78 29.09 16 23.22 29.09 16 29.09zm7.18-9.79c-.39-.2-2.3-1.13-2.66-1.26-.36-.13-.62-.2-.88.2-.26.39-1.01 1.26-1.24 1.52-.23.26-.46.29-.85.1-.39-.2-1.64-.6-3.12-1.92-1.15-1.03-1.93-2.3-2.16-2.69-.23-.39-.02-.6.17-.8.18-.18.39-.46.59-.7.2-.23.26-.39.39-.65.13-.26.07-.49-.03-.68-.1-.2-.88-2.13-1.21-2.92-.32-.76-.64-.66-.88-.67l-.75-.01c-.26 0-.68.1-1.04.49-.36.39-1.36 1.33-1.36 3.25s1.4 3.77 1.59 4.03c.2.26 2.76 4.21 6.68 5.9.93.4 1.66.64 2.23.82.94.3 1.79.26 2.47.16.75-.11 2.3-.94 2.63-1.85.33-.91.33-1.68.23-1.85-.1-.16-.36-.26-.75-.46z"/></svg>
+        <span class="hidden sm:inline">सहायता चाहिए?</span>
     </a>
 
+    <script>
+        (function() {
+            var slides = document.querySelectorAll('#hero-carousel .carousel-slide');
+            var dots = document.querySelectorAll('#hero-carousel .carousel-dot');
+            var wrap = document.getElementById('hero-carousel');
+            if (!wrap || slides.length === 0) return;
+            var current = 0;
+            var timer = null;
+
+            function show(index) {
+                current = (index + slides.length) % slides.length;
+                slides.forEach(function(s, i) { s.classList.toggle('active', i === current); });
+                dots.forEach(function(d, i) {
+                    d.classList.toggle('bg-[#392E7C]', i === current);
+                    d.classList.toggle('w-6', i === current);
+                    d.classList.toggle('sm:w-8', i === current);
+                    d.classList.toggle('bg-gray-300', i !== current);
+                });
+            }
+            function next() { show(current + 1); }
+            function prev() { show(current - 1); }
+            function startAuto() { stopAuto(); timer = setInterval(next, 5000); }
+            function stopAuto() { if (timer) clearInterval(timer); }
+
+            ['carousel-next', 'carousel-next-mobile'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.addEventListener('click', function() { next(); startAuto(); });
+            });
+            ['carousel-prev', 'carousel-prev-mobile'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.addEventListener('click', function() { prev(); startAuto(); });
+            });
+            dots.forEach(function(d, i) {
+                d.addEventListener('click', function() { show(i); startAuto(); });
+            });
+
+            wrap.addEventListener('mouseenter', stopAuto);
+            wrap.addEventListener('mouseleave', startAuto);
+
+            var touchStartX = 0;
+            wrap.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+                stopAuto();
+            }, { passive: true });
+            wrap.addEventListener('touchend', function(e) {
+                var dx = e.changedTouches[0].screenX - touchStartX;
+                if (dx > 40) prev();
+                else if (dx < -40) next();
+                startAuto();
+            }, { passive: true });
+
+            startAuto();
+        })();
+
+    </script>
     <script>
         let allCourses = [];
         let degreeFullNames = {};
