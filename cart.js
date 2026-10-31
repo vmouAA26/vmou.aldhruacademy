@@ -257,7 +257,7 @@
                 '<span>🛒</span><span id="vmou-cart-pill-text"></span>' +
             '</button>' +
             '<div id="mobile-floating-cart" class="hidden fixed bottom-4 left-4 right-4 z-40 sm:hidden">' +
-                '<button onclick="openDrawer()" class="w-full bg-gradient-to-r from-[#10B981] to-[#059669] text-white font-black py-3.5 px-5 rounded-2xl shadow-2xl flex items-center justify-between text-base border border-emerald-400/30 min-h-[48px]">' +
+                '<button type="button" class="w-full bg-gradient-to-r from-[#10B981] to-[#059669] text-white font-black py-3.5 px-5 rounded-2xl shadow-2xl flex items-center justify-between text-base border border-emerald-400/30 min-h-[48px]">' +
                     '<span class="flex items-center gap-2"><span>🛒 कार्ट (<span id="mobile-cart-count">0</span>)</span></span>' +
                     '<span class="flex items-center gap-1"><span id="mobile-cart-total">₹0</span><span>ऑर्डर पूरा करें →</span></span>' +
                 '</button>' +
@@ -267,7 +267,24 @@
         document.getElementById('vmou-cart-pill').addEventListener('click', openDrawer);
         document.getElementById('vmou-cart-close').addEventListener('click', closeDrawer);
         document.getElementById('vmou-cart-overlay').addEventListener('click', closeDrawer);
+        // The mobile floating bar used to rely on an inline onclick="openDrawer()",
+        // which the browser resolves against the GLOBAL scope -- but openDrawer lives
+        // inside this IIFE's closure, not on window, so it threw "openDrawer is not
+        // defined" on every tap (2026-10-31, reported from a real phone). An explicit
+        // listener on the actual function reference sidesteps that entirely.
+        var mobileCartBtn = document.querySelector('#mobile-floating-cart button');
+        if (mobileCartBtn) { mobileCartBtn.addEventListener('click', openDrawer); }
     }
+
+    window.openDrawer = openDrawer;
+    window.closeDrawer = closeDrawer;
+    window.VMOU_CART = {
+        addToCart: addToCart,
+        openDrawer: openDrawer,
+        closeDrawer: closeDrawer,
+        getCart: getCart,
+        clearCart: clearCart
+    };
 
     document.addEventListener('DOMContentLoaded', function() {
         injectMarkup();
