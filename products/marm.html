@@ -97,26 +97,8 @@
                 <p class="text-gray-700 mt-1 text-sm">यह साइट अभी तैयार हो रही है — कृपया थोड़ी देर बाद वापस आएँ।</p>
             </div>
 
-            <div class="checkout-form">
-                <div class="mb-4 text-left">
-                    <label class="block text-sm font-bold text-gray-700 mb-2">आपका पूरा नाम *</label>
-                    <input type="text" class="buyer-name-input w-full border-2 border-[#392E7C]/15 focus:border-[#C9A227] outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="जैसे: Rohit Sharma">
-                </div>
-                <div class="mb-4 text-left">
-                    <label class="block text-sm font-bold text-gray-700 mb-2">आपकी ईमेल आईडी *</label>
-                    <input type="email" class="buyer-email-input w-full border-2 border-[#392E7C]/15 focus:border-[#C9A227] outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="जैसे: rohit@gmail.com">
-                </div>
-                <div class="mb-4 text-left">
-                    <label class="block text-sm font-bold text-gray-700 mb-2">आपका मोबाइल नंबर *</label>
-                    <input type="tel" class="buyer-phone-input w-full border-2 border-[#392E7C]/15 focus:border-[#C9A227] outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="जैसे: 9876543210" maxlength="10">
-                </div>
-                <button type="button" class="buy-now-btn w-full block text-center bg-[#392E7C] hover:bg-[#2d2461] text-white font-black text-lg px-10 py-4 rounded-2xl shadow-xl transition transform hover:scale-105 disabled:opacity-60 disabled:hover:scale-100 ring-2 ring-transparent hover:ring-[#C9A227]">
-                    ⚡ अभी खरीदें (Buy Now) ➔
-                </button>
-                <button type="button" class="add-cart-btn w-full mt-3 block text-center bg-white border-2 border-[#392E7C]/20 hover:border-[#C9A227] text-[#392E7C] font-bold px-10 py-3.5 rounded-2xl transition" data-item='{"code": "MARM", "name_hi": "शोध प्रविधि", "name_en": "Research Methodology", "price": 79, "degree": "MASON"}'>🛒 कार्ट में जोड़ें (Add to Cart)</button>
-                <p class="checkout-error hidden text-red-600 text-sm font-bold text-center mt-3"></p>
-                <p class="text-xs text-center text-gray-400 mt-3">Secure payment powered by Razorpay · By continuing you agree to our Terms &amp; Refund Policy.</p>
-            </div>
+            <button disabled class="w-full bg-gray-200 text-gray-500 font-bold py-3.5 px-4 rounded-xl cursor-not-allowed">⏳ जल्द उपलब्ध होगा (Coming Soon)</button>
+            <p class="text-xs text-center text-gray-400 mt-3">यह बुकलेट तैयार होते ही यहाँ उपलब्ध हो जाएगी।</p>
         </div>
     </section>
 
@@ -178,22 +160,26 @@
         var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         var PHONE_RE = /^[6-9]\d{9}$/;
 
+        // .checkout-form doesn't exist on an unavailable paper's page (it's
+        // replaced server-side by the disabled "Coming Soon" button, see
+        // render_product_page()'s purchase_block) -- nothing below needs wiring.
         var form = document.querySelector('.checkout-form');
+        if (form) {
         var btn = form.querySelector('.buy-now-btn');
         var nameInput = form.querySelector('.buyer-name-input');
         var emailInput = form.querySelector('.buyer-email-input');
         var phoneInput = form.querySelector('.buyer-phone-input');
         var checkoutError = form.querySelector('.checkout-error');
 
-        function resetButton() {
+        var resetButton = function() {
             btn.disabled = false;
             btn.textContent = 'अभी खरीदें ➔';
-        }
-        function showError(msg) {
+        };
+        var showError = function(msg) {
             checkoutError.textContent = msg;
             checkoutError.classList.remove('hidden');
             resetButton();
-        }
+        };
 
         btn.addEventListener('click', function() {
             if (!ORDER_ENDPOINT) { showComingSoon(); return; }
@@ -228,6 +214,7 @@
             })
             .catch(function() { showError('कुछ गड़बड़ हुई, कृपया दोबारा कोशिश करें।'); });
         });
+        }
     })();
     </script>
     <script src="/cart.js"></script>

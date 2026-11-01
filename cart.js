@@ -16,6 +16,20 @@
         return 330 + (n - 5) * 63;
     }
 
+    // Security audit (2026-10-31): any value that reaches an innerHTML template
+    // literal must go through this first -- cart item fields come from
+    // localStorage (normally mirrors catalogue.json, but it's still writable by
+    // anything running on this origin) and are never trusted raw. Exposed on
+    // window so the homepage's own inline <script> (a separate block, not part
+    // of this IIFE) can reuse it for the same reason -- e.g. the search box's
+    // query, which is raw keystrokes with zero validation.
+    function escapeHtml(value) {
+        return String(value == null ? '' : value).replace(/[&<>"']/g, function(ch) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+        });
+    }
+    window.escapeHtml = escapeHtml;
+
     function getCart() {
         try {
             var raw = localStorage.getItem(CART_KEY);
@@ -91,13 +105,14 @@
     }
 
     function cartItemRowHtml(item) {
+        var code = escapeHtml(item.code);
         return '<div class="flex items-center justify-between gap-3 py-3 border-b border-gray-100">' +
             '<div class="min-w-0">' +
-            '<span class="bg-gray-900 text-white text-[11px] font-black px-2.5 py-1 rounded-full uppercase tracking-wide">' + item.code + '</span>' +
-            '<p class="text-sm font-bold text-gray-800 mt-1.5 leading-snug">' + (item.name_hi || item.code) + '</p>' +
+            '<span class="bg-gray-900 text-white text-[11px] font-black px-2.5 py-1 rounded-full uppercase tracking-wide">' + code + '</span>' +
+            '<p class="text-sm font-bold text-gray-800 mt-1.5 leading-snug">' + escapeHtml(item.name_hi || item.code) + '</p>' +
             '<p class="text-xs text-gray-400 font-bold mt-0.5">₹' + BASE_PRICE + '</p>' +
             '</div>' +
-            '<button class="cart-remove-btn text-red-500 hover:text-red-700 text-xl leading-none font-black px-2" data-code="' + item.code + '" title="हटाएं">✕</button>' +
+            '<button class="cart-remove-btn text-red-500 hover:text-red-700 text-xl leading-none font-black px-2" data-code="' + code + '" title="हटाएं">✕</button>' +
             '</div>';
     }
 

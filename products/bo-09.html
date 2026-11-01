@@ -115,7 +115,7 @@
                 </button>
                 <button type="button" class="add-cart-btn w-full mt-3 block text-center bg-white border-2 border-[#392E7C]/20 hover:border-[#C9A227] text-[#392E7C] font-bold px-10 py-3.5 rounded-2xl transition" data-item='{"code": "BO-09", "name_hi": "आवृतबीजी की वर्गिकी एवं भ्रौणिकी", "name_en": "Taxonomy and Embryology of Angiosperm", "price": 79, "degree": "BSCN"}'>🛒 कार्ट में जोड़ें (Add to Cart)</button>
                 <p class="checkout-error hidden text-red-600 text-sm font-bold text-center mt-3"></p>
-                <p class="text-xs text-center text-gray-400 mt-3">Secure payment powered by Razorpay · By continuing you agree to our Terms &amp; Refund Policy.</p>
+                <p class="text-xs text-center text-gray-400 mt-3">Secure payment powered by Razorpay &middot; By continuing you agree to our Terms &amp; Refund Policy.</p>
             </div>
         </div>
     </section>
@@ -178,22 +178,26 @@
         var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         var PHONE_RE = /^[6-9]\d{9}$/;
 
+        // .checkout-form doesn't exist on an unavailable paper's page (it's
+        // replaced server-side by the disabled "Coming Soon" button, see
+        // render_product_page()'s purchase_block) -- nothing below needs wiring.
         var form = document.querySelector('.checkout-form');
+        if (form) {
         var btn = form.querySelector('.buy-now-btn');
         var nameInput = form.querySelector('.buyer-name-input');
         var emailInput = form.querySelector('.buyer-email-input');
         var phoneInput = form.querySelector('.buyer-phone-input');
         var checkoutError = form.querySelector('.checkout-error');
 
-        function resetButton() {
+        var resetButton = function() {
             btn.disabled = false;
             btn.textContent = 'अभी खरीदें ➔';
-        }
-        function showError(msg) {
+        };
+        var showError = function(msg) {
             checkoutError.textContent = msg;
             checkoutError.classList.remove('hidden');
             resetButton();
-        }
+        };
 
         btn.addEventListener('click', function() {
             if (!ORDER_ENDPOINT) { showComingSoon(); return; }
@@ -228,6 +232,7 @@
             })
             .catch(function() { showError('कुछ गड़बड़ हुई, कृपया दोबारा कोशिश करें।'); });
         });
+        }
     })();
     </script>
     <script src="/cart.js"></script>

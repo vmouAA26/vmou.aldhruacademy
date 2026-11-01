@@ -307,6 +307,10 @@
             });
 
         function subjectCardHtml(c) {
+            const purchaseButtons = c.available === false
+                ? `<button disabled class="w-full bg-gray-200 text-gray-500 font-bold py-3.5 px-4 rounded-xl cursor-not-allowed">⏳ जल्द उपलब्ध होगा (Coming Soon)</button>`
+                : `<a href="${c.link}" class="w-full block bg-[#392E7C] hover:bg-[#2d2461] text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition transform hover:scale-105 text-center min-h-[44px]">PDF देखें ➔</a>
+                    <button class="add-cart-btn w-full bg-white border-2 border-[#392E7C]/20 hover:border-[#C9A227] text-[#392E7C] font-bold px-6 py-3 rounded-xl transition text-sm min-h-[44px]" data-item='${JSON.stringify({code: c.code, name_hi: c.name_hi, name_en: c.name_en, price: c.price, degree: c.degree}).replace(/'/g, "&#39;")}'>🛒 कार्ट में जोड़ें</button>`;
             return `<div class="card-in bg-white p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl shadow-gray-200/40 border border-gray-100 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#392E7C]/8 to-[#C9A227]/10 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
                 <div class="z-10">
@@ -314,8 +318,7 @@
                     <h4 class="text-lg font-bold text-gray-900 mt-6 mb-6 leading-snug">${c.name_hi}</h4>
                 </div>
                 <div class="mt-auto pt-6 border-t border-gray-100 z-10 w-full flex flex-col gap-2">
-                    <a href="${c.link}" class="w-full block bg-[#392E7C] hover:bg-[#2d2461] text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition transform hover:scale-105 text-center min-h-[44px]">PDF देखें ➔</a>
-                    <button class="add-cart-btn w-full bg-white border-2 border-[#392E7C]/20 hover:border-[#C9A227] text-[#392E7C] font-bold px-6 py-3 rounded-xl transition text-sm min-h-[44px]" data-item='${JSON.stringify({code: c.code, name_hi: c.name_hi, name_en: c.name_en, price: c.price, degree: c.degree}).replace(/'/g, "&#39;")}'>🛒 कार्ट में जोड़ें</button>
+                    ${purchaseButtons}
                 </div>
             </div>`;
         }
@@ -331,7 +334,7 @@
                 return hit;
             });
             let html = `<div class="col-span-full mb-6 text-center">
-                <h3 class="text-2xl font-black text-gray-900">"${query}" के लिए ${matches.length} परिणाम मिले</h3>
+                <h3 class="text-2xl font-black text-gray-900">"${escapeHtml(query)}" के लिए ${matches.length} परिणाम मिले</h3>
             </div>`;
             if (matches.length === 0) {
                 html += `<div class="col-span-full text-center py-10"><p class="text-gray-500 font-bold text-lg">कुछ नहीं मिला — कृपया दूसरा नाम या कोड आज़माएँ।</p></div>`;
