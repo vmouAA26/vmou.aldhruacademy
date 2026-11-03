@@ -4046,9 +4046,9 @@
    "name_en": "English Language Usage and Communication Skills",
    "name_hi": "English Language Usage and Communication Skills",
    "price": 79,
-   "available": false,
-   "status": "coming_soon",
-   "status_reason": "यह बुकलेट अभी संपादन में है। बहुत जल्द उपलब्ध होगी।",
+   "available": true,
+   "status": "available",
+   "status_reason": "",
    "link": "products/maeg-01.html"
   },
   {
