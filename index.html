@@ -307,10 +307,15 @@
             });
 
         function subjectCardHtml(c) {
-            const purchaseButtons = c.available === false
-                ? `<button disabled class="w-full bg-gray-200 text-gray-500 font-bold py-3.5 px-4 rounded-xl cursor-not-allowed">⏳ जल्द उपलब्ध होगा (Coming Soon)</button>`
-                : `<a href="${c.link}" class="w-full block bg-[#392E7C] hover:bg-[#2d2461] text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition transform hover:scale-105 text-center min-h-[44px]">PDF देखें ➔</a>
+            let purchaseButtons;
+            if (c.available) {
+                purchaseButtons = `<a href="${c.link}" class="w-full block bg-[#392E7C] hover:bg-[#2d2461] text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition transform hover:scale-105 text-center min-h-[44px]">PDF देखें ➔</a>
                     <button class="add-cart-btn w-full bg-white border-2 border-[#392E7C]/20 hover:border-[#C9A227] text-[#392E7C] font-bold px-6 py-3 rounded-xl transition text-sm min-h-[44px]" data-item='${JSON.stringify({code: c.code, name_hi: c.name_hi, name_en: c.name_en, price: c.price, degree: c.degree}).replace(/'/g, "&#39;")}'>🛒 कार्ट में जोड़ें</button>`;
+            } else if (c.status === 'unbuildable') {
+                purchaseButtons = `<a href="${c.link}" class="w-full block bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 font-bold px-3 py-3 rounded-xl transition text-center text-xs min-h-[44px] flex items-center justify-center">📋 केवल प्रायोगिक/प्रोजेक्ट (विवरण)</a>`;
+            } else {
+                purchaseButtons = `<a href="${c.link}" class="w-full block bg-gray-100 hover:bg-gray-200 text-gray-600 border border-gray-200 font-bold px-3 py-3 rounded-xl transition text-center text-xs min-h-[44px] flex items-center justify-center">⏳ जल्द उपलब्ध होगा (Coming Soon)</a>`;
+            }
             return `<div class="card-in bg-white p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl shadow-gray-200/40 border border-gray-100 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#392E7C]/8 to-[#C9A227]/10 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
                 <div class="z-10">
