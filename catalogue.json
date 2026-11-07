@@ -1,6 +1,6 @@
 {
  "source": "VMOU Prospectus July 2026 (Prospectus_July_2026.pdf), read page by page with Gemini 2.5 Pro and checked against the PDF text layer",
- "n_programmes": 36,
+ "n_programmes": 37,
  "n_papers": 521,
  "degree_names": {
   "BED": {
@@ -218,6 +218,12 @@
    "name_hi": "प्राणी विज्ञान में स्नातकोत्तर उपाधि",
    "level": "Master",
    "is_multi_area": false
+  },
+  "MAPSYN": {
+   "name_en": "M.A. Psychology",
+   "name_hi": "एम.ए. मनोविज्ञान",
+   "level": "Master",
+   "is_multi_area": true
   }
  },
  "subject_area_labels": {
@@ -2125,6 +2131,61 @@
    "status": "unbuildable",
    "status_reason": "यह प्रायोगिक / लैब / आंतरिक मूल्यांकन आधारित विषय है। इसके लिए थ्योरी बुकलेट लागू नहीं होती।",
    "link": "products/hm-09.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PSY-01",
+   "name_en": "Psychological Processes",
+   "name_hi": "मनोवैज्ञानिक प्रक्रियाएं",
+   "price": 79,
+   "available": true,
+   "status": "available",
+   "status_reason": "",
+   "link": "products/psy-01.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PSY-02",
+   "name_en": "Psychopathology",
+   "name_hi": "मनोविकृति विज्ञान",
+   "price": 79,
+   "available": true,
+   "status": "available",
+   "status_reason": "",
+   "link": "products/psy-02.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PSY-03",
+   "name_en": "Psychological Statistics and Measurement",
+   "name_hi": "मनोवैज्ञानिक सांख्यिकी एवं मापन",
+   "price": 79,
+   "available": true,
+   "status": "available",
+   "status_reason": "",
+   "link": "products/psy-03.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PSY-04",
+   "name_en": "Social Psychology",
+   "name_hi": "सामाजिक मनोविज्ञान",
+   "price": 79,
+   "available": true,
+   "status": "available",
+   "status_reason": "",
+   "link": "products/psy-04.html"
+  },
+  {
+   "degree": "BAN",
+   "code": "PSY-05",
+   "name_en": "Theories and System of Psychology",
+   "name_hi": "मनोविज्ञान के सिद्धांत एवं प्रणालियां",
+   "price": 79,
+   "available": true,
+   "status": "available",
+   "status_reason": "",
+   "link": "products/psy-05.html"
   },
   {
    "degree": "BJ",
@@ -6569,6 +6630,116 @@
    "status": "unbuildable",
    "status_reason": "यह प्रायोगिक / लैब / आंतरिक मूल्यांकन आधारित विषय है। इसके लिए थ्योरी बुकलेट लागू नहीं होती।",
    "link": "products/mzo-10.html"
+  },
+  {
+   "degree": "MAPSYN",
+   "code": "MAPSY-01",
+   "name_en": "Psychological Research Methods",
+   "name_hi": "मनोवैज्ञानिक शोध विधियां",
+   "price": 79,
+   "available": true,
+   "status": "available",
+   "status_reason": "",
+   "link": "products/mapsy-01.html"
+  },
+  {
+   "degree": "MAPSYN",
+   "code": "MAPSY-02",
+   "name_en": "Statistics and Psychological Measurement",
+   "name_hi": "सांख्यिकीय एवं मनोवैज्ञानिक मापन",
+   "price": 79,
+   "available": true,
+   "status": "available",
+   "status_reason": "",
+   "link": "products/mapsy-02.html"
+  },
+  {
+   "degree": "MAPSYN",
+   "code": "MAPSY-03",
+   "name_en": "Cognitive Psychology: Basic Processes",
+   "name_hi": "संज्ञानात्मक मनोविज्ञान : मौलिक प्रक्रियाएं",
+   "price": 79,
+   "available": true,
+   "status": "available",
+   "status_reason": "",
+   "link": "products/mapsy-03.html"
+  },
+  {
+   "degree": "MAPSYN",
+   "code": "MAPSY-04",
+   "name_en": "Social and Cultural Psychology",
+   "name_hi": "सामाजिक एवं सांस्कृतिक मनोविज्ञान",
+   "price": 79,
+   "available": true,
+   "status": "available",
+   "status_reason": "",
+   "link": "products/mapsy-04.html"
+  },
+  {
+   "degree": "MAPSYN",
+   "code": "MAPSY-05",
+   "name_en": "Practical",
+   "name_hi": "प्रयोगात्मक",
+   "price": 79,
+   "available": false,
+   "status": "unbuildable",
+   "status_reason": "यह प्रायोगिक / लैब / आंतरिक मूल्यांकन आधारित विषय है। इसके लिए थ्योरी बुकलेट लागू नहीं होती।",
+   "link": "products/mapsy-05.html"
+  },
+  {
+   "degree": "MAPSYN",
+   "code": "MAPSY-06",
+   "name_en": "Personality: Theories and Assessment",
+   "name_hi": "व्यक्तित्व: सिद्धात एवं मूल्यांकन",
+   "price": 79,
+   "available": true,
+   "status": "available",
+   "status_reason": "",
+   "link": "products/mapsy-06.html"
+  },
+  {
+   "degree": "MAPSYN",
+   "code": "MAPSY-07",
+   "name_en": "Clinical Psychology",
+   "name_hi": "नैदानिक मनोविज्ञान",
+   "price": 79,
+   "available": true,
+   "status": "available",
+   "status_reason": "",
+   "link": "products/mapsy-07.html"
+  },
+  {
+   "degree": "MAPSYN",
+   "code": "MAPSY-08",
+   "name_en": "Developmental Psychology",
+   "name_hi": "विकासात्मक मनोविज्ञान",
+   "price": 79,
+   "available": true,
+   "status": "available",
+   "status_reason": "",
+   "link": "products/mapsy-08.html"
+  },
+  {
+   "degree": "MAPSYN",
+   "code": "MAPSY-09",
+   "name_en": "Guidance and Counselling Psychology",
+   "name_hi": "निर्देशन एवं परामर्श मनोविज्ञान",
+   "price": 79,
+   "available": true,
+   "status": "available",
+   "status_reason": "",
+   "link": "products/mapsy-09.html"
+  },
+  {
+   "degree": "MAPSYN",
+   "code": "MAPSY-10",
+   "name_en": "Practical",
+   "name_hi": "प्रयोगात्मक",
+   "price": 79,
+   "available": false,
+   "status": "unbuildable",
+   "status_reason": "यह प्रायोगिक / लैब / आंतरिक मूल्यांकन आधारित विषय है। इसके लिए थ्योरी बुकलेट लागू नहीं होती।",
+   "link": "products/mapsy-10.html"
   }
  ]
 }

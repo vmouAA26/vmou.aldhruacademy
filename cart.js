@@ -195,10 +195,24 @@
         var name = nameInput.value.trim();
         var email = emailInput.value.trim();
         var phone = phoneInput.value.replace(/\D/g, '');
+        if (phone.startsWith('91') && phone.length === 12) phone = phone.substring(2);
+        if (phone.startsWith('0') && phone.length === 11) phone = phone.substring(1);
         errorEl.classList.add('hidden');
-        if (!name) { nameInput.focus(); return; }
-        if (!EMAIL_RE.test(email)) { emailInput.focus(); return; }
-        if (!PHONE_RE.test(phone)) { phoneInput.focus(); return; }
+        
+        function showError(msg) {
+            errorEl.textContent = msg;
+            errorEl.classList.remove('hidden');
+        }
+        
+        if (!name) { showError('कृपया अपना पूरा नाम भरें।'); nameInput.focus(); return; }
+        if (!EMAIL_RE.test(email)) { showError('कृपया एक सही ईमेल आईडी भरें।'); emailInput.focus(); return; }
+        if (!PHONE_RE.test(phone) || phone.length !== 10) { showError('कृपया 10 अंकों का सही मोबाइल नंबर भरें।'); phoneInput.focus(); return; }
+
+        try {
+            localStorage.setItem('vmou_buyer_name', name);
+            localStorage.setItem('vmou_buyer_email', email);
+            localStorage.setItem('vmou_buyer_phone', phone);
+        } catch(e) {}
 
         btn.disabled = true;
         btn.textContent = 'कृपया प्रतीक्षा करें...';
@@ -318,5 +332,4 @@
         });
     });
 
-    window.VMOU_CART = { addToCart: addToCart };
 })();

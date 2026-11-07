@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>मनोवैज्ञानिक सांख्यिकी एवं मापन | Aldhru Academy</title>
+    <link rel="icon" href="/logo.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&family=Poppins:wght@400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif; scroll-behavior: smooth; }
+        .font-display { font-family: 'Playfair Display', 'Noto Sans Devanagari', serif; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+        .card-in { animation: fadeInUp 0.45s ease-out both; }
+        ::selection { background: #c4b5fd; color: #1e1b4b; }
+        .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        html, body {
+            overflow-x: hidden !important;
+            max-width: 100vw !important;
+            width: 100% !important;
+            margin: 0;
+            padding: 0;
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        /* Desktop-only floating cart pill (#vmou-cart-pill): "hidden" alone keeps it
+           off on mobile at every breakpoint (the mobile floating bar covers that job
+           instead), while this empty-state class -- toggled by cart.js -- is the only
+           thing that hides it on desktop, independent of the responsive "sm:flex". */
+        .cart-pill-empty { display: none !important; }
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: inline-flex;
+            white-space: nowrap;
+            animation: marquee 28s linear infinite;
+        }
+        .animate-marquee:hover, .animate-marquee:active {
+            animation-play-state: paused;
+        }
+        .carousel-slide {
+            display: none;
+            transition: opacity 0.4s ease-in-out;
+        }
+        .carousel-slide.active {
+            display: block;
+        }
+    </style>
+    <!-- Cloudflare Web Analytics -->
+    <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e614852cf9514a66ae9ff8e68e4829b6"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+</head>
+<body class="bg-[#FAF8F3] text-gray-800 antialiased overflow-x-hidden">
+
+    <header class="pt-6 px-6 max-w-4xl mx-auto flex flex-wrap gap-3 justify-between items-center text-center sm:text-left">
+        <a href="../index.html" class="flex items-center gap-3">
+            <img src="../logo.png" alt="Aldhru Academy Logo" class="h-12 w-12 rounded-full shadow-lg border-2 border-white object-cover" onerror="this.style.display='none'">
+            <h1 class="text-xl sm:text-2xl font-black text-gray-900 tracking-tight whitespace-nowrap">Aldhru<span class="text-[#392E7C]">Academy</span></h1>
+        </a>
+        <div class="flex items-center gap-1.5 sm:gap-2">
+                    <a href="https://t.me/aldhruacademy_vmou" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 bg-[#0088cc]/10 hover:bg-[#0088cc] text-[#0088cc] hover:text-white px-2.5 sm:px-3 py-1.5 rounded-full text-xs sm:text-sm font-black border border-[#0088cc]/30 transition shadow-sm whitespace-nowrap min-h-[36px]">
+                        <img src="/icons/telegram.png" alt="Telegram" class="w-4 h-4 sm:w-5 sm:h-5 object-contain">
+                        <span>फ्री PDF</span>
+                    </a>
+                    <a href="https://www.youtube.com/@AldhruAcademy_vmou" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 bg-red-50 hover:bg-red-600 text-red-600 hover:text-white px-2.5 sm:px-3 py-1.5 rounded-full text-xs sm:text-sm font-black border border-red-200 transition shadow-sm whitespace-nowrap min-h-[36px]">
+                        <img src="/icons/youtube.png" alt="YouTube" class="w-4 h-4 sm:w-5 sm:h-5 object-contain">
+                        <span>फ्री वीडियो</span>
+                    </a>
+                </div>
+        <a href="../index.html" class="text-sm font-bold text-gray-500 hover:text-[#392E7C] whitespace-nowrap">⬅ सभी विषय</a>
+    </header>
+
+    <section class="max-w-3xl mx-auto px-6 pt-10 pb-6 text-center">
+        <span class="bg-gradient-to-r from-amber-400 to-orange-500 text-white font-black px-4 py-1.5 rounded-full text-xs uppercase tracking-wider mb-4 inline-block shadow-md">🔥 आगामी परीक्षा के लिए प्रीमियम बुकलेट</span>
+        <span class="block bg-gray-900 text-white text-sm font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-md mx-auto w-fit mt-4 mb-4">PSY-03</span>
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 leading-snug">मनोवैज्ञानिक सांख्यिकी एवं मापन</h2>
+        <p class="text-gray-500 mt-2 font-bold">Psychological Statistics and Measurement &middot; </p>
+    </section>
+
+    <section class="max-w-3xl mx-auto px-6 pb-6">
+        <div class="bg-white border-2 border-[#392E7C]/10 rounded-[2rem] shadow-xl shadow-[#392E7C]/10 p-6 md:p-8">
+            <div class="flex items-end justify-center gap-3 mb-5">
+                <span class="text-4xl font-black text-gray-900">₹79</span>
+                <span class="text-lg text-gray-400 line-through mb-0.5">₹99</span>
+                <span class="bg-[#C9A227]/15 text-[#8a6d1a] text-xs font-black px-2.5 py-1 rounded-full mb-1 border border-[#C9A227]/30">20% OFF</span>
+            </div>
+
+            <div class="payment-success-msg hidden bg-green-50 border-2 border-green-400 rounded-2xl p-5 text-center mb-4">
+                <p class="font-black text-green-700 text-lg">✅ पेमेंट सफल!</p>
+                <p class="text-gray-700 mt-1 text-sm">आपकी PDF 5 मिनट के भीतर आपकी ईमेल पर भेज दी जाएगी।</p>
+            </div>
+
+            <div class="coming-soon-msg hidden bg-amber-50 border-2 border-amber-300 rounded-2xl p-5 text-center mb-4">
+                <p class="font-black text-amber-700 text-lg">🚧 पेमेंट सिस्टम जल्द लॉन्च हो रहा है</p>
+                <p class="text-gray-700 mt-1 text-sm">यह साइट अभी तैयार हो रही है — कृपया थोड़ी देर बाद वापस आएँ।</p>
+            </div>
+
+            <div class="checkout-form">
+                <div class="mb-4 text-left">
+                    <label class="block text-sm font-bold text-gray-700 mb-2">आपका पूरा नाम *</label>
+                    <input type="text" class="buyer-name-input w-full border-2 border-[#392E7C]/15 focus:border-[#C9A227] outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="जैसे: Rohit Sharma">
+                </div>
+                <div class="mb-4 text-left">
+                    <label class="block text-sm font-bold text-gray-700 mb-2">आपकी ईमेल आईडी *</label>
+                    <input type="email" class="buyer-email-input w-full border-2 border-[#392E7C]/15 focus:border-[#C9A227] outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="जैसे: rohit@gmail.com">
+                </div>
+                <div class="mb-4 text-left">
+                    <label class="block text-sm font-bold text-gray-700 mb-2">आपका मोबाइल नंबर *</label>
+                    <input type="tel" class="buyer-phone-input w-full border-2 border-[#392E7C]/15 focus:border-[#C9A227] outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="जैसे: 9876543210" maxlength="10">
+                </div>
+                <button type="button" class="buy-now-btn w-full block text-center bg-[#392E7C] hover:bg-[#2d2461] text-white font-black text-lg px-10 py-4 rounded-2xl shadow-xl transition transform hover:scale-105 disabled:opacity-60 disabled:hover:scale-100 ring-2 ring-transparent hover:ring-[#C9A227]">
+                    ⚡ अभी खरीदें (Buy Now) ➔
+                </button>
+                <button type="button" class="add-cart-btn w-full mt-3 block text-center bg-white border-2 border-[#392E7C]/20 hover:border-[#C9A227] text-[#392E7C] font-bold px-10 py-3.5 rounded-2xl transition" data-item='{"code": "PSY-03", "name_hi": "मनोवैज्ञानिक सांख्यिकी एवं मापन", "name_en": "Psychological Statistics and Measurement", "price": 79, "degree": "BAN"}'>🛒 कार्ट में जोड़ें (Add to Cart)</button>
+                <p class="checkout-error hidden text-red-600 text-sm font-bold text-center mt-3"></p>
+                <p class="text-xs text-center text-gray-400 mt-3">Secure payment powered by Razorpay &middot; By continuing you agree to our Terms &amp; Refund Policy.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-3xl mx-auto px-6 pb-12 text-center">
+        <p class="text-sm text-gray-500">📞 सहायता चाहिए? <a href="/support.html" class="font-bold text-[#392E7C] hover:underline">सहायता केंद्र देखें</a> या हमें लिखें:</p>
+        <p class="font-bold text-[#392E7C]">support@aldhruacademy.com</p>
+    </section>
+
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8 rounded-t-[3rem] relative overflow-hidden border-t-8 border-[#C9A227]">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-3 gap-10 pb-10 border-b border-gray-800">
+                <div>
+                    <h3 class="font-display text-2xl font-black mb-3">Aldhru<span class="text-[#C9A227]">Academy</span></h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">VMOU के छात्रों के लिए सटीक, हल किए गए प्रश्न पत्र -- तैयारी को आसान और भरोसेमंद बनाने के लिए।</p>
+                    <p class="text-[#C9A227] font-bold text-sm">📧 support@aldhruacademy.com</p>
+                </div>
+                <div>
+                    <h4 class="font-black text-sm uppercase tracking-wider text-gray-400 mb-4">क्विक लिंक्स</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/index.html#products" class="text-gray-300 hover:text-white transition">सभी डिग्री (All Degrees)</a></li>
+                        <li><a href="/support.html" class="text-gray-300 hover:text-white transition">सहायता केंद्र (Support Center)</a></li>
+                        <li><a href="/support.html#faq" class="text-gray-300 hover:text-white transition">अक्सर पूछे जाने वाले सवाल (FAQ)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-black text-sm uppercase tracking-wider text-gray-400 mb-4">नीतियाँ (Policies)</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><strong class="text-white">डिलीवरी:</strong> पेमेंट के 5 मिनट के भीतर PDF ईमेल पर भेजी जाती है।</li>
+                        <li><strong class="text-white">रिफंड:</strong> डिजिटल उत्पाद होने के कारण डाउनलोड के बाद रिफंड नहीं किया जाता।</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 pt-8">
+                <p class="text-gray-500 text-xs">&copy; 2026 Aldhru Academy. सर्वाधिकार सुरक्षित (All Rights Reserved).</p>
+                <div class="flex gap-3"><a href="https://whatsapp.com/channel/0029Vb7r6dVHrDZk2srINm2G" target="_blank" rel="noopener noreferrer" title="WhatsApp" class="w-12 h-12 sm:w-14 sm:h-14 bg-white/10 hover:bg-white/25 rounded-2xl flex items-center justify-center transition transform hover:scale-110 shadow-md"><img src="/icons/whatsapp.png" alt="WhatsApp" class="w-7 h-7 sm:w-8 sm:h-8 object-contain"></a><a href="https://t.me/aldhruacademy_vmou" target="_blank" rel="noopener noreferrer" title="Telegram" class="w-12 h-12 sm:w-14 sm:h-14 bg-white/10 hover:bg-white/25 rounded-2xl flex items-center justify-center transition transform hover:scale-110 shadow-md"><img src="/icons/telegram.png" alt="Telegram" class="w-7 h-7 sm:w-8 sm:h-8 object-contain"></a><a href="https://www.youtube.com/@AldhruAcademy_vmou" target="_blank" rel="noopener noreferrer" title="YouTube" class="w-12 h-12 sm:w-14 sm:h-14 bg-white/10 hover:bg-white/25 rounded-2xl flex items-center justify-center transition transform hover:scale-110 shadow-md"><img src="/icons/youtube.png" alt="YouTube" class="w-7 h-7 sm:w-8 sm:h-8 object-contain"></a><a href="https://www.instagram.com/aldhruacademy_vmou/" target="_blank" rel="noopener noreferrer" title="Instagram" class="w-12 h-12 sm:w-14 sm:h-14 bg-white/10 hover:bg-white/25 rounded-2xl flex items-center justify-center transition transform hover:scale-110 shadow-md"><img src="/icons/instagram.png" alt="Instagram" class="w-7 h-7 sm:w-8 sm:h-8 object-contain"></a><a href="https://www.facebook.com/aldhruacademy" target="_blank" rel="noopener noreferrer" title="Facebook" class="w-12 h-12 sm:w-14 sm:h-14 bg-white/10 hover:bg-white/25 rounded-2xl flex items-center justify-center transition transform hover:scale-110 shadow-md"><img src="/icons/facebook.png" alt="Facebook" class="w-7 h-7 sm:w-8 sm:h-8 object-contain"></a></div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://whatsapp.com/channel/0029Vb7r6dVHrDZk2srINm2G" target="_blank" class="fixed bottom-20 right-6 z-40 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-transform hover:scale-110" aria-label="WhatsApp पर सहायता">
+        <svg viewBox="0 0 32 32" class="w-7 h-7 fill-white"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.837.744 5.5 2.04 7.805L0 32l8.4-2.01A15.9 15.9 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.09c-2.49 0-4.83-.68-6.84-1.87l-.49-.29-5.01 1.2 1.23-4.87-.32-.5A13.06 13.06 0 0 1 2.91 16C2.91 8.78 8.78 2.91 16 2.91S29.09 8.78 29.09 16 23.22 29.09 16 29.09zm7.18-9.79c-.39-.2-2.3-1.13-2.66-1.26-.36-.13-.62-.2-.88.2-.26.39-1.01 1.26-1.24 1.52-.23.26-.46.29-.85.1-.39-.2-1.64-.6-3.12-1.92-1.15-1.03-1.93-2.3-2.16-2.69-.23-.39-.02-.6.17-.8.18-.18.39-.46.59-.7.2-.23.26-.39.39-.65.13-.26.07-.49-.03-.68-.1-.2-.88-2.13-1.21-2.92-.32-.76-.64-.66-.88-.67l-.75-.01c-.26 0-.68.1-1.04.49-.36.39-1.36 1.33-1.36 3.25s1.4 3.77 1.59 4.03c.2.26 2.76 4.21 6.68 5.9.93.4 1.66.64 2.23.82.94.3 1.79.26 2.47.16.75-.11 2.3-.94 2.63-1.85.33-.91.33-1.68.23-1.85-.1-.16-.36-.26-.75-.46z"/></svg>
+    </a>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+    (function() {
+        var ORDER_ENDPOINT = "https://asia-south1-aldhru-academy-cloud.cloudfunctions.net/create-razorpay-order";
+        var SUBJECT_CODE = "PSY-03";
+
+        function showComingSoon() {
+            document.querySelector('.checkout-form').classList.add('hidden');
+            document.querySelector('.coming-soon-msg').classList.remove('hidden');
+        }
+        function showSuccess() {
+            document.querySelector('.checkout-form').classList.add('hidden');
+            document.querySelector('.payment-success-msg').classList.remove('hidden');
+        }
+
+        var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        var PHONE_RE = /^[6-9]\d{9}$/;
+
+        // .checkout-form doesn't exist on an unavailable paper's page (it's
+        // replaced server-side by the disabled "Coming Soon" button, see
+        // render_product_page()'s purchase_block) -- nothing below needs wiring.
+        var form = document.querySelector('.checkout-form');
+        if (form) {
+        var btn = form.querySelector('.buy-now-btn');
+        var nameInput = form.querySelector('.buyer-name-input');
+        var emailInput = form.querySelector('.buyer-email-input');
+        var phoneInput = form.querySelector('.buyer-phone-input');
+        var checkoutError = form.querySelector('.checkout-error');
+
+        var resetButton = function() {
+            btn.disabled = false;
+            btn.textContent = 'अभी खरीदें ➔';
+        };
+        var showError = function(msg) {
+            checkoutError.textContent = msg;
+            checkoutError.classList.remove('hidden');
+            resetButton();
+        };
+
+        btn.addEventListener('click', function() {
+            if (!ORDER_ENDPOINT) { showComingSoon(); return; }
+            var name = nameInput.value.trim();
+            var email = emailInput.value.trim();
+            var phone = phoneInput.value.replace(/\D/g, '');
+            if (phone.startsWith('91') && phone.length === 12) phone = phone.substring(2);
+            if (phone.startsWith('0') && phone.length === 11) phone = phone.substring(1);
+            checkoutError.classList.add('hidden');
+            
+            if (!name) { showError('कृपया अपना पूरा नाम भरें।'); nameInput.focus(); return; }
+            if (!EMAIL_RE.test(email)) { showError('कृपया एक सही ईमेल आईडी भरें।'); emailInput.focus(); return; }
+            if (!PHONE_RE.test(phone) || phone.length !== 10) { showError('कृपया 10 अंकों का सही मोबाइल नंबर भरें।'); phoneInput.focus(); return; }
+
+            try {
+                localStorage.setItem('vmou_buyer_name', name);
+                localStorage.setItem('vmou_buyer_email', email);
+                localStorage.setItem('vmou_buyer_phone', phone);
+            } catch(e) {}
+
+            btn.disabled = true;
+            btn.textContent = 'कृपया प्रतीक्षा करें...';
+
+            fetch(ORDER_ENDPOINT, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({subject_code: SUBJECT_CODE, buyer_name: name, buyer_email: email, buyer_phone: phone})
+            })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                if (!data.order_id) { throw new Error(data.error || 'Order creation failed'); }
+                var rzp = new Razorpay({
+                    key: data.key_id, amount: data.amount, currency: data.currency, order_id: data.order_id,
+                    name: 'Aldhru Academy', description: SUBJECT_CODE + ' Premium Booklet',
+                    prefill: { name: name, email: email, contact: phone },
+                    theme: { color: '#9333ea' }, handler: showSuccess, modal: { ondismiss: resetButton }
+                });
+                rzp.on('payment.failed', function() { showError('पेमेंट असफल रहा, कृपया दोबारा कोशिश करें।'); });
+                rzp.open();
+                resetButton();
+            })
+            .catch(function() { showError('कुछ गड़बड़ हुई, कृपया दोबारा कोशिश करें।'); });
+        });
+        }
+    })();
+    </script>
+    <script src="/cart.js"></script>
+</body>
+</html>
