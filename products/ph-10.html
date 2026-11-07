@@ -98,6 +98,14 @@
             </div>
 
             <div class="checkout-form">
+                <div class="mb-5 p-4 rounded-2xl bg-[#392E7C]/5 border-2 border-[#392E7C]/15 text-left">
+                    <label class="block text-sm font-black text-[#392E7C] mb-1">🌐 उत्तर का माध्यम चुनें (Select Answer Medium) *</label>
+                    <p class="text-xs text-gray-600 font-semibold mb-3">नोट: दोनों माध्यमों में प्रश्न द्विभाषी (Hindi + English) हैं।</p>
+                    <div class="grid grid-cols-2 gap-2.5">
+                        <button type="button" data-med="HI" class="med-select-btn bg-[#392E7C] text-white border-2 border-[#392E7C] font-black py-3 px-3 rounded-xl text-xs sm:text-sm transition shadow-md flex items-center justify-center gap-1.5">🇮🇳 हिंदी माध्यम (Hindi)</button>
+                        <button type="button" data-med="EN" class="med-select-btn bg-white text-gray-700 border-2 border-gray-200 hover:border-[#392E7C]/40 font-bold py-3 px-3 rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-1.5">🇬🇧 English Medium</button>
+                    </div>
+                </div>
                 <div class="mb-4 text-left">
                     <label class="block text-sm font-bold text-gray-700 mb-2">आपका पूरा नाम *</label>
                     <input type="text" class="buyer-name-input w-full border-2 border-[#392E7C]/15 focus:border-[#C9A227] outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="जैसे: Rohit Sharma">
@@ -113,7 +121,7 @@
                 <button type="button" class="buy-now-btn w-full block text-center bg-[#392E7C] hover:bg-[#2d2461] text-white font-black text-lg px-10 py-4 rounded-2xl shadow-xl transition transform hover:scale-105 disabled:opacity-60 disabled:hover:scale-100 ring-2 ring-transparent hover:ring-[#C9A227]">
                     ⚡ अभी खरीदें (Buy Now) ➔
                 </button>
-                <button type="button" class="add-cart-btn w-full mt-3 block text-center bg-white border-2 border-[#392E7C]/20 hover:border-[#C9A227] text-[#392E7C] font-bold px-10 py-3.5 rounded-2xl transition" data-item='{"code": "PH-10", "name_hi": "ठोस अवस्था भौतिकी", "name_en": "Solid State Physics", "price": 79, "degree": "BSCN"}'>🛒 कार्ट में जोड़ें (Add to Cart)</button>
+                <button type="button" class="add-cart-btn w-full mt-3 block text-center bg-white border-2 border-[#392E7C]/20 hover:border-[#C9A227] text-[#392E7C] font-bold px-10 py-3.5 rounded-2xl transition" data-item='{"code": "PH-10-HI", "name_hi": "ठोस अवस्था भौतिकी (हिंदी माध्यम)", "name_en": "Solid State Physics", "price": 79, "degree": "BSCN"}'>🛒 कार्ट में जोड़ें (Add to Cart)</button>
                 <p class="checkout-error hidden text-red-600 text-sm font-bold text-center mt-3"></p>
                 <p class="text-xs text-center text-gray-400 mt-3">Secure payment powered by Razorpay &middot; By continuing you agree to our Terms &amp; Refund Policy.</p>
             </div>
@@ -164,7 +172,39 @@
     <script>
     (function() {
         var ORDER_ENDPOINT = "https://asia-south1-aldhru-academy-cloud.cloudfunctions.net/create-razorpay-order";
-        var SUBJECT_CODE = "PH-10";
+        var BASE_CODE = "PH-10";
+        var IS_DUAL_MEDIUM = true;
+        var SUBJECT_CODE = IS_DUAL_MEDIUM ? (BASE_CODE + "-HI") : BASE_CODE;
+        var PAPER_NAME_HI = "ठोस अवस्था भौतिकी";
+        var PAPER_NAME_EN = "Solid State Physics";
+        var PAPER_PRICE = 79;
+        var PAPER_DEGREE = "BSCN";
+
+        function selectMedium(med) {
+            if (!IS_DUAL_MEDIUM) return;
+            var m = (med === 'EN') ? 'EN' : 'HI';
+            SUBJECT_CODE = BASE_CODE + "-" + m;
+            document.querySelectorAll('.med-select-btn').forEach(function(b) {
+                var active = b.getAttribute('data-med') === m;
+                b.className = active
+                    ? 'med-select-btn bg-[#392E7C] text-white border-2 border-[#392E7C] font-black py-3 px-3 rounded-xl text-xs sm:text-sm transition shadow-md flex items-center justify-center gap-1.5'
+                    : 'med-select-btn bg-white text-gray-700 border-2 border-gray-200 hover:border-[#392E7C]/40 font-bold py-3 px-3 rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-1.5';
+            });
+            var cartBtn = document.querySelector('.add-cart-btn');
+            if (cartBtn) {
+                var label = (m === 'HI') ? (PAPER_NAME_HI + ' (हिंदी माध्यम)') : (PAPER_NAME_EN + ' (English Medium)');
+                cartBtn.setAttribute('data-item', JSON.stringify({
+                    code: SUBJECT_CODE, name_hi: label, name_en: PAPER_NAME_EN, price: PAPER_PRICE, degree: PAPER_DEGREE
+                }));
+            }
+        }
+        document.querySelectorAll('.med-select-btn').forEach(function(b) {
+            b.addEventListener('click', function() { selectMedium(b.getAttribute('data-med')); });
+        });
+        try {
+            var qMed = new URLSearchParams(window.location.search).get('medium');
+            if (qMed && IS_DUAL_MEDIUM) selectMedium(qMed.toUpperCase());
+        } catch(e) {}
 
         function showComingSoon() {
             document.querySelector('.checkout-form').classList.add('hidden');

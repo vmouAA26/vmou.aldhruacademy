@@ -306,23 +306,87 @@
                     '<p class="text-red-500 text-center col-span-full font-bold text-xl">सिस्टम लोड करने में विफल! कृपया इंटरनेट कनेक्शन चेक करें।</p>';
             });
 
+        window.selectedScienceMedium = 'HI';
+        window.setCardMedium = function(code, med) {
+            const card = document.querySelector(`[data-card-code="${code}"]`);
+            if (!card) return;
+            const hiBtn = card.querySelector('[data-med-pill="HI"]');
+            const enBtn = card.querySelector('[data-med-pill="EN"]');
+            if (hiBtn && enBtn) {
+                const isHi = (med === 'HI');
+                hiBtn.className = isHi
+                    ? 'px-2.5 py-1.5 rounded-lg text-xs font-black bg-[#392E7C] text-white shadow-sm transition flex-1'
+                    : 'px-2.5 py-1.5 rounded-lg text-xs font-bold bg-gray-100 text-gray-600 hover:bg-gray-200 transition flex-1';
+                enBtn.className = !isHi
+                    ? 'px-2.5 py-1.5 rounded-lg text-xs font-black bg-[#392E7C] text-white shadow-sm transition flex-1'
+                    : 'px-2.5 py-1.5 rounded-lg text-xs font-bold bg-gray-100 text-gray-600 hover:bg-gray-200 transition flex-1';
+            }
+            const viewLink = card.querySelector('.card-view-link');
+            if (viewLink) {
+                const baseHref = viewLink.getAttribute('data-base-link');
+                viewLink.setAttribute('href', `${baseHref}?medium=${med}`);
+            }
+            const cartBtn = card.querySelector('.add-cart-btn');
+            if (cartBtn) {
+                const baseItem = JSON.parse(cartBtn.getAttribute('data-base-item'));
+                const medCode = `${baseItem.code}-${med}`;
+                const medLabel = med === 'HI' ? `${baseItem.name_hi} (हिंदी माध्यम)` : `${baseItem.name_en} (English Medium)`;
+                cartBtn.setAttribute('data-item', JSON.stringify({
+                    code: medCode, name_hi: medLabel, name_en: baseItem.name_en, price: baseItem.price, degree: baseItem.degree
+                }));
+            }
+        };
+        window.setAllScienceMedium = function(med) {
+            window.selectedScienceMedium = med;
+            document.querySelectorAll('[data-global-med]').forEach(btn => {
+                const active = btn.getAttribute('data-global-med') === med;
+                btn.className = active
+                    ? 'px-4 py-2 rounded-xl text-xs sm:text-sm font-black bg-[#392E7C] text-white shadow-md transition'
+                    : 'px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-gray-700 border border-gray-200 hover:bg-gray-100 transition';
+            });
+            document.querySelectorAll('[data-card-code]').forEach(card => {
+                window.setCardMedium(card.getAttribute('data-card-code'), med);
+            });
+        };
+
         function subjectCardHtml(c) {
             let purchaseButtons;
+            const med = window.selectedScienceMedium || 'HI';
             if (c.available) {
-                purchaseButtons = `<a href="${c.link}" class="w-full block bg-[#392E7C] hover:bg-[#2d2461] text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition transform hover:scale-105 text-center min-h-[44px]">PDF देखें ➔</a>
-                    <button class="add-cart-btn w-full bg-white border-2 border-[#392E7C]/20 hover:border-[#C9A227] text-[#392E7C] font-bold px-6 py-3 rounded-xl transition text-sm min-h-[44px]" data-item='${JSON.stringify({code: c.code, name_hi: c.name_hi, name_en: c.name_en, price: c.price, degree: c.degree}).replace(/'/g, "&#39;")}'>🛒 कार्ट में जोड़ें</button>`;
+                const baseItemObj = {code: c.code, name_hi: c.name_hi, name_en: c.name_en, price: c.price, degree: c.degree};
+                const baseItemJson = JSON.stringify(baseItemObj).replace(/'/g, "&#39;");
+                if (c.dual_medium) {
+                    const initCode = `${c.code}-${med}`;
+                    const initLabel = med === 'HI' ? `${c.name_hi} (हिंदी माध्यम)` : `${c.name_en} (English Medium)`;
+                    const initItemJson = JSON.stringify({code: initCode, name_hi: initLabel, name_en: c.name_en, price: c.price, degree: c.degree}).replace(/'/g, "&#39;");
+                    const hiCls = med === 'HI' ? 'bg-[#392E7C] text-white font-black shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200 font-bold';
+                    const enCls = med === 'EN' ? 'bg-[#392E7C] text-white font-black shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200 font-bold';
+                    purchaseButtons = `<div class="bg-[#392E7C]/5 p-2 rounded-xl border border-[#392E7C]/15 mb-1">
+                        <div class="text-[11px] font-bold text-[#392E7C] text-center mb-1.5">🌐 माध्यम चुनें (Select Medium):</div>
+                        <div class="flex gap-1.5">
+                            <button type="button" data-med-pill="HI" onclick="setCardMedium('${c.code}','HI')" class="px-2.5 py-1.5 rounded-lg text-xs transition flex-1 ${hiCls}">🇮🇳 हिंदी</button>
+                            <button type="button" data-med-pill="EN" onclick="setCardMedium('${c.code}','EN')" class="px-2.5 py-1.5 rounded-lg text-xs transition flex-1 ${enCls}">🇬🇧 English</button>
+                        </div>
+                    </div>
+                    <a href="${c.link}?medium=${med}" data-base-link="${c.link}" class="card-view-link w-full block bg-[#392E7C] hover:bg-[#2d2461] text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition transform hover:scale-105 text-center min-h-[44px]">PDF देखें ➔</a>
+                    <button class="add-cart-btn w-full bg-white border-2 border-[#392E7C]/20 hover:border-[#C9A227] text-[#392E7C] font-bold px-6 py-3 rounded-xl transition text-sm min-h-[44px]" data-base-item='${baseItemJson}' data-item='${initItemJson}'>🛒 कार्ट में जोड़ें</button>`;
+                } else {
+                    purchaseButtons = `<a href="${c.link}" class="w-full block bg-[#392E7C] hover:bg-[#2d2461] text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition transform hover:scale-105 text-center min-h-[44px]">PDF देखें ➔</a>
+                        <button class="add-cart-btn w-full bg-white border-2 border-[#392E7C]/20 hover:border-[#C9A227] text-[#392E7C] font-bold px-6 py-3 rounded-xl transition text-sm min-h-[44px]" data-item='${baseItemJson}'>🛒 कार्ट में जोड़ें</button>`;
+                }
             } else if (c.status === 'unbuildable') {
                 purchaseButtons = `<a href="${c.link}" class="w-full block bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 font-bold px-3 py-3 rounded-xl transition text-center text-xs min-h-[44px] flex items-center justify-center">📋 केवल प्रायोगिक/प्रोजेक्ट (विवरण)</a>`;
             } else {
                 purchaseButtons = `<a href="${c.link}" class="w-full block bg-gray-100 hover:bg-gray-200 text-gray-600 border border-gray-200 font-bold px-3 py-3 rounded-xl transition text-center text-xs min-h-[44px] flex items-center justify-center">⏳ जल्द उपलब्ध होगा (Coming Soon)</a>`;
             }
-            return `<div class="card-in bg-white p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl shadow-gray-200/40 border border-gray-100 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
+            return `<div data-card-code="${c.code}" class="card-in bg-white p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl shadow-gray-200/40 border border-gray-100 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#392E7C]/8 to-[#C9A227]/10 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
                 <div class="z-10">
                     <span class="bg-gray-900 text-white text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-md">${c.code}</span>
-                    <h4 class="text-lg font-bold text-gray-900 mt-6 mb-6 leading-snug">${c.name_hi}</h4>
+                    <h4 class="text-lg font-bold text-gray-900 mt-6 mb-2 leading-snug">${c.name_hi}</h4>
+                    ${c.dual_medium ? '<p class="text-xs font-semibold text-gray-500 mb-4">' + c.name_en + '</p>' : '<div class="mb-4"></div>'}
                 </div>
-                <div class="mt-auto pt-6 border-t border-gray-100 z-10 w-full flex flex-col gap-2">
+                <div class="mt-auto pt-4 border-t border-gray-100 z-10 w-full flex flex-col gap-2">
                     ${purchaseButtons}
                 </div>
             </div>`;
@@ -582,6 +646,21 @@
                 </div>
                 <button onclick="showSubjects('${degree}')" class="bg-gray-900 hover:bg-[#2d2461] text-white font-bold px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 whitespace-nowrap">⬅ विषय क्षेत्र (Go Back)</button>
             </div>`;
+            if (papers.some(p => p.dual_medium)) {
+                const m = window.selectedScienceMedium || 'HI';
+                const hiBtnCls = m === 'HI' ? 'px-4 py-2 rounded-xl text-xs sm:text-sm font-black bg-[#392E7C] text-white shadow-md transition' : 'px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-gray-700 border border-gray-200 hover:bg-gray-100 transition';
+                const enBtnCls = m === 'EN' ? 'px-4 py-2 rounded-xl text-xs sm:text-sm font-black bg-[#392E7C] text-white shadow-md transition' : 'px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-gray-700 border border-gray-200 hover:bg-gray-100 transition';
+                html += `<div class="col-span-full mb-4 bg-amber-50/90 border-2 border-amber-300/80 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <div class="text-center sm:text-left">
+                        <div class="text-sm sm:text-base font-black text-gray-900">🌐 बुकलेट उत्तर का माध्यम चुनें (Select Booklet Medium)</div>
+                        <div class="text-xs text-gray-600 font-medium">दोनों माध्यमों में प्रश्न द्विभाषी (Hindi + English) हैं • उत्तर आपके चुने गए माध्यम में होंगे</div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" data-global-med="HI" onclick="setAllScienceMedium('HI')" class="${hiBtnCls}">🇮🇳 हिंदी माध्यम</button>
+                        <button type="button" data-global-med="EN" onclick="setAllScienceMedium('EN')" class="${enBtnCls}">🇬🇧 English Medium</button>
+                    </div>
+                </div>`;
+            }
             papers.forEach(c => { html += subjectCardHtml(c); });
             container.innerHTML = html;
             document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });

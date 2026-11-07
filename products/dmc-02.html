@@ -98,6 +98,7 @@
             </div>
 
             <div class="checkout-form">
+                
                 <div class="mb-4 text-left">
                     <label class="block text-sm font-bold text-gray-700 mb-2">आपका पूरा नाम *</label>
                     <input type="text" class="buyer-name-input w-full border-2 border-[#392E7C]/15 focus:border-[#C9A227] outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="जैसे: Rohit Sharma">
@@ -164,7 +165,39 @@
     <script>
     (function() {
         var ORDER_ENDPOINT = "https://asia-south1-aldhru-academy-cloud.cloudfunctions.net/create-razorpay-order";
-        var SUBJECT_CODE = "DMC-02";
+        var BASE_CODE = "DMC-02";
+        var IS_DUAL_MEDIUM = false;
+        var SUBJECT_CODE = IS_DUAL_MEDIUM ? (BASE_CODE + "-HI") : BASE_CODE;
+        var PAPER_NAME_HI = "विज्ञापन एवं जनसम्पर्क";
+        var PAPER_NAME_EN = "Advertising & Public Relations";
+        var PAPER_PRICE = 79;
+        var PAPER_DEGREE = "DMCN";
+
+        function selectMedium(med) {
+            if (!IS_DUAL_MEDIUM) return;
+            var m = (med === 'EN') ? 'EN' : 'HI';
+            SUBJECT_CODE = BASE_CODE + "-" + m;
+            document.querySelectorAll('.med-select-btn').forEach(function(b) {
+                var active = b.getAttribute('data-med') === m;
+                b.className = active
+                    ? 'med-select-btn bg-[#392E7C] text-white border-2 border-[#392E7C] font-black py-3 px-3 rounded-xl text-xs sm:text-sm transition shadow-md flex items-center justify-center gap-1.5'
+                    : 'med-select-btn bg-white text-gray-700 border-2 border-gray-200 hover:border-[#392E7C]/40 font-bold py-3 px-3 rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-1.5';
+            });
+            var cartBtn = document.querySelector('.add-cart-btn');
+            if (cartBtn) {
+                var label = (m === 'HI') ? (PAPER_NAME_HI + ' (हिंदी माध्यम)') : (PAPER_NAME_EN + ' (English Medium)');
+                cartBtn.setAttribute('data-item', JSON.stringify({
+                    code: SUBJECT_CODE, name_hi: label, name_en: PAPER_NAME_EN, price: PAPER_PRICE, degree: PAPER_DEGREE
+                }));
+            }
+        }
+        document.querySelectorAll('.med-select-btn').forEach(function(b) {
+            b.addEventListener('click', function() { selectMedium(b.getAttribute('data-med')); });
+        });
+        try {
+            var qMed = new URLSearchParams(window.location.search).get('medium');
+            if (qMed && IS_DUAL_MEDIUM) selectMedium(qMed.toUpperCase());
+        } catch(e) {}
 
         function showComingSoon() {
             document.querySelector('.checkout-form').classList.add('hidden');
