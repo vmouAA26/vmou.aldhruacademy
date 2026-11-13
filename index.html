@@ -431,12 +431,16 @@
             const info = degreeFullNames[degree] || { name_hi: degree, name_en: degree };
             const subjectCount = allCourses.filter(c => c.degree === degree).length;
             const accent = CATEGORY_ACCENTS[info.level] || CATEGORY_ACCENTS.Master;
+            const coverHtml = info.cover
+                ? `<div class="aspect-[4/3] overflow-hidden bg-gray-100 border-b border-gray-100"><img src="${info.cover}" alt="${degree} degree cover" width="800" height="600" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" onerror="this.parentElement.remove()"></div>`
+                : '';
             return `<div onclick="showSubjects('${degree}')" class="card-in bg-white rounded-2xl sm:rounded-[2rem] shadow-xl shadow-gray-200/50 border border-[#392E7C]/5 hover:shadow-2xl hover:border-[#C9A227]/60 hover:-translate-y-2 transition-all duration-300 cursor-pointer text-center group relative overflow-hidden flex flex-col justify-between">
                 <div class="h-1.5 w-full bg-gradient-to-r ${accent.bar}"></div>
+                ${coverHtml}
                 <div class="p-4 sm:p-7 flex flex-col justify-between flex-1">
                 <div class="absolute top-0 right-0 w-28 h-28 bg-gradient-to-br from-[#392E7C]/8 to-[#C9A227]/10 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
                 <div>
-                    <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🎓</div>
+                    ${info.cover ? '' : '<div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🎓</div>'}
                     <h4 class="text-3xl font-black text-gray-900 mb-1 tracking-tight">${degree}</h4>
                     <p class="text-[#392E7C] font-bold min-h-[3.5rem] flex items-center justify-center text-base leading-snug">${info.name_hi}</p>
                 </div>
@@ -601,8 +605,12 @@
             const container = document.getElementById('courses-container');
             const info = degreeFullNames[degree] || { name_hi: degree, name_en: degree };
             const groups = subjectAreasFor(degree);
+            const headerCover = info.cover
+                ? `<img src="${info.cover}" alt="${degree} degree cover" width="800" height="600" decoding="async" class="w-full max-w-sm md:w-64 md:max-w-none rounded-2xl shadow-lg mb-5 md:mb-0 md:mr-8 flex-none" onerror="this.remove()">`
+                : '';
             let html = `<div class="col-span-full mb-6 flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-[#392E7C]/5 to-white p-5 sm:p-8 rounded-3xl shadow-sm border border-[#392E7C]/10">
-                <div class="text-center md:text-left mb-6 md:mb-0">
+                ${headerCover}
+                <div class="text-center md:text-left mb-6 md:mb-0 md:mr-auto">
                     <h3 class="text-3xl font-black text-gray-900">${degree} <span class="text-xl font-bold text-[#392E7C]">— ${info.name_hi}</span></h3>
                     <p class="text-gray-500 mt-1 text-base">${info.name_en}</p>
                 </div>

@@ -7,223 +7,260 @@
    "name_en": "Bachelor of Education",
    "name_hi": "शिक्षा में स्नातक",
    "level": "Bachelor",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/bed.webp?v=d516f791"
   },
   "BAN": {
    "name_en": "Bachelor of Arts Programme",
    "name_hi": "कला में स्नातक कार्यक्रम",
    "level": "Bachelor",
-   "is_multi_area": true
+   "is_multi_area": true,
+   "cover": "covers/degrees/ban.webp?v=286a72cf"
   },
   "BJ": {
    "name_en": "Bachelor in Journalism (Lateral)",
    "name_hi": "पत्रकारिता में स्नातक (लेटरल)",
    "level": "Bachelor",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/bj.webp?v=717977fe"
   },
   "BJN": {
    "name_en": "Bachelor of Journalism",
    "name_hi": "पत्रकारिता में स्नातक कार्यक्रम",
    "level": "Bachelor",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/bjn.webp?v=f29c0688"
   },
   "BLISN": {
    "name_en": "Bachelor of Library and Information Science Programme",
    "name_hi": "पुस्तकालयएवंसूचना विज्ञानमेंस्नातक्क्रार्यक्रम",
    "level": "Bachelor",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/blisn.webp?v=7397b69a"
   },
   "BSCN": {
    "name_en": "Bachelor of Science Programme",
    "name_hi": "विज्ञान में स्नातक कार्यक्रम",
    "level": "Bachelor",
-   "is_multi_area": true
+   "is_multi_area": true,
+   "cover": "covers/degrees/bscn.webp?v=8327b2da"
   },
   "CIJ": {
    "name_en": "Certificate in Falit Jyotish",
    "name_hi": "फलित ज्योतिष में प्रमाण पत्र",
    "level": "Certificate",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/cij.webp?v=636d8ada"
   },
   "CIK": {
    "name_en": "Certificate in Karmkand",
    "name_hi": "कर्मकाण्ड में प्रमाण पत्र",
    "level": "Certificate",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/cik.webp?v=222df5c4"
   },
   "CPNM": {
    "name_en": "Certificate in Mahatma Gandhi NREGA Mate",
    "name_hi": "महात्मा गांधी नरेगा मेट में प्रमाण-पत्र",
    "level": "Certificate",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/cpnm.webp?v=1d222bb0"
   },
   "DCAM": {
    "name_en": "Diploma in Computer Accounting and Management(DCAM)",
    "name_hi": "डिप्लोमा इन कम्प्यूटर अकाउंटिंग एंड मैनेजमेंट",
    "level": "Diploma",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/dcam.webp?v=6bf0e412"
   },
   "DCAN-OL": {
    "name_en": "Diploma in Computer Application (Online)",
    "name_hi": "कंप्यूटर अनुप्रयोग में डिप्लोमा (ऑनलाइन)",
    "level": "Diploma",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/dcan-ol.webp?v=4dd1c624"
   },
   "DCTN": {
    "name_en": "Diploma in Culture and Tourism",
    "name_hi": "संस्कृति एवं पर्यटन में डिप्लोमा",
    "level": "Diploma",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/dctn.webp?v=8a651751"
   },
   "DLISN-OL": {
    "name_en": "Diploma in Library and Information Science (Online)",
    "name_hi": "पुस्तकालय एवं सूचना विज्ञान में डिप्लोमा (ऑनलाइन)",
    "level": "Diploma",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/dlisn-ol.webp?v=594da08e"
   },
   "DLISN": {
    "name_en": "Diploma in Library and Information Science",
    "name_hi": "पुस्तकालय एवं सूचना विज्ञान में डिप्लोमा",
    "level": "Diploma",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/dlisn.webp?v=ca8cc1a4"
   },
   "DMCN": {
    "name_en": "Diploma in Mass Communication",
    "name_hi": "डिप्लोमा इन मास कम्यूनिकेशन",
    "level": "Diploma",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/dmcn.webp?v=5bec8d13"
   },
   "DWSMN": {
    "name_en": "Diploma in Watershed Management",
    "name_hi": "जल ग्रहण प्रबंध में डिप्लोमा",
    "level": "Diploma",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/dwsmn.webp?v=415ddd55"
   },
   "DYSN": {
    "name_en": "Diploma in YogaScience",
    "name_hi": "योग विज्ञान में डिप्लोमा",
    "level": "Diploma",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/dysn.webp?v=c49d37d0"
   },
   "MAECN": {
    "name_en": "M. A. Economics",
    "name_hi": "एम.ए. अर्थशास्त्र",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/maecn.webp?v=ea7d0e73"
   },
   "MAEDN": {
    "name_en": "M.A. Education",
    "name_hi": "एम.ए. शिक्षा",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/maedn.webp?v=4fc5a959"
   },
   "MAEGN": {
    "name_en": "M. A. English",
    "name_hi": "एम. ए. अंग्रेजी",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/maegn.webp?v=9404d89d"
   },
   "MAGEN": {
    "name_en": "M. A. Geography",
    "name_hi": "एम. ए. भूगोल",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/magen.webp?v=4ddc23e5"
   },
   "MAHDN": {
    "name_en": "M. A. Hindi",
    "name_hi": "एम.ए. हिन्दी",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/mahdn.webp?v=4f0af8a8"
   },
   "MAHIN": {
    "name_en": "M. A. History",
    "name_hi": "एम.ए. इतिहास",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/mahin.webp?v=e700ef7a"
   },
   "MAPSN": {
    "name_en": "M. A. Political Science",
    "name_hi": "एम. ए. राजनीति विज्ञान",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/mapsn.webp?v=49ef8950"
   },
   "MAPSTN": {
    "name_en": "M. A. Police Administration",
    "name_hi": "एम. ए. पुलिस प्रशासन",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/mapstn.webp?v=e453dd70"
   },
   "MARJN": {
    "name_en": "M.A. Rajasthani",
    "name_hi": "एम.ए. राजस्थानी",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/marjn.webp?v=f59af2e8"
   },
   "MASAN": {
    "name_en": "M. A. Sanskrit",
    "name_hi": "एम. ए. संस्कृत",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/masan.webp?v=65344f8b"
   },
   "MASON": {
    "name_en": "M. A. Sociology",
    "name_hi": "एम.ए. समाजशास्त्र",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/mason.webp?v=54618297"
   },
   "MBAN": {
    "name_en": "Master of Business Administration",
    "name_hi": "Master of Business Administration",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/mban.webp?v=c2518e85"
   },
   "MBON": {
    "name_en": "M.Sc. Botany",
    "name_hi": "वनस्पति विज्ञान में स्नातकोत्तर उपाधि",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/mbon.webp?v=7062bec3"
   },
   "MCOMN": {
    "name_en": "Master of Commerce",
    "name_hi": "मास्टर ऑफ कॉमर्स",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/mcomn.webp?v=9d5acb0c"
   },
   "MPHN": {
    "name_en": "M.Sc. Physics",
    "name_hi": "भौतिक विज्ञान में स्नातकोत्तर उपाधि",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/mphn.webp?v=a502b3f4"
   },
   "MSCCHN": {
    "name_en": "M.Sc. Chemistry",
    "name_hi": "रसायन विज्ञान में स्नातकोत्तर उपाधि (M.Sc. Chemistry)",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/mscchn.webp?v=1ef4022f"
   },
   "MSCCSN": {
    "name_en": "Master of Science (Computer Science)",
    "name_hi": "कम्प्यूटर विज्ञान में स्नातकोत्तर उपाधि",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/msccsn.webp?v=f5151a15"
   },
   "MSCMTN": {
    "name_en": "M.Sc. Mathematics",
    "name_hi": "एम.एससी. गणित",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/mscmtn.webp?v=cefad853"
   },
   "MZON": {
    "name_en": "M.Sc. Zoology",
    "name_hi": "प्राणी विज्ञान में स्नातकोत्तर उपाधि",
    "level": "Master",
-   "is_multi_area": false
+   "is_multi_area": false,
+   "cover": "covers/degrees/mzon.webp?v=b8cfb48f"
   },
   "MAPSYN": {
    "name_en": "M.A. Psychology",
    "name_hi": "एम.ए. मनोविज्ञान",
    "level": "Master",
-   "is_multi_area": true
+   "is_multi_area": true,
+   "cover": "covers/degrees/mapsyn.webp?v=0c87b01e"
   }
  },
  "subject_area_labels": {
