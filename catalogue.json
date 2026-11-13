@@ -4152,7 +4152,7 @@
    "status": "available",
    "status_reason": "",
    "link": "products/dlis-01.html",
-   "cover": "covers/dlis-01.webp"
+   "cover": "covers/dlis-01.webp?v=72d8f5fc"
   },
   {
    "degree": "DLISN-OL",
@@ -4191,7 +4191,7 @@
    "status": "available",
    "status_reason": "",
    "link": "products/dlis-04.html",
-   "cover": "covers/dlis-04.webp"
+   "cover": "covers/dlis-04.webp?v=42d0f445"
   },
   {
    "degree": "DLISN-OL",
@@ -4204,7 +4204,7 @@
    "status": "available",
    "status_reason": "",
    "link": "products/dlis-05.html",
-   "cover": "covers/dlis-05.webp"
+   "cover": "covers/dlis-05.webp?v=107c0d4a"
   },
   {
    "degree": "DLISN-OL",
@@ -4217,7 +4217,7 @@
    "status": "available",
    "status_reason": "",
    "link": "products/dlis-06.html",
-   "cover": "covers/dlis-06.webp"
+   "cover": "covers/dlis-06.webp?v=342582b9"
   },
   {
    "degree": "DLISN",
@@ -4230,7 +4230,7 @@
    "status": "available",
    "status_reason": "",
    "link": "products/dlis-01.html",
-   "cover": "covers/dlis-01.webp"
+   "cover": "covers/dlis-01.webp?v=72d8f5fc"
   },
   {
    "degree": "DLISN",
@@ -4269,7 +4269,7 @@
    "status": "available",
    "status_reason": "",
    "link": "products/dlis-04.html",
-   "cover": "covers/dlis-04.webp"
+   "cover": "covers/dlis-04.webp?v=42d0f445"
   },
   {
    "degree": "DLISN",
@@ -4282,7 +4282,7 @@
    "status": "available",
    "status_reason": "",
    "link": "products/dlis-05.html",
-   "cover": "covers/dlis-05.webp"
+   "cover": "covers/dlis-05.webp?v=107c0d4a"
   },
   {
    "degree": "DLISN",
@@ -4295,7 +4295,7 @@
    "status": "available",
    "status_reason": "",
    "link": "products/dlis-06.html",
-   "cover": "covers/dlis-06.webp"
+   "cover": "covers/dlis-06.webp?v=342582b9"
   },
   {
    "degree": "DMCN",
