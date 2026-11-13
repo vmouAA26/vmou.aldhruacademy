@@ -77,6 +77,7 @@
         <span class="block bg-gray-900 text-white text-sm font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-md mx-auto w-fit mt-4 mb-4">MAGE-09</span>
         <h2 class="text-3xl md:text-4xl font-black text-gray-900 leading-snug">नगरीय भूगोल</h2>
         <p class="text-gray-500 mt-2 font-bold">Urban Geography &middot; Semester-IV</p>
+        
     </section>
 
     <section class="max-w-3xl mx-auto px-6 pb-6">
@@ -183,6 +184,11 @@
                     ? 'med-select-btn bg-[#392E7C] text-white border-2 border-[#392E7C] font-black py-3 px-3 rounded-xl text-xs sm:text-sm transition shadow-md flex items-center justify-center gap-1.5'
                     : 'med-select-btn bg-white text-gray-700 border-2 border-gray-200 hover:border-[#392E7C]/40 font-bold py-3 px-3 rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-1.5';
             });
+            var coverImg = document.getElementById('booklet-cover');
+            if (coverImg) {
+                var coverSrc = coverImg.getAttribute(m === 'EN' ? 'data-cover-en' : 'data-cover-hi');
+                if (coverSrc) coverImg.setAttribute('src', coverSrc);
+            }
             var cartBtn = document.querySelector('.add-cart-btn');
             if (cartBtn) {
                 var label = (m === 'HI') ? (PAPER_NAME_HI + ' (हिंदी माध्यम)') : (PAPER_NAME_EN + ' (English Medium)');
