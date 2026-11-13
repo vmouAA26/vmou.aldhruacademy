@@ -77,7 +77,26 @@
         <span class="block bg-gray-900 text-white text-sm font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-md mx-auto w-fit mt-4 mb-4">BO-10</span>
         <h2 class="text-3xl md:text-4xl font-black text-gray-900 leading-snug">आण्विक जीवविज्ञान एवं तकनीकी</h2>
         <p class="text-gray-500 mt-2 font-bold">Molecular Biology and Technology &middot; Sem-V</p>
-        
+        <figure class="mt-8 flex flex-col items-center">
+            <button type="button" id="cover-zoom-btn" class="block rounded-xl focus:outline-none focus:ring-4 focus:ring-[#C9A227]/40" aria-label="बड़ा करके देखें (View larger)">
+                <img id="booklet-cover" src="../covers/bo-10-hi.webp?v=5586a8e2" data-cover-hi="../covers/bo-10-hi.webp?v=5586a8e2" data-cover-en="../covers/bo-10-en.webp?v=2947e219" alt="BO-10 premium booklet cover" width="600" height="800" loading="eager" decoding="async" class="w-52 sm:w-72 h-auto rounded-xl shadow-2xl shadow-[#392E7C]/20 border border-gray-200 bg-white cursor-zoom-in" onerror="this.closest('figure').style.display='none'">
+            </button>
+            <figcaption class="mt-3 text-xs font-bold text-gray-500">📖 बुकलेट कवर &middot; बड़ा देखने के लिए टैप करें</figcaption>
+        </figure>
+        <div id="cover-lightbox" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 cursor-zoom-out" role="dialog" aria-modal="true" aria-label="BO-10 cover">
+            <img id="cover-lightbox-img" src="" alt="" class="w-full max-w-[480px] h-auto max-h-[92vh] object-contain rounded-xl shadow-2xl bg-white">
+        </div>
+        <script>
+        (function () {
+            var btn = document.getElementById('cover-zoom-btn'), box = document.getElementById('cover-lightbox');
+            var big = document.getElementById('cover-lightbox-img'), img = document.getElementById('booklet-cover');
+            if (!btn || !box || !img) return;
+            function close() { box.classList.add('hidden'); }
+            btn.addEventListener('click', function () { big.src = img.getAttribute('src'); big.alt = img.alt; box.classList.remove('hidden'); });
+            box.addEventListener('click', close);
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+        })();
+        </script>
     </section>
 
     <section class="max-w-3xl mx-auto px-6 pb-6">
