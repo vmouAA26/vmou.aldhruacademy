@@ -5,6 +5,15 @@
 // cart without needing to fetch catalogue.json first.
 (function() {
     var CART_KEY = 'vmou_cart';
+    // 2026-11-14 (owner's rule: only fresh orders): a cart saved before CART_EPOCH is emptied once on the
+    // visitor's next visit; buyer name/email/phone are kept. Bump the date to discard all saved carts again.
+    var CART_EPOCH = '2026-11-14';
+    try {
+        if (localStorage.getItem('vmou_cart_epoch') !== CART_EPOCH) {
+            localStorage.removeItem(CART_KEY);
+            localStorage.setItem('vmou_cart_epoch', CART_EPOCH);
+        }
+    } catch (e) {}
     var BASE_PRICE = 79;
     var ORDER_ENDPOINT = "https://asia-south1-aldhru-academy-cloud.cloudfunctions.net/create-razorpay-order";
     var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
