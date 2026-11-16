@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>निर्देशन एवं परामर्श | Aldhru Academy</title>
     <link rel="icon" href="/logo.png" type="image/png">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://checkout.razorpay.com https://*.razorpay.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://asia-south1-aldhru-academy-cloud.cloudfunctions.net https://*.razorpay.com https://cloudflareinsights.com; frame-src https://*.razorpay.com; form-action 'self'; base-uri 'self'; object-src 'none'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="stylesheet" href="/tw.css?v=20261116">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&family=Poppins:wght@400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif; scroll-behavior: smooth; }
@@ -286,7 +288,7 @@
             })
             .then(function(res) { return res.json(); })
             .then(function(data) {
-                if (!data.order_id) { throw new Error(data.error || 'Order creation failed'); }
+                if (!data.order_id) { var se = new Error(data.error || ''); se.serverMsg = data.error; throw se; }
                 var rzp = new Razorpay({
                     key: data.key_id, amount: data.amount, currency: data.currency, order_id: data.order_id,
                     name: 'Aldhru Academy', description: SUBJECT_CODE + ' Premium Booklet',
@@ -297,7 +299,7 @@
                 rzp.open();
                 resetButton();
             })
-            .catch(function() { showError('कुछ गड़बड़ हुई, कृपया दोबारा कोशिश करें।'); });
+            .catch(function(err) { showError((err && err.serverMsg) || 'कुछ गड़बड़ हुई, कृपया दोबारा कोशिश करें।'); });
         });
         }
     })();

@@ -19,6 +19,8 @@
     var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     var PHONE_RE = /^[6-9]\d{9}$/;
     var TIER_PRICES = {0: 0, 1: 79, 2: 149, 3: 215, 4: 275, 5: 330};
+    // Same cap as MAX_CODES in backend/create_razorpay_order/main.py (security audit 2026-11-16).
+    var MAX_CART_ITEMS = 25;
 
     function tieredTotal(n) {
         if (n <= 5) return TIER_PRICES[n] || 0;
@@ -56,6 +58,10 @@
         var items = getCart();
         if (items.some(function(i) { return i.code === item.code; })) {
             showToast('यह विषय पहले से ही कार्ट में है।');
+            return;
+        }
+        if (items.length >= MAX_CART_ITEMS) {
+            showToast('एक ऑर्डर में अधिकतम ' + MAX_CART_ITEMS + ' बुकलेट - पहले यह ऑर्डर पूरा करें।');
             return;
         }
         items.push(item);
@@ -236,7 +242,7 @@
         })
         .then(function(res) { return res.json(); })
         .then(function(data) {
-            if (!data.order_id) { throw new Error(data.error || 'Order creation failed'); }
+            if (!data.order_id) { var se = new Error(data.error || ''); se.serverMsg = data.error; throw se; }
             var rzp = new Razorpay({
                 key: data.key_id, amount: data.amount, currency: data.currency, order_id: data.order_id,
                 name: 'Aldhru Academy', description: items.length + '-Paper Cart Order',
@@ -258,8 +264,8 @@
             btn.disabled = false;
             btn.textContent = 'सुरक्षित भुगतान करें (₹' + tieredTotal(items.length) + ')';
         })
-        .catch(function() {
-            errorEl.textContent = 'कुछ गड़बड़ हुई, कृपया दोबारा कोशिश करें।';
+        .catch(function(err) {
+            errorEl.textContent = (err && err.serverMsg) || 'कुछ गड़बड़ हुई, कृपया दोबारा कोशिश करें।';
             errorEl.classList.remove('hidden');
             btn.disabled = false;
             btn.textContent = 'सुरक्षित भुगतान करें (₹' + tieredTotal(items.length) + ')';
