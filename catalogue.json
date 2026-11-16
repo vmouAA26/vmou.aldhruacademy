@@ -15,7 +15,29 @@
    "name_hi": "कला में स्नातक कार्यक्रम",
    "level": "Bachelor",
    "is_multi_area": true,
-   "cover": "covers/degrees/ban.webp?v=286a72cf"
+   "cover": "covers/degrees/ban.webp?v=286a72cf",
+   "area_covers": {
+    "CS": "covers/areas/ban-cs.webp?v=ebcb6d4c",
+    "EC": "covers/areas/ban-ec.webp?v=b055efcc",
+    "ED": "covers/areas/ban-ed.webp?v=e4ed7306",
+    "EG": "covers/areas/ban-eg.webp?v=6f4657dd",
+    "GE": "covers/areas/ban-ge.webp?v=c5fb04ae",
+    "GP": "covers/areas/ban-gp.webp?v=0357f900",
+    "HD": "covers/areas/ban-hd.webp?v=78687ae8",
+    "HI": "covers/areas/ban-hi.webp?v=431a555e",
+    "HM": "covers/areas/ban-hm.webp?v=845dae05",
+    "JM": "covers/areas/ban-jm.webp?v=596fd4e9",
+    "MT": "covers/areas/ban-mt.webp?v=b0437ab1",
+    "PA": "covers/areas/ban-pa.webp?v=cd3c1e48",
+    "PS": "covers/areas/ban-ps.webp?v=757163db",
+    "PSY": "covers/areas/ban-psy.webp?v=3b7cbc6f",
+    "RJ": "covers/areas/ban-rj.webp?v=fe653f0f",
+    "SA": "covers/areas/ban-sa.webp?v=be6d7cf5",
+    "SO": "covers/areas/ban-so.webp?v=2cf8b720",
+    "SW": "covers/areas/ban-sw.webp?v=90a919dd",
+    "UD": "covers/areas/ban-ud.webp?v=db8791d5",
+    "__other__": "covers/areas/ban-other.webp?v=6e1969ee"
+   }
   },
   "BJ": {
    "name_en": "Bachelor in Journalism (Lateral)",
@@ -43,7 +65,15 @@
    "name_hi": "विज्ञान में स्नातक कार्यक्रम",
    "level": "Bachelor",
    "is_multi_area": true,
-   "cover": "covers/degrees/bscn.webp?v=8327b2da"
+   "cover": "covers/degrees/bscn.webp?v=8327b2da",
+   "area_covers": {
+    "BO": "covers/areas/bscn-bo.webp?v=d390ba42",
+    "CH": "covers/areas/bscn-ch.webp?v=eac96422",
+    "MT": "covers/areas/bscn-mt.webp?v=7a71784f",
+    "PH": "covers/areas/bscn-ph.webp?v=171ced6e",
+    "ZO": "covers/areas/bscn-zo.webp?v=f115856d",
+    "__other__": "covers/areas/bscn-other.webp?v=ed608f5d"
+   }
   },
   "CIJ": {
    "name_en": "Certificate in Falit Jyotish",
@@ -259,7 +289,7 @@
    "name_en": "M.A. Psychology",
    "name_hi": "एम.ए. मनोविज्ञान",
    "level": "Master",
-   "is_multi_area": true,
+   "is_multi_area": false,
    "cover": "covers/degrees/mapsyn.webp?v=0c87b01e"
   }
  },
