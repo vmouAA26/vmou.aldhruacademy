@@ -7,7 +7,7 @@
     <link rel="icon" href="/logo.png" type="image/png">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://checkout.razorpay.com https://*.razorpay.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://asia-south1-aldhru-academy-cloud.cloudfunctions.net https://*.razorpay.com https://cloudflareinsights.com; frame-src https://*.razorpay.com; form-action 'self'; base-uri 'self'; object-src 'none'">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <link rel="stylesheet" href="/tw.css?v=20261116">
+    <link rel="stylesheet" href="/tw.css?v=20261124">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&family=Poppins:wght@400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif; scroll-behavior: smooth; }
@@ -285,28 +285,54 @@
             Certificate: { bar: 'from-rose-900 to-rose-950', badge: 'bg-rose-50 text-rose-900' },
         };
 
-        fetch('catalogue.json')
-            .then(r => r.json())
-            .then(data => {
-                allCourses = data.papers;
-                degreeFullNames = data.degree_names;
-                subjectAreaLabels = data.subject_area_labels || {};
-                updatePillCounts();
-                // handleHashRoute() reads location.hash itself -- #degree=BED (the
-                // order-confirmation email's cross-sell "view all subjects" link) or
-                // #category=Master both work the same way a click would, and an
-                // empty hash falls through to the home view.
-                handleHashRoute();
-                document.getElementById('search-input').addEventListener('input', function(e) {
-                    const q = e.target.value.trim();
-                    if (q.length === 0) { renderHomeView(); return; }
-                    renderSearchResults(q);
-                });
-            })
-            .catch(() => {
-                document.getElementById('courses-container').innerHTML =
-                    '<p class="text-red-500 text-center col-span-full font-bold text-xl">सिस्टम लोड करने में विफल! कृपया इंटरनेट कनेक्शन चेक करें।</p>';
+        // Defined HERE, not only in cart.js (hotfix 2026-11-24): cart.js used to load last and the page
+        // crashed with "escapeHtml is not defined" whenever the catalogue arrived before it.
+        function escapeHtml(value) {
+            return String(value == null ? '' : value).replace(/[&<>"']/g, function(ch) {
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
             });
+        }
+
+        function showLoadProblem(isNetwork) {
+            const msg = isNetwork
+                ? 'इंटरनेट कनेक्शन में समस्या है -- कृपया कनेक्शन चेक करके दोबारा कोशिश करें।'
+                : 'पेज दिखाने में कुछ गड़बड़ हुई -- कृपया दोबारा कोशिश करें।';
+            document.getElementById('courses-container').innerHTML =
+                '<div class="col-span-full text-center py-10"><p class="text-red-500 font-bold text-xl mb-5">' + msg + '</p>' +
+                '<button onclick="location.reload()" class="bg-[#392E7C] hover:bg-[#2d2461] text-white font-black px-8 py-3 rounded-xl shadow-md min-h-[44px]">🔄 दोबारा कोशिश करें (Retry)</button></div>';
+        }
+
+        function loadCatalogue() {
+            // Step 1: download. Only a failure HERE is a network problem.
+            fetch('catalogue.json')
+                .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+                .then(
+                    data => {
+                        // Step 2: draw. A code error here is logged, and shown as a different message.
+                        try {
+                            allCourses = data.papers;
+                            degreeFullNames = data.degree_names;
+                            subjectAreaLabels = data.subject_area_labels || {};
+                            updatePillCounts();
+                            // handleHashRoute() reads location.hash itself -- #degree=BED (the
+                            // order-confirmation email's cross-sell "view all subjects" link) or
+                            // #category=Master both work the same way a click would, and an
+                            // empty hash falls through to the home view.
+                            handleHashRoute();
+                            document.getElementById('search-input').addEventListener('input', function(e) {
+                                const q = e.target.value.trim();
+                                if (q.length === 0) { renderHomeView(); return; }
+                                renderSearchResults(q);
+                            });
+                        } catch (err) {
+                            console.error('Page render failed:', err);
+                            showLoadProblem(false);
+                        }
+                    },
+                    err => { console.error('catalogue.json failed:', err); showLoadProblem(true); }
+                );
+        }
+        loadCatalogue();
 
         window.selectedScienceMedium = 'HI';
         window.setCardMedium = function(code, med) {
@@ -698,7 +724,6 @@
         }
 
     </script>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="/cart.js"></script>
+    <script src="/cart.js" defer></script>
 </body>
 </html>

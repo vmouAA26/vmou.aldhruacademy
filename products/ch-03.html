@@ -7,7 +7,7 @@
     <link rel="icon" href="/logo.png" type="image/png">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://checkout.razorpay.com https://*.razorpay.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://asia-south1-aldhru-academy-cloud.cloudfunctions.net https://*.razorpay.com https://cloudflareinsights.com; frame-src https://*.razorpay.com; form-action 'self'; base-uri 'self'; object-src 'none'">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <link rel="stylesheet" href="/tw.css?v=20261116">
+    <link rel="stylesheet" href="/tw.css?v=20261124">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&family=Poppins:wght@400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif; scroll-behavior: smooth; }
@@ -190,7 +190,6 @@
         <svg viewBox="0 0 32 32" class="w-7 h-7 fill-white"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.837.744 5.5 2.04 7.805L0 32l8.4-2.01A15.9 15.9 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.09c-2.49 0-4.83-.68-6.84-1.87l-.49-.29-5.01 1.2 1.23-4.87-.32-.5A13.06 13.06 0 0 1 2.91 16C2.91 8.78 8.78 2.91 16 2.91S29.09 8.78 29.09 16 23.22 29.09 16 29.09zm7.18-9.79c-.39-.2-2.3-1.13-2.66-1.26-.36-.13-.62-.2-.88.2-.26.39-1.01 1.26-1.24 1.52-.23.26-.46.29-.85.1-.39-.2-1.64-.6-3.12-1.92-1.15-1.03-1.93-2.3-2.16-2.69-.23-.39-.02-.6.17-.8.18-.18.39-.46.59-.7.2-.23.26-.39.39-.65.13-.26.07-.49-.03-.68-.1-.2-.88-2.13-1.21-2.92-.32-.76-.64-.66-.88-.67l-.75-.01c-.26 0-.68.1-1.04.49-.36.39-1.36 1.33-1.36 3.25s1.4 3.77 1.59 4.03c.2.26 2.76 4.21 6.68 5.9.93.4 1.66.64 2.23.82.94.3 1.79.26 2.47.16.75-.11 2.3-.94 2.63-1.85.33-.91.33-1.68.23-1.85-.1-.16-.36-.26-.75-.46z"/></svg>
     </a>
 
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
     (function() {
         var ORDER_ENDPOINT = "https://asia-south1-aldhru-academy-cloud.cloudfunctions.net/create-razorpay-order";
@@ -296,6 +295,7 @@
             .then(function(res) { return res.json(); })
             .then(function(data) {
                 if (!data.order_id) { var se = new Error(data.error || ''); se.serverMsg = data.error; throw se; }
+                return window.vmouLoadRazorpay().then(function() {
                 var rzp = new Razorpay({
                     key: data.key_id, amount: data.amount, currency: data.currency, order_id: data.order_id,
                     name: 'Aldhru Academy', description: SUBJECT_CODE + ' Premium Booklet',
@@ -305,12 +305,13 @@
                 rzp.on('payment.failed', function() { showError('पेमेंट असफल रहा, कृपया दोबारा कोशिश करें।'); });
                 rzp.open();
                 resetButton();
+                });
             })
             .catch(function(err) { showError((err && err.serverMsg) || 'कुछ गड़बड़ हुई, कृपया दोबारा कोशिश करें।'); });
         });
         }
     })();
     </script>
-    <script src="/cart.js"></script>
+    <script src="/cart.js" defer></script>
 </body>
 </html>

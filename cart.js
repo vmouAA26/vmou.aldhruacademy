@@ -41,6 +41,27 @@
     }
     window.escapeHtml = escapeHtml;
 
+    // Razorpay's checkout.js is loaded on demand (hotfix 2026-11-24): as a blocking <script> at the end of
+    // the page it delayed this file, and the homepage then crashed when the catalogue arrived first.
+    // Pre-fetched ~1.5 s after the page has loaded so checkout still opens instantly.
+    var rzpPromise = null;
+    function loadRazorpay() {
+        if (window.Razorpay) return Promise.resolve();
+        if (rzpPromise) return rzpPromise;
+        rzpPromise = new Promise(function(resolve, reject) {
+            var s = document.createElement('script');
+            s.src = 'https://checkout.razorpay.com/v1/checkout.js';
+            s.onload = function() { resolve(); };
+            s.onerror = function() { rzpPromise = null; reject(new Error('razorpay-load')); };
+            document.head.appendChild(s);
+        });
+        return rzpPromise;
+    }
+    window.vmouLoadRazorpay = loadRazorpay;
+    window.addEventListener('load', function() {
+        setTimeout(function() { loadRazorpay().catch(function() {}); }, 1500);
+    });
+
     function getCart() {
         try {
             var raw = localStorage.getItem(CART_KEY);
@@ -243,6 +264,7 @@
         .then(function(res) { return res.json(); })
         .then(function(data) {
             if (!data.order_id) { var se = new Error(data.error || ''); se.serverMsg = data.error; throw se; }
+            return loadRazorpay().then(function() {
             var rzp = new Razorpay({
                 key: data.key_id, amount: data.amount, currency: data.currency, order_id: data.order_id,
                 name: 'Aldhru Academy', description: items.length + '-Paper Cart Order',
@@ -263,6 +285,7 @@
             rzp.open();
             btn.disabled = false;
             btn.textContent = 'सुरक्षित भुगतान करें (₹' + tieredTotal(items.length) + ')';
+            });
         })
         .catch(function(err) {
             errorEl.textContent = (err && err.serverMsg) || 'कुछ गड़बड़ हुई, कृपया दोबारा कोशिश करें।';
