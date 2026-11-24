@@ -205,6 +205,7 @@
             '<input type="tel" maxlength="10" class="cart-phone-input w-full border-2 border-[#392E7C]/15 focus:border-[#C9A227] outline-none rounded-xl px-4 py-3 text-base font-medium" placeholder="आपका मोबाइल नंबर *">' +
             '<button type="button" class="cart-buy-btn w-full bg-[#392E7C] hover:bg-[#2d2461] text-white font-black text-lg px-6 py-4 rounded-2xl shadow-xl transition disabled:opacity-60">सुरक्षित भुगतान करें (₹' + total + ')</button>' +
             '<p class="cart-checkout-error hidden text-red-600 text-sm font-bold text-center"></p>' +
+            '<p class="text-[11px] leading-snug text-gray-500 text-center">🔒 आपका नाम, ईमेल और मोबाइल नंबर केवल पेमेंट प्रोसेस करने, ऑर्डर भेजने और सहायता देने के लिए उपयोग होते हैं; इन्हें बेचा या विज्ञापन के लिए उपयोग नहीं किया जाता। <a href="/privacy.html" class="underline font-bold text-[#392E7C]">गोपनीयता नीति</a></p>' +
             '</form>';
 
         body.innerHTML = html;
